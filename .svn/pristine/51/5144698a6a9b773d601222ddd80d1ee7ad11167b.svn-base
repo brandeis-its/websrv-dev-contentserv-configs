@@ -1,0 +1,86 @@
+RedirectMatch /physiciansemba  /executive-education/physicians-emba/index.html
+
+Redirect permanent /welcome/welcome.asp http://heller.brandeis.edu
+Redirect permanent /welcome/research_family_child_center.asp  http://heller.brandeis.edu/research/icyfp.html
+Redirect permanent /welcome/research_nathan_toby_starr_center.asp http://heller.brandeis.edu/research/starr.html
+Redirect permanent /welcome/academic_programs.asp http://heller.brandeis.edu/academic
+Redirect permanent /welcome/admissions.asp http://heller.brandeis.edu/admissions
+Redirect permanent /welcome/faculty.asp http://heller.brandeis.edu/faculty
+Redirect permanent /welcome/faculty_professors.asp http://heller.brandeis.edu/faculty
+Redirect permanent /welcome/careers.asp http://heller.brandeis.edu/careers
+Redirect permanent /welcome/careers_career_services.asp http://heller.brandeis.edu/careers
+Redirect permanent /welcome/research.asp http://heller.brandeis.edu/research
+Redirect permanent /welcome/about_heller.asp http://heller.brandeis.edu/about
+Redirect permanent /welcome/news.asp http://heller.brandeis.edu/news
+Redirect permanent /welcome/news_events.asp http://heller.brandeis.edu/events
+Redirect permanent /welcome/alumni.asp http://heller.brandeis.edu/alumni
+Redirect permanent /welcome/contact.asp http://heller.brandeis.edu/about/contact.html
+Redirect permanent /welcome/PHD_academic_program.asp http://heller.brandeis.edu/academic/phd.html
+Redirect permanent /welcome/MBA_academic_program.asp http://heller.brandeis.edu/academic/mba.html
+Redirect permanent /welcome/leadership_program.asp http://heller.brandeis.edu/academic/elp.html
+Redirect permanent /welcome/PHD_application_instructions.asp http://heller.brandeis.edu/admissions/phd_admissions_main.html
+Redirect permanent /welcome/MBA_application_instructions.asp http://heller.brandeis.edu/admissions/mba_admissions_main.html
+Redirect permanent /welcome/financial_aid.asp http://heller.brandeis.edu/admissions
+Redirect permanent /welcome/financial_aid_non_brandeis_funding_opportunities.asp http://heller.brandeis.edu/admissions
+Redirect permanent /welcome/PHD_financial_aid.asp http://heller.brandeis.edu/admissions/phd_financial_aid.html
+Redirect permanent /welcome/MBA_financial_aid.asp http://heller.brandeis.edu/admissions/mba_financial_aid.html
+Redirect permanent /welcome/MA_financial_aid.asp http://heller.brandeis.edu/sid
+Redirect permanent /welcome/MSC_financial_aid.asp http://heller.brandeis.edu/sid
+#RedirectMatch ^/sid$ http://heller.brandeis.edu/academic/sid/
+#RedirectMatch ^/sid/.* http://heller.brandeis.edu/academic/sid/
+
+Redirect permanent /welcome/courses.asp http://heller.brandeis.edu/courses
+Redirect permanent /welcome/courses_course_schedules.asp http://heller.brandeis.edu/courses/schedule.html
+Redirect permanent /welcome http://heller.brandeis.edu
+
+Redirect permanent /index.asp http://heller.brandeis.edu
+
+Redirect permanent /professors/jodygittell/JHGittellHome.htm http://people.brandeis.edu/~jgittell
+Redirect permanent /professors/jodygittell/jhgittellhome.htm http://people.brandeis.edu/~jgittell
+
+Redirect permanent /national http://iasp.brandeis.edu/womenandaging
+Redirect permanent /bestresources http://iasp.brandeis.edu/womenandaging/finances
+Redirect permanent /cyc  http://heller.brandeis.edu/cyc
+Redirect permanent /chr  http://heller.brandeis.edu/cyc/surveys
+Redirect permanent /starr.asp http://heller.brandeis.edu/research/starr.html
+
+#Redirect permanent /myHeller/degree_programs/ma http://heller.brandeis.edu/myHeller/degree_programs/MA
+#Redirect permanent /myHeller/degree_programs/mba http://heller.brandeis.edu/myHeller/degree_programs/MBA
+#Redirect permanent /myHeller/degree_programs/ms http://heller.brandeis.edu/myHeller/degree_programs/MS
+#Redirect permanent /myHeller/degree_programs/phd http://heller.brandeis.edu/myHeller/degree_programs/PHD
+
+Redirect permanent /HellerSAVE/index.asp http://heller.brandeis.edu/HellerSAVE
+Redirect permanent /heller/HellerSAVE/default.asp http://heller.brandeis.edu/HellerSAVE
+Redirect permanent /heller/hellersave/default.asp http://heller.brandeis.edu/HellerSAVE
+Redirect permanent /heller/hellersave http://heller.brandeis.edu/HellerSAVE
+
+Redirect permanent /heller/execed/default.asp http://heller.brandeis.edu/academic/execed
+Redirect permanent /heller/execed http://heller.brandeis.edu/academic/execed
+
+Redirect permanent /myHeller http://heller.brandeis.edu/students
+Redirect permanent /directory https://www.brandeis.edu/heller/heller/directory
+
+#Redirect permanent /students/courses/syllabi https://www.brandeis.edu/heller/heller/students/courses/syllabi
+Redirect permanent /students/courses/evaluations https://www.brandeis.edu/heller/heller/students/courses/evaluations
+Redirect permanent /students/academics/phd/dissertation-proposals https://www.brandeis.edu/heller/heller/students/academics/phd/dissertation-proposals
+Redirect permanent /students/academics/ma-sid/masters-papers https://www.brandeis.edu/heller/heller/students/academics/ma-sid/masters-papers
+Redirect permanent /students/academics/sid/masters-papers https://www.brandeis.edu/heller/heller/students/academics/sid/masters-papers
+Redirect permanent /research/grants https://www.brandeis.edu/heller/heller/research/grants
+#Redirect permanent /policies https://www.brandeis.edu/heller/heller/policies
+
+
+RewriteRule  ^/courses/index.html http://heller.brandeis.edu/courses/classes [L]
+
+ProxyPass /courses/index http://registrar-prod.unet.brandeis.edu/course/schedule/heller/courses/index
+ProxyPassReverse /courses/index http://registrar-prod.unet.brandeis.edu/course/schedule/heller/courses/index
+
+ProxyPass /courses/classes http://registrar-prod.unet.brandeis.edu/course/schedule/heller/courses/classes
+ProxyPassReverse /courses/classes http://registrar-prod.unet.brandeis.edu/course/schedule/heller/courses/classes
+
+ProxyPass /courses/course http://registrar-prod.unet.brandeis.edu/course/schedule/heller/courses/course
+ProxyPassReverse /courses/course http://registrar-prod.unet.brandeis.edu/course/schedule/heller/courses/course
+
+ProxyPass /courses/books http://registrar-prod.unet.brandeis.edu/course/schedule/heller/courses/books
+ProxyPassReverse /courses/books http://registrar-prod.unet.brandeis.edu/course/schedule/heller/courses/books
+
+ 

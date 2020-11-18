@@ -1,0 +1,26 @@
+RewriteEngine on
+
+  <Files ~ "(^\.ht|\.con$|\.pwd$|error_log|access_log|\.inc$|\.cf$|~|\.bak$|\.DS_Store$)">
+           Order allow,deny
+	   Deny from all
+  </Files>
+
+
+Alias /bens-alert /u1/www/bens-alert
+Alias /zeta/includes/ga-home_bnow_bmag.html "/u1/www/zeta/includes/ga-home_bnow_bmag.html"
+Alias /zeta/includes/pingdommonitoring.html "/var/applications/contentserv/production/html/pingdommonitoring.html"
+Alias /includes/alerts.html "/u1/www/lts/includes/alerts.html"
+
+
+FilterDeclare Sub
+FilterProvider Sub SUBSTITUTE resp=Content-Type $text/html
+FilterDeclare SSI
+FilterProvider SSI INCLUDES resp=Content-Type $text/html
+
+<LocationMatch "^/(?!(bens-alert)|(zeta))">
+Options +Includes
+FilterChain +Sub +SSI
+Substitute "s|(<body.*?>)|$1<!--#include virtual=\"/bens-alert/alert-include.html\"-->|i"
+</LocationMatch> 
+   
+

@@ -1,0 +1,2287 @@
+<VirtualHost *:80>
+    ServerAdmin webmaster@brandeis.edu
+    ServerName images.brandeis.edu
+    ServerAlias images
+    ProxyPass / http://oncampusapps.brandeis.edu/
+    ProxyPassReverse / http://oncampusapps.brandeis.edu/
+    ErrorDocument 404 http://www.brandeis.edu/zeta/images/blank.gif
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName ads.web.aol.com
+    DocumentRoot /u1/www/images
+    ErrorDocument 404 /dot.gif
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName lts.brandeis.edu
+    ServerAlias lts
+    DocumentRoot /u1/www/lts
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    ServerAdmin webmaster@brandeis.edu
+    AddHandler server-parsed .shtml .html
+    ErrorDocument 404 /404.html
+    Include /var/applications/contentserv/production/conf/lts-redirects.conf
+    <Directory "/u1/www/lts">
+          Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+    <Directory "/u1/www/lts/staff">
+        php_flag engine on
+	DirectoryIndex index.html index.htm index.shtml index.php3 index.php
+    </Directory>
+    <Directory "/u1/www/lts/apps">
+        php_flag engine on
+   	DirectoryIndex index.html index.htm index.shtml index.php3 index.php
+    </Directory>
+    <Directory "/u1/www/lts/includes">
+        Options Includes FollowSymLinks
+   	php_flag engine on
+    </Directory>
+    php_flag engine off
+    <Files ~ "(^\.ht|\.con$|\.pwd$|error_log|access_log|\.inc$|\.cf$|~|\.old$|\.bak$)">
+        Order allow,deny
+        Deny from all
+    </Files>
+
+   RewriteEngine On
+      RewriteCond %{HTTPS} off
+         RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName pc.astro.brandeis.edu
+    ServerAlias pc.astro
+    CheckSpelling On
+    DocumentRoot "/u1/www/departments/physics/astro"
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    DirectoryIndex index.html index.htm home.htm index.shtml index.php3 index.php
+    AddHandler server-parsed .shtml .html
+ Alias /zeta "/u1/www/zeta"
+        RedirectMatch ^/about(.*) http://www.brandeis.edu/about$1
+        RedirectMatch ^/learning(.*) http://www.brandeis.edu/learning$1
+        RedirectMatch ^/attending(.*) http://www.brandeis.edu/attending$1
+        RedirectMatch ^/information(.*) http://www.brandeis.edu/information$1
+        RedirectMatch ^/research(.*) http://www.brandeis.edu/research$1
+        RedirectMatch ^/arts(.*) http://www.brandeis.edu/arts$1
+        RedirectMatch ^/search(.*) http://www.brandeis.edu/search$1
+        RedirectMatch ^/oncampus(.*) http://www.brandeis.edu/oncampus$1  
+  <Directory "/u1/www/departments/physics/astro">
+       Options FollowSymLinks IncludesNoExec
+        CheckSpelling on
+        AllowOverride AuthConfig Limit FileInfo
+        Order allow,deny
+        Allow from all
+ </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName hockney-optics.brandeis.edu
+    ServerAlias hockney-optics
+    DocumentRoot "/u1/www/projects/science-art/hockneyoptics/"
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    DirectoryIndex index.html index.htm home.htm index.shtml index.php3 index.php
+    AddHandler server-parsed .shtml .html
+    php_flag engine on
+    ScriptAlias /cgi-bin/ "/u1/cgi-bin/"
+    ScriptAlias /default.ida /u1/cgi-bin/default.ida
+    ScriptAlias /noshoes.html /u1/cgi-bin/noshoes
+    <Directory "/u1/cgi-bin">
+        AllowOverride None
+        Options None
+        Order allow,deny
+        Allow from all
+    </Directory>
+    <Directory "/u1/www/projects/science-art/hockneyoptics/">
+        Options FollowSymLinks IncludesNoExec
+        CheckSpelling on
+        AllowOverride AuthConfig Limit FileInfo
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName vinland-map.brandeis.edu
+    ServerAlias vinland-map
+    DocumentRoot "/u1/www/projects/science-art/vinland/"
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    DirectoryIndex index.html index.htm home.htm index.shtml index.php3 index.php
+    AddHandler server-parsed .shtml .html
+    php_flag engine on
+    ScriptAlias /cgi-bin/ "/u1/cgi-bin/"
+    ScriptAlias /default.ida /u1/cgi-bin/default.ida
+    ScriptAlias /noshoes.html /u1/cgi-bin/noshoes
+    <Directory "/u1/cgi-bin">
+        AllowOverride None
+        Options None
+        Order allow,deny
+        Allow from all
+    </Directory>
+    <Directory "/u1/www/projects/science-art/vinland/">
+        Options FollowSymLinks IncludesNoExec
+        CheckSpelling on
+        AllowOverride AuthConfig Limit FileInfo
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName van-gogh.brandeis.edu
+    ServerAlias van-gogh
+    DocumentRoot "/u1/www/projects/science-art/vangogh/"
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    DirectoryIndex index.html index.htm home.htm index.shtml index.php3 index.php
+    AddHandler server-parsed .shtml .html
+    php_flag engine on
+    ScriptAlias /cgi-bin/ "/u1/cgi-bin/"
+    ScriptAlias /default.ida /u1/cgi-bin/default.ida
+    ScriptAlias /noshoes.html /u1/cgi-bin/noshoes
+    Redirect permanent /MainIndex.htm http://van-gogh.brandeis.edu/index.html
+    <Directory "/u1/cgi-bin">
+        AllowOverride None
+        Options None
+        Order allow,deny
+        Allow from all
+    </Directory>
+    <Directory "/u1/www/projects/science-art/vangogh/">
+        Options FollowSymLinks IncludesNoExec
+        CheckSpelling on
+        AllowOverride AuthConfig Limit FileInfo
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName vision-art.brandeis.edu
+    ServerAlias vision-art
+    DocumentRoot "/u1/www/projects/science-art/colorart/"
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    DirectoryIndex index.html index.htm home.htm index.shtml index.php3 index.php
+    AddHandler server-parsed .shtml .html
+    php_flag engine on
+    ScriptAlias /cgi-bin/ "/u1/cgi-bin/"
+    ScriptAlias /default.ida /u1/cgi-bin/default.ida
+    ScriptAlias /noshoes.html /u1/cgi-bin/noshoes
+    <Directory "/u1/cgi-bin">
+        AllowOverride None
+        Options None
+        Order allow,deny
+        Allow from all
+    </Directory>
+    <Directory "/u1/www/projects/science-art/colorart/">
+        Options FollowSymLinks IncludesNoExec
+        CheckSpelling on
+        AllowOverride AuthConfig Limit FileInfo
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName science-art.brandeis.edu
+    ServerAlias science-art
+    DocumentRoot "/u1/www/projects/science-art/"
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    DirectoryIndex index.html index.htm home.htm index.shtml index.php3 index.php
+    AddHandler server-parsed .shtml .html
+    php_flag engine on
+    ScriptAlias /cgi-bin/ "/u1/cgi-bin/"
+    ScriptAlias /default.ida /u1/cgi-bin/default.ida
+    ScriptAlias /noshoes.html /u1/cgi-bin/noshoes
+    Redirect permanent /hockneyoptics/ http://hockney-optics.brandeis.edu
+    Redirect permanent /vinland/ http://vinland-map.brandeis.edu
+    Redirect permanent /vangogh/ http://van-gogh.brandeis.edu
+    Redirect permanent /colorart/ http://vision-art.brandeis.edu
+    <Directory "/u1/cgi-bin">
+        AllowOverride None
+        Options None
+        Order allow,deny
+        Allow from all
+    </Directory>
+    <Directory "/u1/www/projects/science-art/">
+        Options FollowSymLinks IncludesNoExec
+        CheckSpelling on
+        AllowOverride AuthConfig Limit FileInfo
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName peoplebooks.brandeis.edu
+    CheckSpelling On
+    DocumentRoot /u1/www/sage/peoplebooks
+    Alias /zeta "/u1/www/zeta"
+    RewriteEngine On
+    RewriteRule ^.*$ https://www.brandeis.edu/its
+    <Directory "/u1/www/sage/peoplebooks">
+        Options -Indexes
+        Order deny,allow
+        Deny from all
+        Allow from 129.64
+    </Directory>
+</VirtualHost>
+#<VirtualHost *:80>
+#    ServerName pc.astro.brandeis.edu
+#    DocumentRoot /u1/www/projects/astro-physics
+#</VirtualHost>
+<VirtualHost *:80>
+    ServerName gpsonline.brandeis.edu
+    ServerAlias gpsonline
+    CheckSpelling On
+    DocumentRoot "/u1/www/gps/marketing-landing-pages"
+    Alias /assets "/u1/www/gps/assets"
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName onlineinformatics.brandeis.edu
+    ServerAlias onlineinformatics
+    CheckSpelling On
+    alias /gps "/u1/www/gps"
+    RedirectMatch ^/ http://www.brandeis.edu/gps
+</VirtualHost>
+			
+
+<VirtualHost *:80>
+    ServerName instructional-design.brandeis.edu
+    ServerAlias instructional-design
+    CheckSpelling On
+    RewriteRule /index.html http://www.brandeis.edu/gps/courses/programs/listings/instructional-design.html [P]
+    Alias /assets "/u1/www/gps/assets"
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName hopf.chem.brandeis.edu
+    ServerAlias hoph.chem
+    DocumentRoot /u1/www/projects/nonlineardynamics
+</VirtualHost>
+<VirtualHost *:80>
+    ServerAdmin ncjf@brandeis.edu
+    DocumentRoot /u1/www/jewishfilm
+    ServerName www.jewishfilm.org
+    ServerAlias jewishfilm.org
+    ServerAlias www.jewishfilm.net
+    ServerAlias jewishfilm.net
+    ServerAlias www.jewishvideo.org
+    ServerAlias jewishvideo.org
+    ServerAlias www.yiddishfilm.com
+    ServerAlias yiddishfilm.com
+    ServerAlias www.yiddishfilm.org
+    ServerAlias yiddishfilm.org
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName go.brandeis.edu
+    ServerAlias go
+    ErrorDocument 404 /home-zeta/missing.html
+    ServerAdmin middleware@lists.brandeis.edu
+    ProxyPass / http://apps.brandeis.edu/go/
+    ProxyPassReverse / http://apps.brandeis.edu/go/
+</VirtualHost>
+
+
+########################## Heller vhosts ##########################
+<VirtualHost *:80>
+    ServerName heller.brandeis.edu
+    DocumentRoot /u1/www/heller/heller/
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    php_flag engine on
+    RewriteEngine on
+    CheckSpelling On
+    Include /var/applications/contentserv/production/conf/heller-redirects.conf
+    ErrorDocument 404 /error.html
+#    Redirect "/heller-policies" "https://www.brandeis.edu/heller/heller/policies" 
+#    RedirectMatch ^(.*)/(facguide)/?$ http://heller.brandeis.edu$1/$2/index.html
+#    RedirectMatch ^(.*)/faculty/guide.php$ http://heller.brandeis.edu$1/facguide/person.html
+#    RedirectMatch ^(.*)/faculty/(.*).php$ http://heller.brandeis.edu$1/facguide/$2.html
+#    RewriteRule ^(.*)/(facguide)/([^/]+)\.html$ http://apps.brandeis.edu/facguide/heller/heller$1/$2/$3 [P]
+   
+#     RewriteCond %{REQUEST_URI} !^(.*)/(facguide)/design/(.*)
+#    RewriteRule ^(.*)/(facguide)/(.*) http://heller.brandeis.edu$1/facultyguide/$3 [R=301,L]
+#    RedirectMatch permanent ^(.*)/(facultyguide)/design/(.*) http://heller.brandeis.edu$1/facguide/design/$3
+
+
+#     RedirectMatch ^(.*)/(facultyguide)/?$ http://heller.brandeis.edu$1/$2/index.html
+#     RewriteRule ^(.*)/(facultyguide)/([^/]+)\.html$ http://apps.brandeis.edu/facguide/heller/heller$1/facguide/$3 [P]
+
+
+   RewriteEngine On
+   RewriteCond %{HTTPS} off
+   RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+
+    <Directory "/u1/www/heller">
+        Options -Indexes
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName www.heller.brandeis.edu
+    DocumentRoot /u1/www/heller/heller/
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    php_flag engine on
+    CheckSpelling On
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+
+    <Directory "/u1/www/heller">
+    Options -Indexes
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName sihp.brandeis.edu
+    CheckSpelling On
+    DocumentRoot /u1/www/heller/heller/sihp
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    Redirect permanent ^/$ http://heller.brandeis.edu/sihp
+    Redirect permanent /index.html http://heller.brandeis.edu/sihp
+    Alias /_design "/u1/www/heller/heller/_design/"
+#    Alias /ibh "/u1/www/heller-sites/sihp-sites/sihp/ibh/"
+    RedirectMatch /ibh http://heller.brandeis.edu/ibh
+#    Alias /ihs "/u1/www/heller-sites/sihp-sites/sihp/ihs/"
+    RedirectMatch /ihs http://heller.brandeis.edu/ihs
+     Alias /ighd "/u1/www/heller-sites/sihp-sites/sihp/ighd/"
+    Alias /search "/u1/www/heller/heller/search/"
+
+    Redirect permanent /ighd http://heller.brandeis.edu/ighd	
+    Redirect permanent /ighd https://heller.brandeis.edu/ighd
+    Redirect permanent /nidacenter http://nidacenter.brandeis.edu
+    Redirect permanent /council http://heller.brandeis.edu/council
+    Redirect permanent /forum http://heller.brandeis.edu/health-industry-forum
+    Redirect permanent /MHPF http://masshealthpolicyforum.brandeis.edu
+    Redirect permanent /socialhmo http://socialhmo.brandeis.edu
+    Redirect /import_SIHP https://www.brandeis.edu/heller/sihp/import_SIHP
+    RewriteRule ^Shepard$ http://people.brandeis.edu/~shepard [L]
+    RewriteRule ^Shepard/(.*)$ http://people.brandeis.edu/~shepard/$1 [L]
+    RewriteRule ^shepard$ http://people.brandeis.edu/~shepard [L]
+    RewriteRule ^shepard/(.*)$ http://people.brandeis.edu/~shepard/$1 [L]
+   <Directory "/u1/www/heller/heller/sihp">
+        Options -Indexes
+    </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName nidacenter.brandeis.edu
+    CheckSpelling On
+    DocumentRoot /u1/www/heller-sites/sihp-sites/nidacenter
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Directory "/u1/www/heller/sihp/nidacenter">
+        Options -Indexes
+    </Directory>
+        Redirect permanent ^/$ http://heller.brandeis.edu/nida-center
+	Redirect permanent /index.html http://heller.brandeis.edu/nida-center
+	Alias /_design "/u1/www/heller/heller/_design/"
+	Alias /search "/u1/www/heller/heller/search/"
+        RedirectMatch /(.*)$ https://heller.brandeis.edu/nida-center/$1
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName masshealthpolicyforum.brandeis.edu
+    CheckSpelling On
+    DocumentRoot /u1/www/heller-sites/sihp-sites/mhpf
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Directory "/u1/www/heller-sites/sihp-sites/mhpf">
+        Options -Indexes
+    </Directory>
+
+
+    Redirect permanent ^/$ http://heller.brandeis.edu//mass-health-policy-forum
+        Redirect permanent /index.html http://heller.brandeis.edu/mass-health-policy-forum
+	    Alias /_design "/u1/www/heller/heller/_design/"
+	        Alias /search "/u1/www/heller/heller/search/"
+
+       RedirectMatch /(.*)$ https://heller.brandeis.edu/mass-health-policy-forum/$1
+
+
+Redirect /heller-sites/sihp-sites/mhpf/images/slideshows  http://www.brandeis.edu/heller-sites/sihp-sites/mhpf/images/slideshows
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName sillermancenter.brandeis.edu
+    CheckSpelling On
+    DocumentRoot /u1/www/heller-sites/sillerman
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Directory "/u1/www/heller-sites/sillerman">
+        Options -Indexes
+    </Directory>
+       RewriteEngine On
+       RewriteCond %{HTTPS} off
+       RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName iasp.brandeis.edu
+    DocumentRoot /u1/www/heller-sites/iasp
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    CheckSpelling On
+
+
+    Redirect permanent ^/$ http://heller.brandeis.edu/iasp
+    Redirect permanent /index.html http://heller.brandeis.edu/iasp
+    Alias /_design "/u1/www/heller/heller/_design/"
+    Alias /search "/u1/www/heller/heller/search/"
+
+       RedirectMatch /(.*)$ https://heller.brandeis.edu/iasp/$1
+       
+
+    Redirect permanent /womenandaging/finances/bestresources.html http://iasp.brandeis.edu/womenandaging/finances/
+    Redirect permanent /womenandaging/finances/ind.html http://iasp.brandeis.edu/womenandaging/finances/
+    Redirect permanent /about/staff.html http://iasp.brandeis.edu/about/team.html
+
+    <Directory "/u1/www/heller-sites/iasp">
+        Options -Indexes
+    </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName icyfp.brandeis.edu
+    DocumentRoot /u1/www/heller-sites/icyfp
+    Redirect 301 / https://heller.brandeis.edu/icyfp/
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName cyc.brandeis.edu
+    ServerAlias www.cyc.brandeis.edu
+    Redirect 301 / https://heller.brandeis.edu/cyc/
+    CheckSpelling On
+    DocumentRoot /u1/www/heller/cyc
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Directory "/u1/www/heller/cyc">
+        Options -Indexes
+    </Directory>
+   RewriteEngine On
+   RewriteCond %{HTTPS} off
+   RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName council.brandeis.edu
+    ServerAlias www.council.brandeis.edu
+    Redirect 301 / https://heller.brandeis.edu/council/
+    DocumentRoot /u1/www/heller/council
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName healthforum.brandeis.edu
+    ServerAlias www.healthforum.brandeis.edu
+    Redirect 301 / https://heller.brandeis.edu/health-industry-forum/
+    DocumentRoot /u1/www/heller/health-industry-forum]
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName rcrc.brandeis.edu
+    ServerAlias www.rcrc.brandeis.edu
+    CheckSpelling On
+    DocumentRoot /u1/www/heller/heller/rcrc
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    RedirectMatch /(.*)$ https://heller.brandeis.edu/relational-coordination/
+    <Directory "/u1/www/heller/heller/rcrc">
+        Options -Indexes
+    </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName ahsr2008.brandeis.edu
+    CheckSpelling On
+    DocumentRoot /u1/www/heller/ahsr
+    <Directory "/u1/www/heller/ahsr">
+        Options -Indexes
+    </Directory>
+   RewriteEngine On
+   RewriteCond %{HTTPS} off
+   RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName lurie.brandeis.edu
+    CheckSpelling On
+    DocumentRoot /u1/www/heller-sites/lurie
+        Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Directory "/u1/www/heller-sites/lurie">
+        Options -Indexes
+    </Directory>
+ RewriteEngine On
+ RewriteCond %{HTTPS} off
+ RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName segal.brandeis.edu
+    CheckSpelling On
+    DocumentRoot /u1/www/heller-sites/segal
+        Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Directory "/u1/www/heller-sites/segal">
+        Options -Indexes
+    </Directory>
+   RewriteEngine On
+   RewriteCond %{HTTPS} off
+   RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+
+########################## /Heller vhosts ##########################
+########################## DEV vhosts ##########################
+
+<VirtualHost *:80>
+ServerName webdev.brandeis.edu
+ServerAlias webdev
+DocumentRoot /u1/www
+Include /var/applications/contentserv/production/conf/bens-alert.conf
+<Files ~ "(^\.ht|\.con$|\.pwd$|error_log|access_log|\.inc$|\.cf$|~|\.old$|\.bak$|\.DS_Store$)">
+Order allow,deny
+Deny from all
+</Files>
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{SERVER_NAME}/$1 [R=301,L]
+</VirtualHost>
+
+
+<VirtualHost *:443>
+ServerName webdev.brandeis.edu
+ServerAlias webdev
+DocumentRoot /u1/www
+Include /var/applications/contentserv/production/conf/bens-alert.conf
+<Files ~ "(^\.ht|\.con$|\.pwd$|error_log|access_log|\.inc$|\.cf$|~|\.old$|\.bak$|\.DS_Store$)">
+Order allow,deny
+Deny from all
+</Files>
+SSLEngine on
+SSLCertificateFile    /var/applications/contentserv/production/ssl/webdev.crt
+SSLCertificateKeyFile  /var/applications/contentserv/production/ssl/webdev.key
+SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+# WWW Redirects
+Include /var/applications/contentserv/production/conf/cosign-client.conf
+Include /var/applications/contentserv/production/conf/combined-redirects.conf.WEBDEV
+Include /var/applications/contentserv/production/conf/ssl-cosign.conf
+
+
+
+AddOutputFilterByType SUBSTITUTE text
+Substitute "s|www.brandeis.edu/_files/svg/svgstore.svg|webdev.brandeis.edu/_files/svg/svgstore.svg|ni"
+Substitute "s|www.brandeis.edu/_files/js/|webdev.brandeis.edu/_files/js/|i"
+Substitute "s|=\"http://|=\"//|ni"
+
+</VirtualHost>
+
+
+
+########################## /DEV vhosts ##########################
+########################## TEST vhosts ##########################
+<VirtualHost *:80>
+    ServerName webtest.brandeis.edu
+    ServerAlias webtest
+    php_flag engine on
+    RewriteEngine on
+    ServerAdmin middleware@lists.brandeis.edu
+    DocumentRoot /u1/www/
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    # Redirects to previewssl
+    Redirect /investmanagement/trustees https://www.brandeis.edu/investmanagement/trustees
+    Redirect /centers/wsrc/Portal https://www.brandeis.edu/centers/wsrc/Portal
+    Redirect /lts/assessment https://preview.brandeis.edu/webedit/lts/assessment
+    Redirect /lts/teachlearn/multimedia/orc https://www.brandeis.edu/lts/teachlearn/multimedia/orc
+ #   Redirect "/heller/heller/heller-policies" "https://www.brandeis.edu/heller/heller/heller-policies" 
+    RedirectMatch permanent ^/transformation(.*) https://www.brandeis.edu/transformation$1
+    RedirectMatch permanent ^/humanresources/hris(.*) https://www.brandeis.edu/humanresources/hris$1
+    RedirectMatch permanent ^/humanresources/policies(.*) https://www.brandeis.edu/humanresources/policies$1
+    Redirect 301 /globalbrandeis/facultycollaborations https://previewssl.brandeis.edu/globalbrandeis/facultycollaborations
+    RedirectMatch permanent ^/sage(.*) https://www.brandeis.edu/sage
+    RedirectMatch permanent ^/buss(.*) https://www.brandeis.edu/buss
+
+    <Directory "/u1dev/www/webedit">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+    ProxyPass /now/multimedia.html http://apps-test.brandeis.edu/Bnmm/index
+    ProxyPassReverse /now/multimedia.html http://apps-test.brandeis.edu/Bnmm/index
+    RedirectMatch ^(.*)/(facguide)/?$ http://webtest.brandeis.edu$1/$2/index.html
+    RewriteRule ^(.*)/(facguide)/([^/]+)\.html$ http://apps-test.brandeis.edu/facguide$1/$2/$3 [P]
+    RedirectMatch permanent ^/directory$ http://webtest.brandeis.edu/directory/
+    ProxyPass /directory/ http://apps-test.brandeis.edu/phonebook/
+    ProxyPassReverse /directory/ http://apps-test.brandeis.edu/phonebook/
+
+###############
+## Registrar ##
+###############
+
+## schedule -- classes ## 
+RewriteRule ^/registrar/schedule/classes(.*) http://apps-test.brandeis.edu/registrar/schedule/classes$1 [P]
+
+## schedule -- search/enrollment stats ##
+RewriteRule ^/registrar/schedule/(search|enrollment)(/.*)?$ http://apps-test.brandeis.edu/registrar/schedule/$1$2 [P]
+    
+## schedule -- course ##
+RewriteRule ^/registrar/schedule/course(.*) http://apps-test.brandeis.edu/registrar/schedule/course$1 [P]
+
+## schedule -- docs ##
+RewriteRule ^/schedule-docs(.*) http://apps-test.brandeis.edu/schedule-docs$1
+
+## bulletin -- subject ##
+RewriteRule ^/registrar/bulletin/provisional/courses/subjects/([0-9]+)\.html$ http://apps-test.brandeis.edu/registrar/catalog/subject/$1 [P]
+
+## bulletin -- requirement ##
+RewriteRule ^/registrar/bulletin/provisional/req-ugen(/index\.html)?$ http://apps-test.brandeis.edu/registrar/catalog/requirement-index[P]
+RewriteRule ^/registrar/bulletin/provisional/req-ugen/(.*)\.html$ http://apps-test.brandeis.edu/registrar/catalog/requirement/$1 [P]
+
+## bulletin -- course ##
+RewriteRule  ^/registrar/bulletin/provisional/course$ http://apps-test.brandeis.edu/registrar/catalog/course [P]
+
+#########
+## GPS ##
+#########
+
+## schedule ##
+RedirectMatch permanent ^/gps/programscourses/schedule.html$ /gps/programscourses/schedule
+ProxyPass /gps/programscourses/schedule http://apps-test.brandeis.edu/gps/schedule
+ProxyPassReverse /gps/programscourses/schedule http://apps-test.brandeis.edu/gps/schedule
+
+## courses ##
+RewriteRule ^/gps/programscourses/courselist.* http://apps-test.brandeis.edu/gps/catalog/courses [P]
+
+## course ##
+RewriteRule ^/gps/programscourses/course$ http://apps-test.brandeis.edu/gps/catalog/course [P]
+
+## program ##
+RewriteRule ^/gps/programscourses/programs/listings/(.*)\.html$ http://apps-test.brandeis.edu/gps/catalog/program/$1 [P]
+
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName lts.webtest.brandeis.edu
+    php_flag engine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/lts
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/lts">
+        Options -Indexes FollowSymLinks IncludesNoExec
+	AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+    <Files ~ "(^\.ht|\.con$|\.pwd$|error_log|access_log|\.inc$|\.cf$|~|\.old$|\.bak$|\.DS_Store$)">
+    	   Order allow,deny
+	   Deny from all
+    </Files>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName alumni.webtest.brandeis.edu
+    php_flag engine on
+    ServerAdmin alumnirelations@brandeis.edu
+    DocumentRoot /u1/www/alumni
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName heller.webtest.brandeis.edu
+    php_flag engine on
+    RewriteEngine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/heller/heller
+#    Include /var/applications/contentserv/production/conf/heller-redirects.conf
+#    Include /var/applications/contentserv/production/conf/bens-alert.conf
+#    AddHandler server-parsed .shtml .html
+ #   Redirect "/heller-policies" "https://webtest.brandeis.edu/heller/heller/policies" 
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller/heller">
+        Options -Indexes FollowSymLinks IncludesNoExec
+	AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+#    RedirectMatch ^(.*)/(facguide)/?$ http://heller.webtest.brandeis.edu$1/$2/index.html
+#    RewriteRule ^(.*)/(facguide)/([^/]+)\.html$ http://apps-test.brandeis.edu/facguide/heller/heller$1/$2/$3 [P]
+    
+#    RewriteCond %{REQUEST_URI} !^(.*)/(facguide)/design/(.*)
+#    RewriteRule ^(.*)/(facguide)/(.*) http://heller.webtest.brandeis.edu$1/facultyguide/$3 [R=301,L]
+#    RedirectMatch permanent ^(.*)/(facultyguide)/design/(.*) http://heller.webtest.brandeis.edu$1/facguide/design/$3
+
+#    RedirectMatch ^(.*)/(facultyguide)/?$ http://heller.webtest.brandeis.edu$1/$2/index.html
+#    RewriteRule ^(.*)/(facultyguide)/([^/]+)\.html$ http://apps-test.brandeis.edu/facguide/heller/heller$1/facguide/$3 [P]
+   RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName nidacenter.webtest.brandeis.edu
+    php_flag engine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/heller-sites/sihp-sites/nidacenter
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller-sites/sihp-sites/nidacenter">
+        Options -Indexes FollowSymLinks IncludesNoExec
+	AllowOverride AuthConfig Limit FileInfo
+   RewriteEngine On
+   RewriteCond %{HTTPS} off
+   RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</Directory>
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName healthforum.webtest.brandeis.edu
+    php_flag engine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/heller-sites/sihp-sites/hif
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller-sites/sihp-sites/hif">
+        Options -Indexes FollowSymLinks IncludesNoExec
+	AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName masshealthpolicyforum.webtest.brandeis.edu
+    php_flag engine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/heller-sites/sihp-sites/mhpf
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller-sites/sihp-sites/mhpf">
+        Options -Indexes FollowSymLinks IncludesNoExec
+	AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+ #   Redirect /heller-sites/sihp-sites/mhpf/images/slideshows  http://www.brandeis.edu/heller-sites/sihp-sites/mhpf/images/slideshows
+   RewriteEngine On
+   RewriteCond %{HTTPS} off
+   RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName sillermancenter.webtest.brandeis.edu
+    Redirect 301 / https://heller.webtest.brandeis.edu/sillerman/
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName lurie.webtest.brandeis.edu
+    php_flag engine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/heller-sites/lurie
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller-sites/lurie">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+     RewriteEngine On
+     RewriteCond %{HTTPS} off
+     RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName segal.webtest.brandeis.edu
+    php_flag engine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/heller-sites/segal
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller-sites/segal">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+     RewriteEngine On
+     RewriteCond %{HTTPS} off
+     RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]    
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName iasp.webtest.brandeis.edu
+    php_flag engine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/heller-sites/iasp
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller-sites/iasp">
+        Options -Indexes FollowSymLinks IncludesNoExec
+	AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+     RewriteEngine On
+     RewriteCond %{HTTPS} off
+     RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName rcrc.webtest.brandeis.edu
+    php_flag engine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/heller/heller/rcrc
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    RedirectMatch /(.*)$ https://heller.webtest.brandeis.edu/relational-coordination/
+    <Directory "/u1/www/heller/heller/rcrc">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+     RewriteEngine On
+     RewriteCond %{HTTPS} off
+     RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName sihp.webtest.brandeis.edu
+    CheckSpelling On
+    DocumentRoot /u1/www/heller/heller/sihp
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+#    Redirect permanent /nidacenter http://nidacenter.webtest.brandeis.edu
+#    Redirect permanent /council http://council.webtest.brandeis.edu
+#    Redirect permanent /forum http://healthforum.webtest.brandeis.edu
+#    Redirect permanent /MHPF http://masshealthpolicyforum.webtest.brandeis.edu
+#    Redirect permanent /socialhmo http://socialhmo.webtest.brandeis.edu
+#    Redirect /import_SIHP https://webtest.brandeis.edu/heller/sihp/import_SIHP
+#    RewriteRule ^Shepard$ http://people.brandeis.edu/~shepard [L]
+#    RewriteRule ^Shepard/(.*)$ http://people.brandeis.edu/~shepard/$1 [L]
+#    RewriteRule ^shepard$ http://people.brandeis.edu/~shepard [L]
+#    RewriteRule ^shepard/(.*)$ http://people.brandeis.edu/~shepard/$1 [L]
+#    <Directory "/u1/www/heller-sites/sihp-sites/sihp">
+#        Options -Indexes
+#    </Directory>
+     RewriteEngine On
+     RewriteCond %{HTTPS} off
+     RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName latte.webtest.brandeis.edu
+    php_flag engine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/lts/courses/newlatte
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/lts/courses/newlatte">
+        Options -Indexes FollowSymLinks IncludesNoExec
+	AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName crisis.webtest.brandeis.edu
+    php_flag engine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/crisis
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/crisis">
+        Options -Indexes FollowSymLinks IncludesNoExec
+	AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+</VirtualHost>
+<VirtualHost *:80>
+        ServerName cyc.webtest.brandeis.edu
+        Redirect 301 / https://heller.webtest.brandeis.edu/cyc/     
+        php_flag engine on
+        ServerAdmin wmd@brandeis.edu
+        DocumentRoot /u1/www/heller-sites/sihp-sites/cyc
+            Include /var/applications/contentserv/production/conf/bens-alert.conf
+	Options Includes
+        ScriptAlias /cgi-bin/ "u1dev/cgi-bin/"
+        <Directory "/u1/www/heller-sites/sihp-sites/cyc">
+                Options -Indexes FollowSymLinks IncludesNoExec
+                AllowOverride AuthConfig Limit FileInfo
+        </Directory>
+     RewriteEngine On
+     RewriteCond %{HTTPS} off
+     RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]	
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerName council.webtest.brandeis.edu
+        Redirect 301 / https://heller.webtest.brandeis.edu/council/
+        ServerAdmin wmd@brandeis.edu
+        DocumentRoot /u1/www/heller-sites/council
+</VirtualHost>
+
+<VirtualHost *:80>
+        ServerName healthforum.webtest.brandeis.edu
+        Redirect 301 / https://heller.webtest.brandeis.edu/health-industry-forum/
+        ServerAdmin wmd@brandeis.edu
+        DocumentRoot /u1/www/heller-sites/health-industry-forum
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName icyfp.webtest.brandeis.edu
+    DocumentRoot /u1/www/heller-sites/icyfp
+    Redirect 301 / https://heller.webtest.brandeis.edu/icyfp/
+</VirtualHost>
+<VirtualHost *:80>
+    ServerName www-physics.webtest.brandeis.edu
+    php_flag engine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/departments/physics/
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/departments/physics/">
+        Options -Indexes FollowSymLinks IncludesNoExec
+	AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+</VirtualHost>
+########################## /TEST vhosts ##########################
+NameVirtualHost *:443
+########################## ssl prod vhosts #######################                                                      
+
+<VirtualHost *:443>
+    ServerAdmin webmaster@brandeis.edu
+    ServerName images.brandeis.edu
+    ServerAlias images
+    SSLEngine on
+    SSLCertificateFile    /var/applications/contentserv/production/ssl/images.crt
+    SSLCertificateKeyFile  /var/applications/contentserv/production/ssl/images.key
+    SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-0920.crt
+    ProxyPass / http://oncampusapps.brandeis.edu/
+    ProxyPassReverse / http://oncampusapps.brandeis.edu/
+    ErrorDocument 404 http://www.brandeis.edu/zeta/images/blank.gif
+</VirtualHost>
+
+<VirtualHost *:443>
+ServerName go.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+   SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+
+
+SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-DSS-AES128-SHA256:DHE-DSS-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA256:!DHE-RSA-CAMELLIA128-SHA:!DHE-RSA-CAMELLIA256-SHA:!3DES
+
+
+    SSLCertificateFile /var/applications/contentserv/production/ssl/go.crt
+    SSLCertificateKeyFile /var/applications/contentserv/production/ssl/go.key
+
+
+    ServerAlias go go.brandeis.edu
+    ServerAdmin webmaster@brandeis.edu
+  
+#    DocumentRoot /u1/www/
+     SSLProxyEngine On
+     ProxyPass / http://apps.brandeis.edu/go/
+     ProxyPassReverse / http://apps.brandeis.edu/go/
+
+</VirtualHost>
+
+
+
+<VirtualHost *:443>
+ServerName branvan.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+   SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+
+
+SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-DSS-AES128-SHA256:DHE-DSS-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA256:!DHE-RSA-CAMELLIA128-SHA:!DHE-RSA-CAMELLIA256-SHA:!3DES
+
+
+    SSLCertificateFile /var/applications/contentserv/production/ssl/branvan.crt
+    SSLCertificateKeyFile /var/applications/contentserv/production/ssl/branvan.key
+
+
+    ServerAlias branvan branvan.brandeis.edu
+    ServerAdmin webmaster@brandeis.edu
+  
+#    DocumentRoot /u1/www/
+     SSLProxyEngine On
+     
+Redirect / https://www.brandeis.edu/publicsafety/van-shuttle/index.html
+
+</VirtualHost>
+
+
+<VirtualHost *:443>
+ServerName login.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+   SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+
+
+SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-DSS-AES128-SHA256:DHE-DSS-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA256:!DHE-RSA-CAMELLIA128-SHA:!DHE-RSA-CAMELLIA256-SHA:!3DES
+
+
+    SSLCertificateFile /var/applications/contentserv/production/ssl/login.crt
+    SSLCertificateKeyFile /var/applications/contentserv/production/ssl/login.key
+
+
+    ServerAlias login login.brandeis.edu
+    ServerAdmin webmaster@brandeis.edu
+  
+#    DocumentRoot /u1/www/
+     SSLProxyEngine On
+
+RewriteCond %{REQUEST_URI} !^/kurzweil*
+RewriteCond %{REQUEST_URI} !^/resources*
+RewriteCond %{REQUEST_URI} !^/autologout.html
+RewriteCond %{REQUEST_URI} !/cgi-bin/logout*
+RewriteRule ^.*$ https://shibboleth.brandeis.edu/
+
+
+#RedirectMatch ^(.*)$ https://shibboleth.brandeis.edu/
+Redirect /images/brandeis.png https://shibboleth.brandeis.edu/idp/images/brandeis.png
+#Redirect / https://shibboleth.brandeis.edu
+Redirect /kurzweil https://apps.brandeis.edu/kurzweil
+Redirect /resources https://login.resources.library.brandeis.edu
+Redirect /autologout.html https://shibboleth.brandeis.edu/idp/profile/Logout
+Redirect /cgi-bin/logout https://shibboleth.brandeis.edu/idp/profile/Logout
+</VirtualHost>
+
+
+
+<VirtualHost *:443>
+ServerName gpsonline.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+   SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+
+
+SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-DSS-AES128-SHA256:DHE-DSS-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA256:!DHE-RSA-CAMELLIA128-SHA:!DHE-RSA-CAMELLIA256-SHA:!3DES
+
+
+    SSLCertificateFile /var/applications/contentserv/production/ssl/gpsonline.crt
+    SSLCertificateKeyFile /var/applications/contentserv/production/ssl/gpsonline.key
+
+
+    ServerAlias gpsonline gpsonline.brandeis.edu
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    ServerAdmin webmaster@brandeis.edu
+    AddHandler server-parsed .shtml .html
+  
+    Alias /assets "/u1/www/gps/assets"
+    DocumentRoot /u1/www/gps/marketing-landing-pages
+
+    AddOutputFilterByType SUBSTITUTE text
+    Substitute "s|http://www.arpxs.com|https://www.arpxs.com|ni"
+    Substitute "s|http://1179.xg4ken.com|https://1179.xg4ken.com|ni"
+    Substitute "s|'http://'+'c.cdnma.com|'https://'+'c.cdnma.com|ni"
+ 
+    RedirectMatch ^/strategic-analytics$ https://onlinemasters.brandeis.edu/gps/strategic-analytics
+    RedirectMatch ^/strategic-analytics/$ https://onlinemasters.brandeis.edu/gps/strategic-analytics
+    RedirectMatch /strategic-analytics/index.html https://onlinemasters.brandeis.edu/gps/strategic-analytics
+
+    RedirectMatch ^/information-security$ https://onlinemasters.brandeis.edu/gps/information-security-leadership
+    RedirectMatch ^/information-security/$ https://onlinemasters.brandeis.edu/gps/information-security-leadership
+    RedirectMatch /information-security/index.html https://onlinemasters.brandeis.edu/gps/information-security-leadership
+
+    RedirectMatch ^/digital-innovation$ https://online.brandeis.edu/fintech/
+    RedirectMatch ^/digital-innovation/$ https://online.brandeis.edu/fintech/
+    RedirectMatch ^/digital-innovation/index.html https://online.brandeis.edu/fintech/
+
+</VirtualHost>
+
+
+<VirtualHost *:443>
+ServerName physics.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+   SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-DSS-AES128-SHA256:DHE-DSS-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA256:!DHE-RSA-CAMELLIA128-SHA:!DHE-RSA-CAMELLIA256-SHA
+
+    SSLCertificateFile /var/applications/contentserv/production/ssl/wildcard.crt
+    SSLCertificateKeyFile /var/applications/contentserv/production/ssl/wildcard.key
+
+
+    ServerAlias www.physics physics physics.brandeis.edu
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    ServerAdmin webmaster@brandeis.edu
+    AddHandler server-parsed .shtml .html
+  
+
+    DocumentRoot /u1/www/departments/physics/
+    RedirectMatch ^/(.*) https://www.brandeis.edu/departments/physics/
+
+</VirtualHost>
+
+
+
+<VirtualHost *:443>
+ServerName library.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+   SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-DSS-AES128-SHA256:DHE-DSS-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA256:!DHE-RSA-CAMELLIA128-SHA:!DHE-RSA-CAMELLIA256-SHA
+
+    SSLCertificateFile /var/applications/contentserv/production/ssl/wildcard.crt
+    SSLCertificateKeyFile /var/applications/contentserv/production/ssl/wildcard.key
+
+
+    ServerAlias www.physics physics physics.brandeis.edu
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    ServerAdmin webmaster@brandeis.edu
+    AddHandler server-parsed .shtml .html
+  
+
+    DocumentRoot /u1/www/library
+    RedirectMatch ^/(.*) https://www.brandeis.edu/library/
+
+</VirtualHost>
+
+
+
+<VirtualHost *:443>
+ServerName www.physics.brandeis.edu
+SSLEngine on
+SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+SSLProtocol All -SSLv2 -SSLv3
+TraceEnable off
+SSLCompression off
+SSLHonorCipherOrder on
+
+SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-DSS-AES128-SHA256:DHE-DSS-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA256:!DHE-RSA-CAMELLIA128-SHA:!DHE-RSA-CAMELLIA256-SHA
+
+    SSLCertificateFile /var/applications/contentserv/production/ssl/wildcard.crt
+    SSLCertificateKeyFile /var/applications/contentserv/production/ssl/wildcard.key
+
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    ServerAdmin webmaster@brandeis.edu
+    AddHandler server-parsed .shtml .html
+
+    DocumentRoot /u1/www/departments/physics/
+    RedirectMatch ^/(.*) https://www.brandeis.edu/departments/physics/
+
+</VirtualHost>
+
+ 
+<VirtualHost *:443>
+ServerName www.math.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+   SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-DSS-AES128-SHA256:DHE-DSS-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA256:!DHE-RSA-CAMELLIA128-SHA:!DHE-RSA-CAMELLIA256-SHA
+
+    SSLCertificateFile /var/applications/contentserv/production/ssl/wildcard.crt
+    SSLCertificateKeyFile /var/applications/contentserv/production/ssl/wildcard.key
+
+
+    ServerAlias www.math www.math.brandeis.edu
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    ServerAdmin webmaster@brandeis.edu
+    AddHandler server-parsed .shtml .html
+  
+
+    DocumentRoot /u1/www/mathematics
+    RedirectMatch ^/(.*) https://www.brandeis.edu/mathematics/
+
+</VirtualHost>
+
+
+
+<VirtualHost *:443>
+ServerName www.rose.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+   SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-DSS-AES128-SHA256:DHE-DSS-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA256:!DHE-RSA-CAMELLIA128-SHA:!DHE-RSA-CAMELLIA256-SHA
+
+    SSLCertificateFile /var/applications/contentserv/production/ssl/wildcard.crt
+    SSLCertificateKeyFile /var/applications/contentserv/production/ssl/wildcard.key
+
+
+    ServerAlias www.rose www.rose.brandeis.edu
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    ServerAdmin webmaster@brandeis.edu
+    AddHandler server-parsed .shtml .html
+  
+
+    DocumentRoot /u1/www/rosenstiel
+    RedirectMatch ^/(.*) https://www.brandeis.edu/rosenstiel/
+
+</VirtualHost>
+
+
+<VirtualHost *:443>
+ServerName lts.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+   SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-DSS-AES128-SHA256:DHE-DSS-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA256:!DHE-RSA-CAMELLIA128-SHA:!DHE-RSA-CAMELLIA256-SHA
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/lts.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/lts.key.PROD
+
+ ServerAlias lts
+    DocumentRoot /u1/www/lts
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    ServerAdmin webmaster@brandeis.edu
+    AddHandler server-parsed .shtml .html
+    ErrorDocument 404 /404.html
+    Include /var/applications/contentserv/production/conf/lts-redirects.conf
+    <Directory "/u1/www/lts">
+          Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+    <Directory "/u1/www/lts/staff">
+        php_flag engine on
+        DirectoryIndex index.html index.htm index.shtml index.php3 index.php
+    </Directory>
+    <Directory "/u1/www/lts/apps">
+        php_flag engine on
+        DirectoryIndex index.html index.htm index.shtml index.php3 index.php
+    </Directory>
+    <Directory "/u1/www/lts/includes">
+        Options Includes FollowSymLinks
+        php_flag engine on
+    </Directory>
+    php_flag engine off
+    <Files ~ "(^\.ht|\.con$|\.pwd$|error_log|access_log|\.inc$|\.cf$|~|\.old$|\.bak$)">
+        Order allow,deny
+        Deny from all
+    </Files>
+
+Substitute "s|=\"http://lts.brandeis.edu|=\"https://lts.brandeis.edu|ni"
+Substitute "s|= \"http://lts.brandeis.edu|= \"https://lts.brandeis.edu|ni"
+Substitute "s|'http://lts.brandeis.edu'|'https://lts.brandeis.edu'|ni"
+
+#Substitute "s|=\"http://brandeis.edu|=\"https://webtest.brandeis.edu|ni"
+#Substitute "s|= \"http://brandeis.edu|= \"https://webtest.brandeis.edu|ni"
+#Substitute "s|'http://brandeis.edu'|'https://webtest.brandeis.edu'|ni"
+
+Substitute "s|=\"http://www.brandeis.edu|=\"https://www.brandeis.edu|ni"
+Substitute "s|= \"http://www.brandeis.edu|= \"https://www.brandeis.edu|ni"
+Substitute "s|'http://www.brandeis.edu'|'https://www.brandeis.edu'|ni"
+
+Substitute "s|=\"http://lts.brandeis.edu|=\"https://lts.brandeis.edu|ni"
+Substitute "s|= \"http://lts.brandeis.edu|= \"https://lts.brandeis.edu|ni"
+Substitute "s|'http://lts.brandeis.edu'|'https://lts.brandeis.edu'|ni"
+
+Substitute "s|http://gallery.mailchimp.com|https://gallery.mailchimp.com|ni"
+Substitute "s|http://admin.brightcove.com|https://admin.brightcove.com|ni"
+Substitute "s|http://www.google.com|https://www.google.com|ni"
+Substitute "s|http://www.youtube.com|https://www.youtube.com|ni"
+Substitute "s|http://s7.addthis.com|https://s7.addthis.com|ni"
+Substitute "s|http://www.trumba.com|https://www.trumba.com|ni"
+Substitute "s|http://search.library.brandeis.edu|https://search.library.brandeis.edu|ni"
+Substitute "s|http://ajax.googleapis.com|https://ajax.googleapis.com|ni"
+Substitute "s|http://disqus.com|https://disqus.com|ni"
+Substitute "s|'http://' + disqus_shortname + '.disqus.com/embed.js'|'https://' + disqus_shortname + '.disqus.com/embed.js'|ni"
+
+</VirtualHost>        
+
+<VirtualHost *:443>
+ServerName heller.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+   SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+
+  DocumentRoot /u1/www/heller/heller/
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    php_flag engine on
+    RewriteEngine on
+    CheckSpelling On
+    Include /var/applications/contentserv/production/conf/heller-redirects.conf
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf	
+    ErrorDocument 404 /error.html
+    #Redirect "/heller-policies" "https://www.brandeis.edu/heller/heller/heller-policies"
+    RedirectMatch ^(.*)/(facguide)/?$ http://heller.brandeis.edu$1/$2/index.html
+    RedirectMatch ^(.*)/faculty/guide.php$ http://heller.brandeis.edu$1/facguide/person.html
+    RedirectMatch ^(.*)/faculty/(.*).php$ http://heller.brandeis.edu$1/facguide/$2.html
+    RewriteRule ^(.*)/(facguide)/([^/]+)\.html$ http://apps.brandeis.edu/facguide/heller/heller$1/$2/$3 [P]
+
+     RewriteCond %{REQUEST_URI} !^(.*)/(facguide)/design/(.*)
+    RewriteRule ^(.*)/(facguide)/(.*) http://heller.brandeis.edu$1/facultyguide/$3 [R=301,L]
+    RedirectMatch permanent ^(.*)/(facultyguide)/design/(.*) http://heller.brandeis.edu$1/facguide/design/$3
+
+
+     RedirectMatch ^(.*)/(facultyguide)/?$ http://heller.brandeis.edu$1/$2/index.html
+     RewriteRule ^(.*)/(facultyguide)/([^/]+)\.html$ http://apps.brandeis.edu/facguide/heller/heller$1/facguide/$3 [P]
+
+
+    <Directory "/u1/www/heller">
+        Options -Indexes
+    </Directory>
+
+
+
+</VirtualHost>
+
+
+<VirtualHost *:443>
+ServerName www.heller.brandeis.edu
+SSLEngine on
+SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+SSLProtocol                   All -SSLv2 -SSLv3
+TraceEnable                   off
+SSLCompression                off
+SSLHonorCipherOrder           on
+SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+ SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+ SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+
+ DocumentRoot /u1/www/heller/heller/
+
+<Directory "/u1/www/heller">
+	   Options -Indexes
+</Directory>
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www\.heller\.brandeis\.edu
+RewriteRule ^(.*)$ https://heller.brandeis.edu/$1 [L]
+
+</VirtualHost>
+
+
+<VirtualHost *:443>
+  ServerName sihp.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+   SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+
+CheckSpelling On
+    DocumentRoot /u1/www/heller/heller/sihp
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    Alias /_design "/u1/www/heller/heller/_design/"
+#    Alias /ibh "/u1/www/heller-sites/sihp-sites/sihp/ibh/"
+    RedirectMatch /ibh https://heller.brandeis.edu/ibh
+#    Alias /ihs "/u1/www/heller-sites/sihp-sites/sihp/ihs/"
+#    Alias /ighd "/u1/www/heller-sites/sihp-sites/sihp/ighd/"
+    Alias /search "/u1/www/heller/heller/search/"
+    Redirect permanent /ighd http://heller.brandeis.edu/ighd
+    Redirect permanent /ihs http://heller.brandeis.edu/ihs 
+   Redirect permanent /nidacenter http://nidacenter.brandeis.edu
+    Redirect permanent /council http://heller.brandeis.edu/council
+    Redirect permanent /forum http://heller.brandeis.edu/health-industry-forum
+    Redirect permanent /MHPF http://masshealthpolicyforum.brandeis.edu
+    Redirect permanent /socialhmo http://socialhmo.brandeis.edu
+    Redirect /import_SIHP https://www.brandeis.edu/heller/sihp/import_SIHP
+    RewriteRule ^Shepard$ http://people.brandeis.edu/~shepard [L]
+    RewriteRule ^Shepard/(.*)$ http://people.brandeis.edu/~shepard/$1 [L]
+    RewriteRule ^shepard$ http://people.brandeis.edu/~shepard [L]
+    RewriteRule ^shepard/(.*)$ http://people.brandeis.edu/~shepard/$1 [L]
+    Redirect permanent ^/$ https://heller.brandeis.edu/sihp
+    Redirect permanent /index.html https://heller.brandeis.edu/sihp
+    
+    <Directory "/u1/www/heller/heller/sihp">
+        Options -Indexes
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:443>
+ServerName nidacenter.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+
+  CheckSpelling On
+    DocumentRoot /u1/www/heller-sites/sihp-sites/nidacenter
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Directory "/u1/www/heller/sihp/nidacenter">
+        Options -Indexes
+    </Directory>
+
+    Redirect permanent ^/$ http://heller.brandeis.edu/nida-center
+    Redirect permanent /index.html http://heller.brandeis.edu/nida-center
+    Alias /_design "/u1/www/heller/heller/_design/"
+    Alias /search "/u1/www/heller/heller/search/"
+    RedirectMatch /(.*)$ https://heller.brandeis.edu/nida-center/$1
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName masshealthpolicyforum.brandeis.edu
+ SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+
+ CheckSpelling On
+    DocumentRoot /u1/www/heller-sites/sihp-sites/mhpf
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Directory "/u1/www/heller-sites/sihp-sites/mhpf">
+        Options -Indexes
+    </Directory>
+    Redirect permanent ^/$ https://heller.brandeis.edu/mass-health-policy-forum
+    Redirect permanent /index.html https://heller.brandeis.edu/mass-health-policy-forum
+    Alias /_design "/u1/www/heller/heller/_design/"
+    Alias /search "/u1/www/heller/heller/search/"
+
+       RedirectMatch /(.*)$ https://heller.brandeis.edu/mass-health-policy-forum/$1
+
+
+
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName sillermancenter.brandeis.edu
+ SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+  CheckSpelling On
+  Redirect 301 / https://heller.brandeis.edu/sillerman/
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName iasp.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+
+    DocumentRoot /u1/www/heller-sites/iasp
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    CheckSpelling On
+    Redirect permanent ^/$ https://heller.brandeis.edu/iasp
+    Redirect permanent /index.html https://heller.brandeis.edu/iasp
+    Alias /_design "/u1/www/heller/heller/_design/"
+    Alias /search "/u1/www/heller/heller/search/"
+
+       RedirectMatch /(.*)$ https://heller.brandeis.edu/iasp/$1
+
+    Redirect permanent /womenandaging/finances/bestresources.html http://iasp.brandeis.edu/womenandaging/finances/
+    Redirect permanent /womenandaging/finances/ind.html http://iasp.brandeis.edu/womenandaging/finances/
+    Redirect permanent /about/staff.html http://iasp.brandeis.edu/about/team.html
+
+    <Directory "/u1/www/heller-sites/iasp">
+        Options -Indexes
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName icyfp.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+
+  DocumentRoot /u1/www/heller-sites/icyfp
+  Redirect 301 / https://heller.brandeis.edu/icyfp/
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName cyc.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+
+    CheckSpelling On
+    DocumentRoot /u1/www/heller/cyc
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Directory "/u1/www/heller/cyc">
+        Options -Indexes
+    </Directory>
+    Redirect 301 / https://heller.brandeis.edu/cyc/
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName council.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-$
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+
+    CheckSpelling On
+    DocumentRoot /u1/www/heller/council
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Directory "/u1/www/heller/council">
+        Options -Indexes
+    </Directory>
+    Redirect 301 / https://heller.brandeis.edu/council/
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName healthforum.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-$
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+
+    CheckSpelling On
+    DocumentRoot /u1/www/heller/health-industry-forum
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Directory "/u1/www/heller/health-industry-forum">
+        Options -Indexes
+    </Directory>
+    Redirect 301 / https://heller.brandeis.edu/health-industry-forum/
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName rcrc.brandeis.edu
+ SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+  CheckSpelling On
+    DocumentRoot /u1/www/heller/heller/rcrc
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    RedirectMatch /(.*)$ https://heller.brandeis.edu/relational-coordination/
+    <Directory "/u1/www/heller/heller/rcrc">
+        Options -Indexes
+    </Directory>
+
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName ahsr2008.brandeis.edu
+ SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+  
+     CheckSpelling On
+    DocumentRoot /u1/www/heller/ahsr
+    <Directory "/u1/www/heller/ahsr">
+        Options -Indexes
+    </Directory>
+
+     Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+     Include /var/applications/contentserv/production/conf/bens-alert.conf	 
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName lurie.brandeis.edu
+ SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+
+  Redirect 301 / https://heller.brandeis.edu/lurie/
+
+   CheckSpelling On
+    DocumentRoot /u1/www/heller-sites/lurie
+    <Directory "/u1/www/heller-sites/lurie">
+        Options -Indexes
+    </Directory>
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+	
+
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName segal.brandeis.edu
+ SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.PROD
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.PROD
+
+  CheckSpelling On
+  Redirect 301 / https://heller.brandeis.edu/segal/
+</VirtualHost>
+
+########################## lts ssl test vhosts #######################                                                
+
+<VirtualHost *:443>
+ServerName lts.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/lts.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/lts.key.TEST
+
+  php_flag engine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/lts
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/lts">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+
+     AddOutputFilterByType SUBSTITUTE text
+
+
+Substitute "s|=\"http://lts.webtest.brandeis.edu|=\"https://lts.webtest.brandeis.edu|ni"
+Substitute "s|= \"http://lts.webtest.brandeis.edu|= \"https://lts.webtest.brandeis.edu|ni"
+Substitute "s|'http://lts.webtest.brandeis.edu'|'https://lts.webtest.brandeis.edu'|ni"
+
+#Substitute "s|=\"http://brandeis.edu|=\"https://webtest.brandeis.edu|ni"
+#Substitute "s|= \"http://brandeis.edu|= \"https://webtest.brandeis.edu|ni"
+#Substitute "s|'http://brandeis.edu'|'https://webtest.brandeis.edu'|ni"
+	       
+Substitute "s|=\"http://www.brandeis.edu|=\"https://www.brandeis.edu|ni"
+Substitute "s|= \"http://www.brandeis.edu|= \"https://www.brandeis.edu|ni"
+Substitute "s|'http://www.brandeis.edu'|'https://www.brandeis.edu'|ni"
+
+Substitute "s|=\"http://lts.brandeis.edu|=\"https://lts.brandeis.edu|ni"
+Substitute "s|= \"http://lts.brandeis.edu|= \"https://lts.brandeis.edu|ni"
+Substitute "s|'http://lts.brandeis.edu'|'https://lts.brandeis.edu'|ni"
+
+Substitute "s|http://gallery.mailchimp.com|https://gallery.mailchimp.com|ni"
+Substitute "s|http://admin.brightcove.com|https://admin.brightcove.com|ni"
+Substitute "s|http://www.google.com|https://www.google.com|ni"
+Substitute "s|http://www.youtube.com|https://www.youtube.com|ni"
+Substitute "s|http://s7.addthis.com|https://s7.addthis.com|ni"
+Substitute "s|http://www.trumba.com|https://www.trumba.com|ni"
+Substitute "s|http://search.library.brandeis.edu|https://search.library.brandeis.edu|ni"
+Substitute "s|http://ajax.googleapis.com|https://ajax.googleapis.com|ni"
+Substitute "s|http://disqus.com|https://disqus.com|ni"
+Substitute "s|'http://' + disqus_shortname + '.disqus.com/embed.js'|'https://' + disqus_shortname + '.disqus.com/embed.js'|ni"  
+</VirtualHost>
+
+
+########################## heller ssl test vhosts #######################
+
+<VirtualHost *:443>
+ServerName heller.webtest.brandeis.edu 
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+ php_flag engine on
+    RewriteEngine on
+    ServerAdmin wmd@brandeis.edu
+    DocumentRoot /u1/www/heller/heller
+    Include /var/applications/contentserv/production/conf/heller-redirects.conf
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    AddHandler server-parsed .shtml .html
+#    Redirect "/heller-policies" "https://www.brandeis.edu/heller/heller/heller-policies"
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller/heller">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+    RedirectMatch ^(.*)/(facguide)/?$ http://heller.webtest.brandeis.edu$1/$2/index.html
+    RewriteRule ^(.*)/(facguide)/([^/]+)\.html$ http://apps-test.brandeis.edu/facguide/heller/heller$1/$2/$3 [P]
+
+    RewriteCond %{REQUEST_URI} !^(.*)/(facguide)/design/(.*)
+    RewriteRule ^(.*)/(facguide)/(.*) http://heller.webtest.brandeis.edu$1/facultyguide/$3 [R=301,L]
+    RedirectMatch permanent ^(.*)/(facultyguide)/design/(.*) http://heller.webtest.brandeis.edu$1/facguide/design/$3
+
+    RedirectMatch ^(.*)/(facultyguide)/?$ http://heller.webtest.brandeis.edu$1/$2/index.html
+    RewriteRule ^(.*)/(facultyguide)/([^/]+)\.html$ http://apps-test.brandeis.edu/facguide/heller/heller$1/facguide/$3 [P]
+</VirtualHost>
+
+<VirtualHost *:443>
+ServerName segal.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+    Redirect 301 / https://heller.webtest.brandeis.edu/segal/
+</VirtualHost>
+<VirtualHost *:443>
+ServerName lurie.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+
+  Redirect 301 / https://heller.webtest.brandeis.edu/lurie/
+
+DocumentRoot /u1/www/heller-sites/lurie
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller-sites/lurie">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+
+
+</VirtualHost>
+<VirtualHost *:443>
+ServerName ahsr2008.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+
+  CheckSpelling On
+    DocumentRoot /u1/www/heller/ahsr
+    <Directory "/u1/www/heller/ahsr">
+        Options -Indexes
+    </Directory>
+
+
+</VirtualHost>
+<VirtualHost *:443>
+ServerName rcrc.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+  DocumentRoot /u1/www/heller/heller/rcrc
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+        RedirectMatch /(.*)$ https://heller.webtest.brandeis.edu/relational-coordination/
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller/heller/rcrc">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+
+</VirtualHost>
+<VirtualHost *:443>
+ServerName cyc.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+ DocumentRoot /u1/www/heller-sites/sihp-sites/cyc
+            Include /var/applications/contentserv/production/conf/bens-alert.conf
+            Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+	Options Includes
+        ScriptAlias /cgi-bin/ "u1dev/cgi-bin/"
+        <Directory "/u1/www/heller-sites/sihp-sites/cyc">
+                Options -Indexes FollowSymLinks IncludesNoExec
+                AllowOverride AuthConfig Limit FileInfo
+        </Directory>
+          Redirect 301 / https://heller.webtest.brandeis.edu/cyc/
+</VirtualHost>
+
+<VirtualHost *:443>
+ServerName council.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-$
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+ DocumentRoot /u1/www/heller-sites/council
+            Include /var/applications/contentserv/production/conf/bens-alert.conf
+            Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+        Options Includes
+        ScriptAlias /cgi-bin/ "u1dev/cgi-bin/"
+        <Directory "/u1/www/heller-sites/cyc">
+                Options -Indexes FollowSymLinks IncludesNoExec
+                AllowOverride AuthConfig Limit FileInfo
+        </Directory>
+          Redirect 301 / https://heller.webtest.brandeis.edu/council/
+</VirtualHost>
+
+<VirtualHost *:443>
+ServerName healthforum.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-$
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+ DocumentRoot /u1/www/heller-sites/health-industry-forum
+            Include /var/applications/contentserv/production/conf/bens-alert.conf
+            Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+        Options Includes
+        ScriptAlias /cgi-bin/ "u1dev/cgi-bin/"
+        <Directory "/u1/www/heller-sites/health-industry-forum">
+                Options -Indexes FollowSymLinks IncludesNoExec
+                AllowOverride AuthConfig Limit FileInfo
+        </Directory>
+          Redirect 301 / https://heller.webtest.brandeis.edu/health-industry-forum/
+</VirtualHost>
+<VirtualHost *:443>
+ServerName icyfp.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+ 
+  DocumentRoot /u1/www/heller-sites/icyfp
+  Redirect 301 / https://heller.webtest.brandeis.edu/icyfp/
+</VirtualHost>
+<VirtualHost *:443>
+  ServerName sillermancenter.webtest.brandeis.edu
+   
+  SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+
+  Redirect 301 / https://heller.webtest.brandeis.edu/sillerman
+
+    DocumentRoot /u1/www/heller-sites/sillerman
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller-sites/sillerman">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:443>
+ServerName masshealthpolicyforum.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+
+ DocumentRoot /u1/www/heller-sites/sihp-sites/mhpf
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller-sites/sihp-sites/mhpf">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+
+ Redirect permanent ^/$ http://heller.webtest.brandeis.edu//mass-health-policy-forum
+         Redirect permanent /index.html http://heller.webtest.brandeis.edu/mass-health-policy-forum
+	             Alias /_design "/u1/www/heller/heller/_design/"
+		                     Alias /search "/u1/www/heller/heller/search/"
+
+       RedirectMatch /(.*)$ https://heller.webtest.brandeis.edu/mass-health-policy-forum/$1
+
+
+
+
+
+</VirtualHost>
+<VirtualHost *:443>
+ServerName healthforum.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+ DocumentRoot /u1/www/heller-sites/health-industy-forum
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller-sites/health-industry-forum">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+</VirtualHost>
+<VirtualHost *:443>
+ServerName council.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+ CheckSpelling On
+    DocumentRoot /u1/www/heller-sites/council
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    <Directory "/u1/www/heller/council">
+        Options -Indexes
+    </Directory>
+
+</VirtualHost>
+<VirtualHost *:443>
+ServerName nidacenter.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+  
+  DocumentRoot /u1/www/heller-sites/sihp-sites/nidacenter
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    ScriptAlias /cgi-bin/ "/u1dev/cgi-bin/"
+    <Directory "/u1/www/heller-sites/sihp-sites/nidacenter">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+        Redirect permanent ^/$ http://heller.webtest.brandeis.edu/nida-center
+	Redirect permanent /index.html http://heller.webtest.brandeis.edu/nida-center
+	Alias /_design "/u1/www/heller/heller/_design/"
+ 	Alias /search "/u1/www/heller/heller/search/"
+	RedirectMatch /(.*)$ https://heller.webtest.brandeis.edu/nida-center/$1
+</VirtualHost>
+<VirtualHost *:443>
+  ServerName sihp.webtest.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+
+    CheckSpelling On
+    DocumentRoot /u1/www/heller/heller/sihp
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    Alias /_design "/u1/www/heller/heller/_design/"
+#    Alias /ibh "/u1/www/heller-sites/sihp-sites/sihp/ibh/"
+    RedirectMatch /ibh https://heller.webtest.brandeis.edu/ibh
+#    Alias /ihs "/u1/www/heller-sites/sihp-sites/sihp/ihs/"
+#    Alias /ighd "/u1/www/heller-sites/sihp-sites/sihp/ighd/"
+    Alias /search "/u1/www/heller/heller/search/"
+    Redirect permanent /ighd http://heller.webtest.brandeis.edu/ighd 
+    Redirect permanent /ihs http://heller.webtest.brandeis.edu/ihs 
+  Redirect permanent /nidacenter http://nidacenter.brandeis.edu
+    Redirect permanent /council http://heller.brandeis.edu/council
+    Redirect permanent /forum http://heller.brandeis.edu/health-industry-forum
+    Redirect permanent /MHPF http://masshealthpolicyforum.brandeis.edu
+    Redirect permanent /socialhmo http://socialhmo.brandeis.edu
+    Redirect /import_SIHP https://www.brandeis.edu/heller/sihp/import_SIHP
+    RewriteRule ^Shepard$ http://people.brandeis.edu/~shepard [L]
+    RewriteRule ^Shepard/(.*)$ http://people.brandeis.edu/~shepard/$1 [L]
+    RewriteRule ^shepard$ http://people.brandeis.edu/~shepard [L]
+    RewriteRule ^shepard/(.*)$ http://people.brandeis.edu/~shepard/$1 [L]
+    <Directory "/u1/www/heller/heller/sihp">
+        Options -Indexes
+    </Directory>
+    Redirect permanent ^/$ https://heller.brandeis.edu/sihp
+    Redirect permanent /index.html https://heller.webtest.brandeis.edu/sihp
+    
+
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerName iasp.webtest.brandeis.edu
+     SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/heller.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/heller.key.TEST
+
+
+    
+    DocumentRoot /u1/www/heller-sites/iasp
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    Include /var/applications/contentserv/production/conf/ssl-rewrites.conf
+    
+    CheckSpelling On
+
+    Redirect permanent ^/$ https://heller.webtest.brandeis.edu/iasp
+    Redirect permanent /index.html https://heller.webtest.brandeis.edu/iasp
+    Alias /_design "/u1/www/heller/heller/_design/"
+    Alias /search "/u1/www/heller/heller/search/"
+
+          RedirectMatch /(.*)$ https://heller.brandeis.edu/iasp/$1
+	  
+
+    Redirect permanent /womenandaging/finances/bestresources.html http://iasp.brandeis.edu/womenandaging/finances/
+    Redirect permanent /womenandaging/finances/ind.html http://iasp.brandeis.edu/womenandaging/finances/
+    Redirect permanent /about/staff.html http://iasp.brandeis.edu/about/team.html
+
+    <Directory "/u1/www/heller-sites/iasp">
+        Options -Indexes
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:443>
+ServerName alumni.webtest.brandeis.edu
+SSLEngine on
+  SSLCertificateChainFile       /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+
+
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/alumni.crt.TEST
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/alumni.key.TEST
+  
+  DocumentRoot /u1/www/alumni
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    AddHandler server-parsed .shtml .html
+    Options Includes
+    <Directory "/u1/www/alumni">
+        Options -Indexes FollowSymLinks IncludesNoExec
+        AllowOverride AuthConfig Limit FileInfo
+    </Directory>
+</VirtualHost>
+
+
+<VirtualHost *:80>
+  ServerName careers.brandeis.edu
+  RedirectMatch / https://brandeis.wd5.myworkdayjobs.com/Jobs
+</VirtualHost>
+<VirtualHost *:443>
+  ServerName careers.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/careers.crt
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/careers.key
+  RedirectMatch / https://brandeis.wd5.myworkdayjobs.com/Jobs
+</VirtualHost>
+
+<VirtualHost *:443>
+ServerName images.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-DSS-AES128-SHA256:DHE-DSS-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA:!DHE-RSA-AES128-GCM-SHA256:!DHE-RSA-AES256-GCM-SHA384:!DHE-RSA-AES128-SHA256:!DHE-RSA-AES256-SHA:!DHE-RSA-AES128-SHA:!DHE-RSA-AES256-SHA256:!DHE-RSA-CAMELLIA128-SHA:!DHE-RSA-CAMELLIA256-SHA
+
+    SSLCertificateFile /var/applications/contentserv/production/ssl/wildcard.crt
+    SSLCertificateKeyFile /var/applications/contentserv/production/ssl/wildcard.key
+
+    ServerAlias images
+    ServerAdmin webmaster@brandeis.edu
+    ProxyPass / http://oncampusapps.brandeis.edu/
+    ProxyPassReverse / http://oncampusapps.brandeis.edu/
+    ErrorDocument 404 http://www.brandeis.edu/zeta/images/blank.gif
+</VirtualHost>
+
+<VirtualHost *:80>
+  ServerName webedit.brandeis.edu
+  RedirectMatch / https://brandeis.cascadecms.com/
+</VirtualHost>
+<VirtualHost *:443>
+  ServerName webedit.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/webedit.crt
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/webedit.key
+  RedirectMatch / https://brandeis.cascadecms.com/
+</VirtualHost>
+
+<VirtualHost *:80>
+  ServerName journals.library.brandeis.edu
+  RedirectMatch / https://journals.library.brandeis.edu
+</VirtualHost>
+<VirtualHost *:443>
+  ServerName journals.library.brandeis.edu
+  SSLEngine on
+  SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+  SSLProtocol                   All -SSLv2 -SSLv3
+  TraceEnable                   off
+  SSLCompression                off
+  SSLHonorCipherOrder           on
+  SSLCipherSuite                ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES256-SHA:AES128-SHA:DES-CBC3-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!MD5:!PSK:!RC4
+  SSLCertificateFile    /var/applications/contentserv/production/ssl/journals.library.brandeis.edu.crt
+  SSLCertificateKeyFile /var/applications/contentserv/production/ssl/journals.library.brandeis.edu.key
+  RedirectMatch / https://www.brandeis.edu/library/brandeis-journal-platform-update.html
+</VirtualHost>

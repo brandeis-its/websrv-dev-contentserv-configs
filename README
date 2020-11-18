@@ -1,0 +1,34 @@
+=================
+Content Server
+================
+
+This application is to maintain apache and related configurations for the static webservers known as (new) athena and (new) arachne.
+
+---------------
+sftp
+---------------
+
+The CMS publishes via SFTP using username/password (keys are not available as an option). There is an exception in /etc/ssh/sshd_config on the servers
+
+TEST INSTANCE
+# override configuration for user hannon (cms publishing)
+Match User hannon Address 129.64.101.114,129.64.101.111
+     PasswordAuthentication yes
+
+PROD INSTANCE (the same but only allow from prod CMS)
+# override configuration for user hannon (cms publishing)
+Match User hannon Address 129.64.101.111
+     PasswordAuthentication yes
+
+---------------
+cron	
+---------------
+
+cron jobs are in /etc/cron
+
+The following need to be released from xwrap
+
+https://xwrap.wmd.brandeis.edu/product/homepage/weather
+https://xwrap.wmd.brandeis.edu/product/homepage/contentserv
+https://xwrap.wmd.brandeis.edu/product/homepage/wwwdr
+https://xwrap.wmd.brandeis.edu/product/homepage/getben

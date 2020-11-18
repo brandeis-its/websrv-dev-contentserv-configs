@@ -1,0 +1,22 @@
+<IfModule !mod_cosign.c>
+  LoadModule cosign_module modules/mod_cosign.so
+</IfModule>
+
+CosignProtected         Off
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService		production-web-prod
+#CosignRequireFactor     BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key \
+                        /var/applications/contentserv/production/ssl/www.crt \
+                        /var/cosign/certs/CA
+CosignValidReference            https://.*\.(unet|brandeis\.edu)(:.*)?/.*
+CosignValidationErrorRedirect   https://login.brandeis.edu/validation_error.html
+
+<Location /cosign/valid>
+    SetHandler cosign
+    CosignProtected off
+    Allow from all
+    Satisfy any
+</Location>

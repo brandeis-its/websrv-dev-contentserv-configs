@@ -1,0 +1,340 @@
+
+#Alias "/index.html" "/u1/www/home-theta/index.html"
+
+ErrorDocument 404 /errors/missing.html
+ErrorDocument 401 /errors/unauthorized.html
+ErrorDocument 500 /errors/servererror.html
+ErrorDocument 502 /errors/maintenance.html
+ErrorDocument 503 /errors/maintenance.html
+ErrorDocument 504 /errors/maintenance.html
+
+
+<Location /bolli/register>
+  ProxyPass http://bolli-app-prod.unet.brandeis.edu/
+  ProxyPassReverse http://bolli-app-prod.unet.brandeis.edu
+  AddOutputFilterByType SUBSTITUTE text/html
+    Substitute "s|\"/|\"https://www.brandeis.edu/bolli/register/|i"
+</Location>
+
+RedirectMatch ^/familyweekend$ /studentlife/activities/family-weekend
+RedirectMatch ^/familyweekend/$ /studentlife/activities/family-weekend
+RedirectMatch ^/familyweekend/index.html$ /studentlife/activities/family-weekend
+
+RedirectMatch permanent ^/rudermanscholars(.*) http://lurie.brandeis.edu
+
+RedirectMatch ^/smartfifty https://www.brandeis.edu/global/about/centers/india/smartfifty.html
+
+RedirectMatch /studentaffairs(.*) /studentlife$1
+
+RedirectMatch permanent ^/studentlife/dcl$ /dcl
+RedirectMatch permanent ^/studentlife/dcl/$ /dcl
+
+RewriteCond %{REQUEST_URI} !^/capitalprojects/projects/current/sciencepoll.html$
+RewriteRule ^/capitalprojects(.*) http://www.brandeis.edu/capitalprojects$1 [L]
+RewriteRule ^/heller/heller/events(.*) http://heller.brandeis.edu/events$1 [L]
+RewriteRule ^/heller/heller/news(.*) http://heller.brandeis.edu/news$1 [L]
+#RewriteRule ^/heller/heller/research(.*) http://heller.brandeis.edu/research$1 [L]
+RewriteRule ^/heller/heller/alumni(.*) http://heller.brandeis.edu/alumni$1 [L]
+RewriteRule ^/heller/heller/overseers(.*) http://heller.brandeis.edu/overseers$1 [L]
+RewriteRule ^/heller/heller/index.html http://heller.brandeis.edu [L]
+RewriteRule ^/heller/forms/inquiry https://sage.brandeis.edu/heller-inq/ [L]
+RewriteRule ^/admissions/apply/requestinfo.html https://www.brandeis.edu/admissions/forms/inquiry
+
+RedirectMatch 301 ^/heller/heller/myHeller/index.html http://heller.brandeis.edu/students
+
+#RedirectMatch 301 ^/admissions/academics/abroad.html http://www.brandeis.edu/admissions/academics/abroad.html
+#RedirectMatch 301 ^/admissions/financial/tuition.html  http://www.brandeis.edu/admissions/financial/tuition.html
+
+RedirectMatch ^/lts/research/books/(.*) https://www.brandeis.edu/lts/research/books_articles/books/index.html
+RedirectMatch ^/lts/research/articles/(.*) https://www.brandeis.edu/lts/research/books_articles/articles/index.html
+RedirectMatch ^/lts/index.html http://lts.brandeis.edu
+
+RedirectMatch ^/global/innovation$ /innovation/index.html
+RedirectMatch ^/global/innovation/$ /innovation/index.html
+RedirectMatch ^/global/innovation/(.*) /innovation/index.html
+
+RedirectMatch ^/otl$ /innovation/index.html
+RedirectMatch ^/otl/$ /innovation/index.html
+RedirectMatch ^/otl/(.*) /innovation/index.html
+
+RedirectMatch 301 ^/internships(.*) https://www.brandeis.edu/hiatt/search/internship/index.html
+
+#Redirect /search/searchSite_old.php https://www.brandeis.edu/search/searchSite_old.php
+
+RedirectMatch ^/lenny-bruce http://lts.brandeis.edu/research/archives-speccoll/events/lenny-bruce.html
+
+#Trustees redirects back to http
+#RewriteCond %{REQUEST_URI} !^/trustees/portal.*$
+#RewriteRule ^/trustees(.*) http://www.brandeis.edu/trustees$1 [L]
+
+#MRSEC redirects back to http
+#RewriteCond %{REQUEST_URI} !^/mrsec/executivecommittee.*$
+#RewriteRule ^/mrsec(.*) http://www.brandeis.edu/mrsec$1 [L]
+
+
+RedirectMatch /sfs/tuition-calculator/index.html http://www.brandeis.edu/sfs/tuition-calculator/index.html
+
+#ibs course schedule                                                                                                                                                                                 
+
+RedirectMatch permanent ^/podcast$ /global/podcast.html
+RedirectMatch permanent ^/podcast/$ /global/podcast.html
+RedirectMatch permanent ^/unify$ /global/unify.html
+RedirectMatch permanent ^/unify/$ /global/unify.html
+
+#RewriteRule ^/global/academics/course-catalog/ http://webtest.brandeis.edu/global/academics/course-catalog/index [L]                                                                                
+RewriteRule  ^/global/academics/course-catalog/index.html https://www.brandeis.edu/global/academics/course-catalog/classes [L]
+
+ProxyPass /global/academics/course-catalog/index http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/classes
+ProxyPassReverse /global/academics/course-catalog/index http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/classes
+
+ProxyPass /global/academics/course-catalog/classes http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/classes
+ProxyPassReverse /global/academics/course-catalog/classes http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/classes
+
+ProxyPass /global/academics/course-catalog/course http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/course
+ProxyPassReverse /global/academics/course-catalog/course http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/course
+
+ProxyPass /global/academics/course-catalog/books http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/books
+ProxyPassReverse /global/academics/course-catalog/books http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/books
+
+
+#https facguide
+#facultyguide#
+#GPS now wants to use the main guide instead of their version:
+RedirectMatch permanent ^/gps/facultyguide$ /facultyguide/school.html?school=RABB
+RedirectMatch permanent ^/gps/facultyguide/$ /facultyguide/school.html?school=RABB
+RedirectMatch permanent ^/gps/facultyguide/index.html$ /facultyguide/school.html?school=RABB
+RedirectMatch permanent ^/gps/facultyguide/(.*) /facultyguide/$1
+
+#everything else:
+RewriteCond %{REQUEST_URI} !^(.*)/(facguide)/design/(.*)
+RewriteRule ^(.*)/(facguide)/(.*) https://www.brandeis.edu$1/facultyguide/$3 [R=301,L]
+RedirectMatch permanent ^(.*)/(facultyguide)/design/(.*) https://www.brandeis.edu$1/facguide/design/$3
+
+RedirectMatch permanent ^(.*)/(facultyguide-dev)/design/(.*) https://www.brandeis.edu$1/facultyguide/design/$3
+RedirectMatch permanent ^(.*)/(facultyguide-test)/design/(.*) https://www.brandeis.edu$1/facultyguide/design/$3
+RedirectMatch permanent ^(.*)/(facultyguide-prod)/design/(.*) https://www.brandeis.edu$1/facultyguide/design/$3
+
+RedirectMatch ^(.*)/(facultyguide)/?$ https://www.brandeis.edu$1/$2/index.html
+RedirectMatch ^(.*)/(facultyguide)/faculty$ https://www.brandeis.edu$1/$2/person.html
+RedirectMatch ^(.*)/(facultyguide)/art_sciences$ https://www.brandeis.edu$1/$2/arts-sciences.html
+RedirectMatch ^(.*)/(facultyguide)/([^/.]+)$ https://www.brandeis.edu$1/$2/$3.html
+
+RewriteCond %{REQUEST_URI} !^/gps/facultyguide(.*)
+RewriteCond %{REQUEST_URI} !^/programs/filmstudies/facultyguide(.*)
+RewriteCond %{REQUEST_URI} !^/programs/sjsp/people/facultyguide(.*)
+RewriteCond %{REQUEST_URI} !^/departments/psych/people/facultyguide(.*)
+RewriteCond %{REQUEST_URI} !^/global/faculty/facultyguide/index.html
+RewriteCond %{REQUEST_URI} !^/departments/grall/faculty/facultyguide(.*)
+RewriteRule ^(.*)/(facultyguide)/([^/]+)\.html$ http://apps.brandeis.edu/facguide/$1/facguide/$3 [P]
+
+RewriteRule ^(.*)/(facultyguide-dev)/([^/]+)\.html$ http://apps-dev.brandeis.edu/facguide/$1/facguide/$3 [P]
+RewriteRule ^(.*)/(facultyguide-test)/([^/]+)\.html$ http://apps-test.brandeis.edu/facguide/$1/facguide/$3 [P]
+RewriteRule ^(.*)/(facultyguide-prod)/([^/]+)\.html$ http://apps.brandeis.edu/facguide/$1/facguide/$3 [P]
+
+#redirects back to http
+#RewriteRule ^/about(.*) http://www.brandeis.edu/about$1 [L]
+#RewriteRule ^/learning(.*) http://www.brandeis.edu/learning$1 [L]
+#RewriteRule ^/attending(.*) http://www.brandeis.edu/attending$1 [L]
+#RewriteRule ^/arts(.*) http://www.brandeis.edu/arts$1 [L]
+#RewriteRule ^/information(.*) http://www.brandeis.edu/information$1 [L]
+#RewriteRule ^/research(.*) http://www.brandeis.edu/research$1 [L]
+#RewriteRule ^/oncampus(.*) http://www.brandeis.edu/oncampus$1 [L]
+
+RewriteRule ^/admissions/forms/inquiry https://admissions.brandeis.edu/register/request-information [L]
+
+RedirectMatch /jewishfilm(.*) http://www.jewishfilm.org
+
+#RedirectMatch 301  ^/admissions(.*) http://www.brandeis.edu/admissions$1
+
+## bulletin -- subject ##
+RewriteRule ^/registrar/bulletin/provisional/courses/subjects/([0-9]+)\.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/subject/$1 [P]
+
+## bulletin -- requirement ##
+#RewriteRule ^/registrar/bulletin/provisional/req-ugen(/index\.html)?$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement-index [P]
+#RewriteRule ^/registrar/bulletin/provisional/req-ugen/(.*)\.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement/$1 [P]
+RewriteRule ^/registrar/bulletin/provisional/req-ugrd/qr.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement/qr [P]
+RewriteRule ^/registrar/bulletin/provisional/req-ugrd/nw.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement/nw [P]
+RewriteRule ^/registrar/bulletin/provisional/req-ugrd/fl.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement/fl [P]
+RewriteRule ^/registrar/bulletin/provisional/req-ugrd/oc.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement/oc [P]
+RewriteRule ^/registrar/bulletin/provisional/req-ugrd/wi.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement/wi [P]
+
+
+## bulletin -- course ##
+RewriteRule  ^/registrar/bulletin/provisional/course$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/course [P]
+
+
+# CE Diplomas                                                                                                                                                              
+
+SSLProxyEngine on
+RedirectMatch permanent ^/directory$ https://www.brandeis.edu/directory/
+
+ProxyPass /directory/ http://apps.brandeis.edu/phonebook/
+ProxyPassReverse /directory/ http://apps.brandeis.edu/phonebook/
+
+RedirectMatch permanent ^/officesdir$ https://www.brandeis.edu/officesdir/
+
+ProxyPass /officesdir/ http://identity.brandeis.edu/officesdir/
+ProxyPassReverse /officesdir/ http://identity.brandeis.edu/officesdir/
+
+ProxyPass /registrar/diplomas/cediploma-validation.html https://apps.brandeis.edu/cediploma/
+ProxyPassReverse /registrar/diplomas/cediploma-validation.html https://apps.brandeis.edu/cediploma/
+
+ProxyPass /registrar/diplomas/cediploma-orders.html https://apps.brandeis.edu/cediploma/request/
+ProxyPassReverse /registrar/diplomas/cediploma-orders.html https://apps.brandeis.edu/cediploma/request/
+
+#
+
+RewriteRule  ^/schedule-docs(.*) https://registrar-prod.unet.brandeis.edu/schedule-docs$1 [P]
+
+#IMES
+RedirectMatch /programs/imes/course-schedule/index.html /programs/imes/course-schedule/schedule.html
+RewriteRule /programs/imes/course-schedule/schedule.html http://registrar-prod.unet.brandeis.edu/course/schedule/programs/imes/course-schedule/classes [P]
+RewriteRule /programs/imes/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/programs/imes/course-schedule/classes$1 [P]
+RewriteRule /programs/imes/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/programs/imes/course-schedule/course$1 [P]
+
+
+#New Philosophy
+RewriteRule /philosophy/courses/course-schedule/index.html http://registrar-prod.unet.brandeis.edu/course/schedule/philosophy/courses/course-schedule/classes [P]
+RewriteRule /philosophy/courses/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/philosophy/courses/course-schedule/classes$1 [P]
+RewriteRule /philosophy/courses/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/philosophy/courses/course-schedule/course$1 [P]
+
+#New SQS
+RewriteRule /sexuality-queer/course-schedule/index.html http://registrar-prod.unet.brandeis.edu/course/schedule/sexuality-queer/course-schedule/classes [P]
+RewriteRule /sexuality-queer/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/sexuality-queer/course-schedule/classes$1 [P]
+RewriteRule /sexuality-queer/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/sexuality-queer/course-schedule/course$1 [P]
+
+
+#Linguistics
+
+RedirectMatch /programs/linguistics/undergrad/courses.html /programs/linguistics/undergrad/course-schedule/schedule.html
+RedirectMatch /programs/linguistics/undergrad/course-schedule/index.html /programs/linguistics/undergrad/course-schedule/schedule.html
+RewriteRule /programs/linguistics/undergrad/course-schedule/schedule.html http://registrar-prod.unet.brandeis.edu/course/schedule/programs/linguistics/undergrad/course-schedule/classes [P]
+RewriteRule /programs/linguistics/undergrad/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/programs/linguistics/undergrad/course-schedule/classes$1 [P]
+RewriteRule /programs/linguistics/undergrad/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/programs/linguistics/undergrad/course-schedule/course$1 [P]
+
+
+#New IMES
+RewriteRule /islamic-middle-eastern/undergraduate/course-schedule/index.html http://registrar-prod.unet.brandeis.edu/course/schedule//islamic-middle-eastern/undergraduate/course-schedule/classes [P]
+RewriteRule /islamic-middle-eastern/undergraduate/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/islamic-middle-eastern/undergraduate/course-schedule/classes$1 [P]
+RewriteRule /islamic-middle-eastern/undergraduate/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/islamic-middle-eastern/undergraduate/course-schedule/course$1 [P]
+
+#New Education
+RewriteRule /education/course-schedule/index.html http://registrar-prod.unet.brandeis.edu/course/schedule/education/course-schedule/classes [P]
+RewriteRule /education/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/education/course-schedule/classes$1 [P]
+RewriteRule /education/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/education/course-schedule/course$1 [P]
+
+#SFS New template
+RedirectMatch ^/sfs/$  /student-financial-services
+RedirectMatch ^/sfs/index.html$  /student-financial-services
+RedirectMatch ^/sfs$  /student-financial-services
+RedirectMatch /sfs/tuition-calculator/index.html /student-financial-services/tuition-calculator/index.html
+RedirectMatch /sfs/tuition-calculator/tuition.html /student-financial-services/tuition-calculator/index.html
+RedirectMatch /sfs/jobs/index.html /student-financial-services/employment/jobs/index.html
+RedirectMatch /sfs/jobs/offcampus-fws/index.html /student-financial-services/employment/jobs/offcampus-fws/index.html
+RedirectMatch /sfs/jobs/offcampus-nonfws/index.html /student-financial-services/employment/jobs/offcampus-nonfws/index.html
+RedirectMatch /sfs/jobs/offcampusemployers.html /student-financial-services/employment/jobs/off-campus-employers.html
+RedirectMatch /sfs/jobs/oncampusemployers.html /student-financial-services/employment/jobs/on-campus-employers.html
+RedirectMatch /sfs/news/index.html /student-financial-services/news/index.html
+RedirectMatch /sfs/forms.html /student-financial-services/forms.html
+RedirectMatch ^/sfs/contact$ /student-financial-services/contact/index.html
+RedirectMatch ^/sfs/contact/$ /student-financial-services/contact/index.html
+RedirectMatch /sfs/contact/index.html /student-financial-services/contact/index.html
+RedirectMatch /sfs/contact/staff.html /student-financial-services/contact/staff.html
+RedirectMatch ^/sfs/finaid$ /student-financial-services/financial-aid/
+RedirectMatch ^/sfs/finaid/$ /student-financial-services/financial-aid/
+RedirectMatch /sfs/finaid/index.html /student-financial-services/financial-aid/
+RedirectMatch /sfs/finaid/plus-info.html /student-financial-services/financial-aid/plus-info.html
+RedirectMatch /sfs/finaid/filing.html /student-financial-services/financial-aid/filing.html
+RedirectMatch /sfs/finaid/apply.html /student-financial-services/financial-aid/apply/index.html
+RedirectMatch /sfs/finaid/apply-first.html /student-financial-services/financial-aid/apply/index.html
+RedirectMatch /sfs/finaid/apply-cont.html /financial-aid/apply/continuing-students.html
+RedirectMatch /sfs/finaid/apply-intl.html /student-financial-services/financial-aid/apply/international-students.html
+RedirectMatch /sfs/finaid/fin_options.html /student-financial-services/financial-aid/options/index.html
+RedirectMatch /sfs/finaid/10month.html /student-financial-services/financial-aid/options/index.html
+RedirectMatch /sfs/finaid/edloans.html /student-financial-services/financial-aid/options/index.html
+RedirectMatch /sfs/finaid/other.html /student-financial-services/financial-aid/options/index.html
+RedirectMatch ^/sfs/scholarships$ /student-financial-services/scholarships/index.html
+RedirectMatch ^/sfs/scholarships/$ /student-financial-services/scholarships/index.html
+RedirectMatch ^/sfs/scholarships/index.html$ /student-financial-services/scholarships/index.html
+RedirectMatch /sfs/scholarships/meritschols.html /student-financial-services/scholarships/merit.html
+RedirectMatch /sfs/scholarships/meritscholsexp.html /student-financial-services/scholarships/merit.html
+RedirectMatch /sfs/scholarships/meritscholsintl.html /student-financial-services/scholarships/international.html
+RedirectMatch /sfs/scholarships/meritrenewal.html /student-financial-services/scholarships/renewal.html
+RedirectMatch /sfs/scholarships/outside/index.html /student-financial-services/scholarships/outside.html
+RedirectMatch /sfs/scholarships/yellowribbon.html /student-financial-services/scholarships/yellow-ribbon.html
+RedirectMatch ^/sfs/studentaccounts$ /student-financial-services/student-accounts/index.html
+RedirectMatch ^/sfs/studentaccounts/$ /student-financial-services/student-accounts/index.html
+RedirectMatch /sfs/studentaccounts/index.html /student-financial-services/student-accounts/index.html
+RedirectMatch /sfs/studentaccounts/update.html /student-financial-services/student-accounts/index.html
+RedirectMatch /sfs/studentaccounts/gradguard.html /student-financial-services/student-accounts/gradguard.html
+RedirectMatch /sfs/studentaccounts/dep.html /student-financial-services/student-accounts/deposit.html
+RedirectMatch /sfs/studentaccounts/forms.html /student-financial-services/student-accounts/refund.html
+RedirectMatch /sfs/studentaccounts/health.html /student-financial-services/student-accounts/health.html
+RedirectMatch /sfs/studentaccounts/late.html /student-financial-services/student-accounts/late.html
+RedirectMatch /sfs/studentaccounts/payment.html /student-financial-services/student-accounts/payment.html
+RedirectMatch /sfs/studentaccounts/sage.html /student-financial-services/student-accounts/sage.html
+RedirectMatch /sfs/studentaccounts/1098t.html /student-financial-services/student-accounts/1098t.html
+RedirectMatch /sfs/employment/index.html /student-financial-services/employment/index.html
+RedirectMatch /sfs/employment/employmentstu.html /student-financial-services/employment/students.html
+RedirectMatch /sfs/employment/employmentsup.html /student-financial-services/employment/supervisors.html
+RedirectMatch /sfs/employment/forms.html /student-financial-services/employment/forms.html
+RedirectMatch /sfs/employment/faqs.html /student-financial-services/employment/faq.html
+RedirectMatch /sfs/employment/oncampusemployers.html /student-financial-services/employment/on-campus-employers.html
+RedirectMatch /sfs/employment/bussinfo.html /student-financial-services/employment/buss-info.html
+RedirectMatch /sfs/loans/index.html /student-financial-services/loans/index.html
+RedirectMatch /sfs/loans/PLUSAppIns.html /student-financial-services/loans/plus-application.html
+RedirectMatch /sfs/loans/GradPLUSAppIns.html /student-financial-services/loans/grad-plus-application.html
+RedirectMatch /sfs/loans/lcounseling.html /student-financial-services/loans/entrance-counseling.html
+RedirectMatch /sfs/loans/xcounseling.html /student-financial-services/loans/exit-counseling.html
+RedirectMatch /sfs/loans/lforms.html /student-financial-services/loans/forms.html
+RedirectMatch /sfs/loans/lconsolidation.html /student-financial-services/loans/consolidation.html
+RedirectMatch /sfs/studentaccounts/due.html /student-financial-services/student-accounts/due.html
+RedirectMatch ^/sfs/tuition-calculator$ /student-financial-services/tuition-calculator/index.html
+RedirectMatch ^/sfs/tuition-calculator/$ /student-financial-services/tuition-calculator/index.html
+RedirectMatch ^/sfs/employment/faqs-students.html /student-financial-services/employment/faqs.html
+RedirectMatch ^/sfs/satisfactionsurvey.html /student-financial-services/satisfactionsurvey.html
+RedirectMatch ^/sfs/contact/code.html /student-financial-services/contact/code.html
+
+
+## redirects -- "shortcuts" for majors/minors page ##
+## needs to be updated every term ##
+RedirectMatch permanent ^/courses/([0-9]+)/(.*) /registrar/schedule/classes/2020/Fall/$1/$2
+RedirectMatch  ^/registrar/schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes$1
+
+ProxyPass /tfai https://sites.google.com/a/brandeis.edu/tfai
+ProxyPassReverse /tfai https://sites.google.com/a/brandeis.edu/tfai
+
+
+RewriteRule /publicsafety/van-shuttle/branvan-reservation.html https://slate.brandeis.edu/portal/branvanreserve [P]
+
+
+RedirectMatch permanent ^/registrar/schedule/enrollment(/.*)?$ http://www.brandeis.edu/registrar/schedule/enrollmentstats$1
+
+RewriteRule ^/registrar/schedule/(search|enrollmentstats)(/.*)?$ http://registrar-prod.unet.brandeis.edu/registrar/schedule/$1$2 [P]
+RewriteRule ^/registrar/schedule/(search)(/.*)?$ http://registrar-prod.unet.brandeis.edu/registrar/schedule/$1$2 [P]
+
+Redirect /registrar/schedule/enrollment/2020/Fall http://www.brandeis.edu/registrar/FallEnrollment.html
+Redirect /registrar/schedule/enrollment/2021/Spring http://www.brandeis.edu/registrar/SpringEnrollment.html
+
+RewriteCond %{QUERY_STRING} ^independent_study=1$
+RewriteRule /registrar/schedule/enrollmentstats/2020/Fall http://www.brandeis.edu/registrar/FallEnrollmentAll.html? [L]
+RewriteRule /registrar/schedule/enrollmentstats/2020/Fall http://www.brandeis.edu/registrar/FallEnrollment.html
+
+RewriteCond %{QUERY_STRING} ^independent_study=1$
+RewriteRule /registrar/schedule/enrollmentstats/2021/Spring http://www.brandeis.edu/registrar/SpringEnrollmentAll.html? [L]
+RewriteRule /registrar/schedule/enrollmentstats/2021/Spring http://www.brandeis.edu/registrar/SpringEnrollment.html
+
+
+RedirectMatch ^/alert /emergency-prepare/register/index.html
+RedirectMatch ^/alerts /emergency-prepare/register/index.html
+
+RedirectMatch permanent ^/offices/sfs https://www.brandeis.edu/student-financial-services
+
+RedirectMatch permanent ^/givingto(.*) https://giving.brandeis.edu
+
+
+#New Journalism
+RewriteRule /journalism/course-schedule/index.html http://registrar-prod.unet.brandeis.edu/course/schedule/journalism/course-schedule/classes [P]
+RewriteRule /journalism/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/journalism/course-schedule/classes$1 [P]
+RewriteRule /journalism/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/journalism/course-schedule/course$1 [P]
+

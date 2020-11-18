@@ -1,0 +1,1054 @@
+RewriteEngine on
+
+Alias /images/titlebar.jpg /u1/www/images/titlebar.jpg
+Alias /missing.html /u1/www/home-zeta/missing.html
+
+ErrorDocument 404 /errors/missing.html
+ErrorDocument 401 /errors/unauthorized.html
+ErrorDocument 500 /errors/servererror.html
+ErrorDocument 502 /errors/maintenance.html
+ErrorDocument 503 /errors/maintenance.html
+ErrorDocument 504 /errors/maintenance.html
+
+RedirectMatch permanent ^/@brandeis http://my.brandeis.edu/calendar/
+RedirectMatch permanent ^/\~(.*) http://people.brandeis.edu/~$1
+Redirect permanent /~karelsf http://www.bio.brandeis.edu/~karelsf
+Redirect permanent /~karel http://www.bio.brandeis.edu/~karelsf
+RedirectMatch (.*)\.asurvey$ https://survey.brandeis.edu$1.asurvey
+
+RewriteRule ^/acserv/abroad/(.*) http://www.brandeis.edu/abroad/$1
+RedirectMatch permanent /acserv/abroad http://www.brandeis.edu/abroad
+RedirectMatch permanent /acserv/isso http://www.brandeis.edu/isso
+RewriteRule ^/acserv/isso/(.*) http://www.brandeis.edu/isso/$1
+Redirect permanent /academaffairs http://www.brandeis.edu/acserv
+RedirectMatch permanent ^/academics.* http://www.brandeis.edu/areas/majors/index.html
+Redirect permanent /activities http://www.brandeis.edu/studentlife/activities
+RedirectMatch ^/acserv/health/postbac(.*) /programs/premed/  
+RedirectMatch ^/admissions/admitted/midyears(.*) /admissions/midyears$1
+RedirectMatch ^/admissions/apply/requestinfo https://www.brandeis.edu/admissions/forms/inquiry 
+RedirectMatch ^/admissions/applying/how.html /apply/index.html
+RedirectMatch ^/admissions/international /admissions/apply/international.html
+Redirect permanent /admissions/invited https://spreadsheets.google.com/a/brandeis.edu/viewform?formkey=dGdIWlpOZDhYaU9hNjZJSVlHWUxjTWc6MQ
+RedirectMatch permanent ^/admissions/slifka.* http://www.brandeis.edu/admissions/international/slifka.html
+Redirect /admissions-results https://www.brandeis.edu/admissions-results
+RedirectMatch ^/admissions/visiting/virtual(.*) /admissions/common/tour
+RedirectMatch permanent /admit-events /admissions/admitted/visit.html
+RedirectMatch ^/adpc(.*) /studentlife/adpc/
+Redirect /adventures http://www.brandeis.edu/rabb/creative-retirement.html?utm_source=wbur&utm_campaign=retirement-conference
+Redirect /after-graduation http://www.brandeis.edu/hiatt/explore/success/
+Redirect permanent /ajs http://www.ajsnet.org
+RedirectMatch ^/alert /emergency-prepare/register/index.html
+RedirectMatch ^/alerts /emergency-prepare/register/index.html
+RedirectMatch permanent ^/alumni/ http://alumni.brandeis.edu/web/
+Redirect permanent /Analytics http://gpsonline.brandeis.edu/strategic-analytics/
+#RedirectMatch permanent ^/anthro(\/*)(.*) http://www.brandeis.edu/departments/anthro/$2
+RedirectMatch permanent	^/apply$ /admissions/apply
+RedirectMatch permanent ^/apply/$ /admissions/apply
+RedirectMatch permanent ^/areas/(.*) http://www.brandeis.edu/learning/undergraduate/majors.html
+Redirect /arrc/organization https://www.brandeis.edu/arrc/organization
+Redirect /arrc/reports https://www.brandeis.edu/arrc/reports
+RedirectMatch permanent ^/arts//(.*) /arts/$1 
+Redirect permanent /arts/bernstein.html http://www.brandeis.edu/arts/festival/
+Redirect permanent /arts/concert.html http://www.brandeis.edu/arts/concerts/
+RedirectMatch ^/arts/extras(.*) /arts/office/state/onlineextras
+RedirectMatch ^/arts/fiddledeis /arts/concerts/fiddledeis.html
+Redirect permanent /arts/rose.html http://www.brandeis.edu/rose/
+Redirect permanent /arts/theater.html http://www.brandeis.edu/arts/btc/
+Redirect permanent /arts/wsrc.html http://www.brandeis.edu/wsrc/arts/
+Redirect permanent /as http://www.brandeis.edu/acserv
+RedirectMatch permanent ^/as/(.*) http://www.brandeis.edu/acserv
+RedirectMatch permanent ^/as/advpol(.*) http://www.brandeis.edu/acserv/advising
+RedirectMatch permanent ^/as/dis(.*) http://www.brandeis.edu/acserv/disabilities
+RedirectMatch permanent ^/as/fys/roosevelt(.*) http://www.brandeis.edu/acserv/roosevelt
+RedirectMatch permanent ^/as/pb(.*) http://www.brandeis.edu/acserv/health/postbac
+RedirectMatch permanent ^/as/prehalth(.*) http://www.brandeis.edu/acserv/health
+RedirectMatch permanent ^/as/scholarships(.*) http://www.brandeis.edu/acserv/fellowships
+Redirect /assessment/wabash_national_study/Reports_Folder https://www.brandeis.edu/assessment/wabash_national_study/Reports_Folder
+RedirectMatch permanent ^/athletic http://www.brandeisjudges.com
+RedirectMatch permanent ^/audience/parents.html http://www.brandeis.edu/audience/parents
+Redirect permanent /azadeh http://www.brandeis.edu/departments/physics/azadeh
+
+
+Redirect permanent /bali http://www.brandeis.edu/bolli
+Redirect permanent /BALI http://www.brandeis.edu/bolli
+Redirect permanent /bboard http://my.brandeis.edu/bboard
+Redirect permanent /berkshires http://www.brandeis.edu/programs/berkshires
+RedirectMatch 301 ^/best.* http://www.brandeis.edu/campussustainability/partners/best/index.html
+RedirectMatch 301 ^/bgi-old/gtf-application-form.html /bgi/gtf-application-form.html
+RedirectMatch ^/bima(.*) /precollege/index.html
+Redirect permanent /Bioinformatics http://gpsonline.brandeis.edu/bioinformatics/
+RedirectMatch ^/bloomberg /global/technology/ibs_technology/systems_ibs/business_economics_lab.html
+RewriteRule ^/bnc/resources/protected.html http://www.brandeis.edu/bnc/member-resources/protected.html [P] 
+RedirectMatch ^/bookstore(.*) http://www.brandeis.bkstr.com
+RedirectMatch ^/bolli/register(.*) https://www.brandeis.edu/bolli/register
+Redirect permanent /btc http://www.brandeis.edu/arts/btc
+RedirectMatch permanent /btime(\/*)(.*)  http://my.brandeis.edu/btime/$2 
+RedirectMatch permanent ^/bunwc.* /bnc
+RedirectMatch 301 ^/burp.* http://www.brandeis.edu/campussustainability/
+Redirect permanent /bursar http://www.brandeis.edu/offices/sfs/
+RedirectMatch ^/business&economicslab /global/technology/ibs_technology/systems_ibs/business_economics_lab.html
+RedirectMatch permanent ^/business-finance/docs/restricted(.*) https://www.brandeis.edu/business-finance/docs/restricted$1
+RedirectMatch permanent ^/buss/?$ https://www.brandeis.edu/buss
+RedirectMatch permanent ^/buss/index.html$ https://www.brandeis.edu/buss
+
+Redirect permanent /calendar /events
+Redirect permanent /campuslife http://www.brandeis.edu/studentlife 
+Redirect permanent /campussustainability http://www.brandeis.edu/sustainabilty
+RedirectMatch permanent ^/capitalprojects/projects/current/sciencepoll.html$ https://www.brandeis.edu/capitalprojects/projects/current/sciencepoll.html
+RedirectMatch permanent ^/castle-project(.*) /new-residence-hall$1
+Redirect permanent /cc http://lts.brandeis.edu/
+Redirect permanent /cc/blackarts https://webserver.brandeis.edu/blackarts
+RedirectMatch permanent ^/centers(/index.html)?$ http://www.brandeis.edu/research
+Redirect permanent /centers/cfwp http://www.brandeis.edu/barnett
+Redirect permanent /centers/cfwp/2009-10Roundtable/09-10-page1.html http://www.brandeis.edu/barnett/annrichards
+Redirect permanent /centers/cfwp/rb2/web-content/index.htm http://www.brandeis.edu/barnett
+Redirect permanent /centers/crown http://www.brandeis.edu/crown
+RedirectMatch permanent ^/centers/mandel.* /mandel
+Redirect permanent "/centers/mandel/Mandel Documents/Teaching_Case_4_Laura_and_Carmel.pdf" http://www.brandeis.edu/mandel/pdfs/teachingcaselauracarmel.pdf
+RedirectMatch permanent ^/centers/sarnat.* http://www.brandeis.edu/sarnat/index.html
+redirect permanent /centers/wsrc http://www.brandeis.edu/wsrc
+redirect permanent /centers/wsrc/ernestinerose http://www.brandeis.edu/wsrc/affiliates/ernestinerose
+Redirect permanent /chat http://my.brandeis.edu/chat
+Redirect permanent /cgi-bin/soupermail.pl http://www.brandeis.edu/communications/digital/toolkit/forms/old-form-tools.html
+RedirectMatch ^/classes/$ http://lts.brandeis.edu/teachlearn/support/instructionalsupport.html
+RedirectMatch permanent ^/clubcentral http://my.brandeis.edu/clubcenter/
+RedirectMatch ^/clubsinservice.* http://www.brandeis.edu/studentlife/communityservice/clubsinservice
+Redirect permanent /clubsports http://www.brandeisjudges.com/recreation/clubsports/index
+RedirectMatch permanent ^/cmjs/centerreview(.*) https://www.brandeis.edu/cmjs/centerreview$1
+RedirectMatch permanent ^/coexistence(.*) http://heller.brandeis.edu/academic/ma-coex/resources/Ci/
+RedirectMatch permanent ^/coexistence/masters.* http://www.brandeis.edu/slifka/masters/index.html
+Redirect permanent /coml http://www.brandeis.edu/programs/coml
+Redirect permanent /communications/global http://www.brandeis.edu/communications
+Redirect permanent /communications/mediarelations http://www.brandeis.edu/communications/newsandcommunications
+redirect permanent /communications/photo/request.html http://www.brandeis.edu/communications/photo/forms/
+Redirect permanent /communications/webservices/preview/newsfeed/index.html http://www.brandeis.edu/communications/webcommunications/toolkit/newsfeed/index.html
+Redirect permanent /communications/webservices/preview/slideshow.html http://www.brandeis.edu/communications/webcommunications/toolkit/slideshow.html
+Redirect permanent /communications/webservices/bestpractices.html http://www.brandeis.edu/communications/webcommunications/toolkit/bestpractices.html
+redirect permanent /communications/webservices/preview/index.html http://www.brandeis.edu/communications/webcommunications/toolkit/index.html
+Redirect permanent /communications/webservices http://www.brandeis.edu/communications/webcommunications
+Redirect permanent /community-engaged http://www.brandeis.edu/experientiallearning
+Redirect permanent /communityservice http://www.brandeis.edu/studentlife/communityservice
+RedirectMatch permanent ^/conrad http://people.brandeis.edu/~conrad/
+RedirectMatch permanent ^/continuing(.*) /rabbgrad$1
+Redirect permanent /controller http://www.brandeis.edu/financialaffairs
+Redirect permanent /controller/bursar/ http://www.brandeis.edu/offices/sfs/
+Redirect permanent /copyright.html http://www.brandeis.edu/about/copyright.html
+Redirect permanent /crisis http://crisis.brandeis.edu
+Redirect permanent /crowncenter http://www.brandeis.edu/crown
+Redirect permanent /csfair http://www.brandeis.edu/studentlife/communityservice/CommunityServicefair
+Redirect permanent /cs-masters http://www.brandeis.edu/programs/computerscience/masters/12-course-ma.html?utm_source=brochure&utm_medium=directmail&utm_campaign=cosi-spring-2015
+
+RedirectMatch ^/daisyinternational(.*) /global/academic/SpecialEvents/daisyinternational.html
+RedirectMatch ^/das/downloads/Course-Evaluation-Guide.htm https://apps.brandeis.edu/ceg/index
+#Redirect permanent /dcl http://www.brandeis.edu/studentlife/dcl
+Redirect /departments/index.html http://www.brandeis.edu/learning/index.html
+Redirect permanent /departments/afro_amer_studies http://www.brandeis.edu/departments/afroamerstudies
+Redirect Permanent /departments/amer_studies http://www.brandeis.edu/programs/american-studies
+Redirect permanent /departments/campuscard http://www.brandeis.edu/services/campuscard
+Redirect permanent /departments/ces http://www.brandeis.edu/ces
+RedirectMatch permanent ^/departments/cges.* http://www.brandeis.edu/cges
+RedirectMatch ^/departments/chemistry/chem11games(.*) https://www.brandeis.edu/departments/chemistry/chem11games/
+RedirectMatch permanent ^/departments/ecs http://www.brandeis.edu/programs/ecs
+RedirectMatch permanent ^/departments/environmental.* http://www.brandeis.edu/programs/environmental/
+Redirect permanent /departments/faculty_senate/ http://www.brandeis.edu/provost/faculty_senate/
+Redirect permanent /departments/film_studies http://www.brandeis.edu/programs/filmstudies
+RedirectMatch permanent ^/departments/fine_arts.* http://www.brandeis.edu/departments/finearts
+RedirectMatch permanent ^/departments/germanic_slavic_lang http://www.brandeis.edu/departments/grall
+Redirect permanent /departments/grad_degrees.html http://www.brandeis.edu/gsas/programs/areas_of_study.html
+RedirectMatch permanent ^/departments/greal http://www.brandeis.edu/departments/grall
+RedirectMatch permanent ^/departments/hebrew http://www.brandeis.edu/programs/hebrew
+Redirect permanent /departments/historyideas http://www.brandeis.edu/program/historyofideas
+RedirectMatch permanent ^/departments/journalism(.*) /programs/journalism$1
+Redirect permanent /departments/lals http://www.brandeis.edu/programs/lals
+Redirect permanent /departments/latinam http://www.brandeis.edu/departments/lals
+RedirectMatch permanent ^/departments/linguistics http://www.brandeis.edu/programs/interdepartmental/linguistics/
+Redirect /departments/math/ http://www.math.brandeis.edu/
+#Redirect /departments/mathematics/undergraduate/math22placement.html https://www.brandeis.edu/departments/mathematics/undergraduate/math22placement.html
+Redirect permanent /departments/nejs/fse http://www.brandeis.edu/projects/fse
+Redirect permanent /departments/nejs/slate https://www.brandeis.edu/departments/nejs/slate
+Redirect permanent /departments/nejs/time-reporting https://www.brandeis.edu/departments/nejs/time-reporting
+RedirectMatch ^/departments/philosophy/people/marusic.html https://sites.google.com/a/brandeis.edu/berislav-marusic/
+Redirect permanent /departments/physics/complexfluids/fraden/index.html http://fraden.brandeis.edu/index.html
+Redirect permanent /departments/physics/complexfluids/fraden/people.html http://fraden.brandeis.edu/people/current.html
+Redirect permanent /departments/physics/complexfluids/fraden/publications.html http://fraden.brandeis.edu/publications/publications.html
+Redirect permanent /departments/physics/complexfluids/fraden/research/index.html http://fraden.brandeis.edu/research/research.html
+Redirect permanent /departments/politics/research/gordoncenter.html http://www.brandeis.edu/departments/politics/gordoncenter/index.html
+Redirect permanent /departments/politics/research/researchcircle.html http://www.brandeis.edu/departments/politics/researchcircle/index.html
+RedirectMatch permanent ^/departments/provost(\/*)(.*) http://www.brandeis.edu/provost/$2
+RedirectMatch permanent ^/departments/public_safety.* http://www.brandeis.edu/publicsafety/
+Redirect permanent /departments/rocl http://www.brandeis.edu/departments/roms
+RedirectMatch permanent ^/departments/travel.* http://www.brandeis.edu/services/travel
+Redirect /departments/ugrad_degrees.html http://www.brandeis.edu/learning/undergraduate/degrees.html
+RedirectMatch permanent (?i)/digitalmarketing$ http://gpsonline.brandeis.edu/digital-marketing
+Redirect permanent /dining http://go.brandeis.edu/dining
+#RedirectMatch ^/dinner-rsvp /president/2017-online-rsvp.html
+Redirect permanent /directions.html http://www.brandeis.edu/about/visiting/directions.html 
+Redirect permanent /disability http://www.brandeis.edu/acserv/disabilities
+RedirectMatch permanent ^/discover$ /admissions/discover
+RedirectMatch permanent ^/discover/$ /admissions/discover
+
+
+RedirectMatch permanent ^/eastasia http://www.brandeis.edu/programs/eastasia
+RedirectMatch permanent ^/elections/ https://unet.brandeis.edu/elections/
+RedirectMatch ^/encounters(.*) /precollege$1
+RedirectMatch 301 ^/energy.* http://www.brandeis.edu/campussustainability/
+RedirectMatch /epsilon/css/epsilon.php /epsilon/css/epsilon.css
+RedirectMatch permanent ^/eres http://ereserves.publib.brandeis.edu/
+RedirectMatch ^/eslprogram(.*) /elp
+RedirectMatch ^/ethics/events/LocalGlobal2012.html /ethics/events/DEISimpact.html
+RewriteRule /events/arts /events/arts.html
+RedirectMatch permanent ^/events/meaning/to http://www.brandeis.edu/events/meaning/
+Redirect permanent /events/reconciliation http://www.brandeis.edu/reconciliation
+Redirect permanent /evpcoo http://www.brandeis.edu/admin-finance
+Redirect permanent /evp-coo http://www.brandeis.edu/admin-finance
+Redirect permanent "/experientiallearning/pdfs/EL2 Program Complete Web Version.pdf" http://www.brandeis.edu/experientiallearning/EL2/EL2Program.pdf
+Redirect permanent /experience http://www.brandeis.edu/admissions/multimedia/experience.html
+Redirect permanent /explore http://www.brandeis.edu/admissions/visit/index.html
+Redirect permanent /extraordinary http://www.brandeis.edu/admissions/multimedia/extraordinary.html
+
+
+Redirect /fa http://www.brandeis.edu/business-finance
+RedirectMatch ^/familyweekend$ /studentlife/activities/family-weekend
+RedirectMatch ^/familyweekend/$ /studentlife/activities/family-weekend
+RedirectMatch ^/familyweekend/index.html$ /studentlife/activities/family-weekend
+RedirectMatch /facilities/workorder http://fusion.brandeis.edu/maximoweb/
+RedirectMatch permanent ^/faculty-governance(.*) https://www.brandeis.edu/faculty-governance$1
+RedirectMatch permanent ^/faculty-senate/strategicplan/docs(.*) https://www.brandeis.edu/faculty-senate/strategicplan/docs$1
+RedirectMatch permanent ^/faculty-senate/FacultyGovernanceTaskForce.html https://www.brandeis.edu/faculty-senate/FacultyGovernanceTaskForce.html
+Redirect permanent /faculty-staff/index.html http://www.brandeis.edu/audience/fac-staff.html
+Redirect permanent /fallfest http://www.brandeis.edu/studentlife/activities/fallfest
+Redirect /fallforbrandeis http://www.brandeis.edu/admissions/fallforbrandeis/
+RedirectMatch permanent ^/fbi(.*) /ijpl$1
+RedirectMatch ^/fellows(.*)$ /givingto/fellows$1
+Redirect permanent /finaid http://www.brandeis.edu/offices/sfs
+Redirect permanent /financialaffairs/acctpay http://www.brandeis.edu/financialaffairs/finservices/acctpay
+Redirect permanent /financialaffairs/cashiering http://www.brandeis.edu/financialaffairs/finservices/cashiering
+Redirect permanent /financialaffairs/docs/index.html http://www.brandeis.edu/financialaffairs/training/index.html
+RedirectMatch permanent ^/financialaffairs/docs/restricted(.*) https://www.brandeis.edu/financialaffairs/docs/restricted$1
+Redirect permanent /financialaffairs/helpdesk/howto/demo/index.html http://www.brandeis.edu/financialaffairs/helpdesk/howto/index.html
+Redirect permanent /financialaffairs/payroll http://www.brandeis.edu/financialaffairs/finservices/payroll
+Redirect permanent /financialaffairs/spa http://www.brandeis.edu/financialaffairs/finservices/spa
+RedirectMatch ^/financialaffairs$ /business-finance/
+RedirectMatch ^/financialaffairs/$ /business-finance/
+RedirectMatch ^/financialaffairs/index.html /business-finance/
+RedirectMatch ^/financialaffairs/financialaccounting$ /business-finance/financial-accounting
+RedirectMatch /financialaffairs/financialaccounting/(.*) /business-finance/financial-accounting/$1
+RedirectMatch ^/financialaffairs/finsys$ /business-finance/financial-systems
+RedirectMatch /financialaffairs/finsys/(.*) /business-finance/financial-systems/$1
+RedirectMatch ^/financialaffairs/procurement$ /business-finance/procurement-business/procurement
+RedirectMatch /financialaffairs/procurement/(.*) /business-finance/procurement-business/procurement/$1
+RedirectMatch ^/financialaffairs/financialstatements$ /business-finance/financialaccounting/financialstatements
+RedirectMatch /financialaffairs/financialstatements/(.*) /business-finance/financialaccounting/financialstatements/$1
+RedirectMatch ^/financialaffairs/allfinforms$ /business-finance/forms-resources
+RedirectMatch /financialaffairs/allfinforms/(.*) /business-finance/forms-resources/$1
+RedirectMatch ^/financialaffairs/sponsoredaccounting$ /business-finance/sponsored-accounting
+RedirectMatch /financialaffairs/sponsoredaccounting/(.*) /business-finance/sponsored-accounting/$1
+RedirectMatch ^/financialaffairs/policies$ /business-finance/forms-resources
+RedirectMatch /financialaffairs/policies/(.*) /business-finance/forms-resources/$1
+RedirectMatch ^/financialaffairs/contacts$ /business-finance/contacts
+RedirectMatch /financialaffairs/contacts/(.*) /business-finance/contacts/$1
+RedirectMatch ^/financialaffairs/helpdesk$ /business-finance/helpdesk
+RedirectMatch /financialaffairs/helpdesk/(.*) /business-finance/helpdesk/$1
+RedirectMatch /financialaffairs/finservices/acctpay /business-finance/procurement-business/accounts-payable
+RedirectMatch /financialaffairs/procurement/doingbusiness/insurancerequirements.html /business-finance/procurement-business/procurement/insurance-requirements.html
+RedirectMatch /financialaffairs/finservices/payroll /business-finance/payroll/index.html
+Redirect permanent /formal http://www.brandeis.edu/studentlife/activities/programs/formal.html
+#RedirectMatch ^/free-expression/principles/(.*) https://www.brandeis.edu/free-expression/principles/$1
+
+Redirect permanent /gads-log https://www.brandeis.edu/gads-log
+RedirectMatch ^/genesis(.*) /precollege/index.html
+Redirect permanent /givetobnc https://alumni.brandeis.edu/makingyourgift/bnc
+RedirectMatch permanent ^/givingto(.*) http://giving.brandeis.edu
+RedirectMatch /global/(.*) https://www.brandeis.edu/global/$1
+RedirectMatch permanent ^/global/asiapacific/institute/(.*) http://www.brandeis.edu/global/asiapacific/index.html
+RedirectMatch permanent ^/global/asper/institute/(.*) http://www.brandeis.edu/global/asper/index.html
+RedirectMatch 301 ^/global/facultysearch/(.*) http://www.brandeis.edu/global/faculty/resources/positions.html
+Redirect permanent /global/green http://www.brandeis.edu/global/green_initiative/index.html
+Redirect /global/municonference2013 http://www.bondbuyer.com/conferences/brandeis/
+RedirectMatch permanent ^/global/perlmutter/institute/(.*) http://www.brandeis.edu/global/perlmutter/index.html
+Redirect /globalbrandeis/facultycollaborations https://www.brandeis.edu/globalbrandeis/facultycollaborations
+RedirectMatch ^/globalbrandeis/office/staff.html /globalbrandeis/office/index.html
+Redirect permanent /globalbrandeis/regions/india.html http://www.brandeis.edu/globalbrandeis/india/index.html
+RedirectMatch permanent ^/global/rosenberg/institute/(.*) http://www.brandeis.edu/global/rosenberg/index.html
+Redirect /globalfinance http://www.brandeis.edu/global/prospective_admissions_oncampus.php
+Redirect /gmail https://mail.google.com/a/brandeis.edu
+Redirect permanent /go http://go.brandeis.edu
+Redirect permanent /googleapps https://sites.google.com/a/brandeis.edu/googleapps/
+RedirectMatch permanent ^/gps/dl(.*) http://www.brandeis.edu/gps/
+RedirectMatch ^/gps/faculty$ https://webtest.brandeis.edu/gps/faculty
+RedirectMatch ^/gps/faculty/(.*) https://webtest.brandeis.edu/gps/faculty/$1
+Redirect permanent /gradjournal http://www.brandeis.edu/gsa/gradjournal/
+Redirect permanent /gradsymposium http://www.brandeis.edu/gsa/symposium.html
+RedirectMatch permanent ^/grant http://www.brandeis.edu/osp/
+RedirectMatch ^/graybiel/agsolinternal https://www.brandeis.edu/graybiel/agsolinternal
+Redirect permanent /gsa http://www.brandeis.edu/gradstudent/gsa
+Redirect permanent /gsas/accepted/forms http://www.brandeis.edu/gsas/offer/forms
+Redirect permanent /gsas/apply/elec_instructions.html http://www.brandeis.edu/gsas/apply/index.html
+Redirect /gsas/faculty https://www.brandeis.edu/gsas/faculty
+RedirectMatch ^/gsas/career/vphd-protected.html https://www.brandeis.edu/gsas/career/vphd-protected.html
+RedirectMatch ^/gsas/fellowships/internal-funding/mentoraward/index.html /gsas/teaching_and_learning/mentoraward/index.html 
+RedirectMatch ^/gsas/financing/awards/index.html /gsas/fellowships/internal-funding/index.html
+RedirectMatch ^/gsas/financing/fundingopp.html /gsas/fellowships/external-funding.html
+Redirect permanent /gsas/programs/areas_of_study.html http://www.brandeis.edu/gsas/programs/index.html
+Redirect permanent /gsas/prospectives/forms/index.html https://brandeis-gsas.edu.185r.net/survey/index.php?id=102
+Redirect permanent /gsas/services/career.html http://www.brandeis.edu/gsas/career/index.html
+Redirect permanent /gsief http://www.brandeis.edu/global
+Redirect permanent /gsvidof https://sys2.unet.brandeis.edu/bwebforms/view/vidof_ug_gateway/
+
+Alias "/hbi" "/u1/www/hirjw/"
+RedirectMatch permanent /hbi/614(.*) http://614ezine.com/
+Redirect permanent /HealthInformatics http://gpsonline.brandeis.edu/health-medical-informatics/
+Redirect permanent /studentlife/health /health
+Redirect permanent /studentlife/counseling /counseling
+RedirectMatch permanent ^/hebrewsummer http://www.brandeis.edu/summer/hebrew/
+RedirectMatch permanent ^/heller$ http://heller.brandeis.edu/
+RedirectMatch permanent ^/heller/.* http://heller.brandeis.edu/
+RedirectMatch permanent ^/heller/iasp http://iasp.brandeis.edu/
+RedirectMatch permanent ^/heller/national http://heller.brandeis.edu/national/ind.html
+RedirectMatch permanent ^/heller/sihp http://sihp.brandeis.edu/
+RedirectMatch permanent ^/heller/sihp/council http://council.brandeis.edu/
+RedirectMatch permanent ^/heller/sihp/forum http://healthforum.brandeis.edu/
+RedirectMatch permanent ^/heller/sihp/nidacenter http://nidacenter.brandeis.edu/
+RedirectMatch permanent ^/heller/sihp/mhpf http://masshealthpolicyforum.brandeis.edu/
+RedirectMatch permanent ^/heller/sihp/MHPF http://masshealthpolicyforum.brandeis.edu/
+RedirectMatch permanent ^/helpdesk http://lts.brandeis.edu/help/computers/helpdesk.html
+Redirect permanent /hiatt/hiattnacelink.html https://brandeisu-csm.symplicity.com/students/
+RedirectMatch permanent ^/hiatt/students(.*) http://www.brandeis.edu/hiatt/index.html
+RedirectMatch ^/highschool$ /precollege
+RedirectMatch ^/highschool/$ /precollege
+RedirectMatch ^/highschool/(.*) /precollege/$1
+Redirect permanent /highschoolsummer http://www.brandeis.edu/precollege
+Redirect permanent /hillel http://www.brandeishillel.org
+Redirect permanent /hirijw http://www.brandeis.edu/hrijw
+Alias "/homeflashText.txt" "/u1/www/home-zeta/homeflashText.txt"
+Redirect permanent /hr http://www.brandeis.edu/humanresources
+Redirect permanent /humanities http://www.brandeis.edu/mandelhumanities
+RedirectMatch permanent /humanresources/documents/staff-work-life-survey(.*) https://www.brandeis.edu/humanresources/documents/staff-work-life-survey$1
+RedirectMatch permanent ^/humanresources/images/secure(.*) https://www.brandeis.edu/humanresources/images/secure$1
+RedirectMatch permanent ^/humanresources/policies/pdfs(.*) https://www.brandeis.edu/humanresources/policies/pdfs$1
+
+Redirect permanent /ibs http://www.brandeis.edu/global
+RedirectMatch permanent ^/ibs/(.*) /global/$1
+RedirectMatch permanent ^/ibsrankings(.*) http://www.brandeis.edu/global/prospective/learn/rankings.html
+RedirectMatch ^/icc$ /studentlife/icc
+RedirectMatch ^/icc/$ /studentlife/icc
+RedirectMatch permanent ^/ief/ http://www.brandeis.edu/global/
+Redirect permanent /imp https://unet.brandeis.edu/imp/
+Redirect permanent /inauguration/multimedia/index.html http://www.brandeis.edu/inauguration/video.html
+Redirect permanent /inauguration/schedule/inaugsymposia/symposia.html http://www.brandeis.edu/inauguration/inaugsymposia/index.html
+#Alias "/index.html" "/u1/www/home-theta/index.html"
+RedirectMatch ^/global/innovation$ /innovation/index.html
+RedirectMatch ^/global/innovation/$ /innovation/index.html
+RedirectMatch ^/global/innovation/(.*) /innovation/index.html
+
+RedirectMatch ^/otl$ /innovation/index.html
+RedirectMatch ^/otl/$ /innovation/index.html
+RedirectMatch ^/otl/(.*) /innovation/index.html
+Redirect permanent /institutes/tauber http://www.brandeis.edu/tauber
+RedirectMatch permanent /institutes/tauber/siis(.*) http://www.brandeis.edu/israelcenter/SIIS/archive$1
+RedirectMatch ^/institutionalresearch(.*) /opir/institutionalresearch
+Redirect permanent /InstructionalDesign http://gpsonline.brandeis.edu/online-instructional-design/
+RedirectMatch permanent ^/interdepartmental.* http://www.brandeis.edu/learning/undergraduate
+RedirectMatch permanent ^/internships(.*) http://www.brandeis.edu/hiatt/search/internship/index.html
+Redirect /investmanagement/trustees https://www.brandeis.edu/investmanagement/trustees
+RedirectMatch permanent ^/invited https://apps.brandeis.edu/admissions/apply/login
+Redirect permanent /irijw http://www.brandeis.edu/hrijw
+RedirectMatch permanent (?i)/is$ http://gpsonline.brandeis.edu/information-security/
+Redirect permanent /israelcenter/jellyfish http://siis.brandeis.libguides.com/content.php?pid=25580&sid=184435
+Redirect permanent /israelstudies http://www.brandeis.edu/israelcenter
+RedirectMatch permanent (?i)/itm$ http://gpsonline.brandeis.edu/it-management/
+RedirectMatch permanent ^/itrc http://lts.brandeis.edu/teachlearn/support/itrc.html
+#RedirectMatch ^/its/ http://lts.brandeis.edu/
+#RedirectMatch permanent ^/its/email "http://lts.brandeis.edu/techresources/accounts/email/"
+#Redirect /its/phones/  http://lts.brandeis.edu/techresources/telecom/phones/phonesetup.html
+#Redirect permanent /its/resources/requests/clubaccountreq.html https://unet.brandeis.edu/groups/
+#Redirect /its/spam.png http://lts.brandeis.edu/spam.png
+#Redirect /its/timeoff/  http://lts.brandeis.edu/staff/timeoff/
+#Redirect /its/workshops/  http://lts.brandeis.edu/apps/workshops/
+
+RedirectMatch permanent ^/jcs(.*) http://www.brandeis.edu/hornstein/
+Redirect permanent /jbs/programs http://www.brandeis.edu/jbs/r2010programs
+RedirectMatch /jewishfilm(.*) http://www.jewishfilm.org
+
+RedirectMatch ^/latte(.*) http://lts.brandeis.edu/courses/newlatte    
+Redirect /latte/internal/project https://www.brandeis.edu/latte/internal/project
+Redirect /ldb-centennial https://www.brandeis.edu/ldb-100
+Redirect permanent /learning/heller.html http://heller.brandeis.edu/
+RedirectMatch ^/learning/libraries.html http://lts.brandeis.edu
+RedirectMatch permanent /learning/undergraduate/degrees.html http://www.brandeis.edu/areas/majors/index.html
+Redirect permanent /learning/undergraduate/faq http://www.brandeis.edu/areas/majors/pdfs
+RedirectMatch permanent (?i)/learninganalytics$ http://gpsonline.brandeis.edu/learning-analytics
+Redirect permanent /legalstudies http://www.brandeis.edu/departments/legal_studies
+Redirect /lemberg/Schedule https://www.brandeis.edu/lemberg/Schedule
+RedirectMatch ^/lenny-bruce http://lts.brandeis.edu/research/archives-speccoll/events/lenny-bruce.html
+RedirectMatch permanent ^/lerman-neubauer.* http://www.brandeis.edu/acserv/lerman-neubauer
+RedirectMatch permanent ^/letusknow http://www.brandeis.edu/about/contact.html
+#RedirectMatch ^/library/(.*) http://lts.brandeis.edu/
+RedirectMatch ^/library/teaching/reserves/latte-video.html https://www.brandeis.edu/library/teaching/reserves/latte-video.html
+RedirectMatch ^/library/dante(.*) http://go.brandeis.edu/dante$1
+RedirectMatch ^/lts/(.*)$ http://lts.brandeis.edu/$1
+
+Redirect permanent /majors http://www.brandeis.edu/areas/majors/index.html
+RedirectMatch permanent ^/mandelcenter.* /mandel
+RedirectMatch ^/mandel/about/letterdirector.html /mandel/about/index.html
+RedirectMatch ^/mandel/delet(.*)$ /programs/delet$1
+RedirectMatch ^/mandel/impact/events/index.html /mandel/events/index.html
+RedirectMatch ^/mandel/impact/events/(.*) /mandel/events/$1
+RedirectMatch ^/mandel/impact/publications.html /mandel/resources/publications.html
+RedirectMatch ^/mandel/projects/additional/multimediacases.html /mandel/resources/multimedia.html
+RedirectMatch ^/mandel/research/beitmidrash_about.html /mandel/research/beitmidrashresearch/beitmidrash_about.html
+RedirectMatch ^/mandel/research/beitmidrash_presentations.html /mandel/research/beitmidrashresearch/beitmidrash_presentations.html
+Redirect /mandel/research/delettracking http://www.brandeis.edu/mandel/research/delettracking.html
+Redirect /mandel/research/inductionpartnership http://www.brandeis.edu/mandel/research/inductionpartnership.html
+Redirect permanent /map http://www.brandeis.edu/about/visiting/map.html
+Redirect permanent /map.html http://www.brandeis.edu/about/visiting/map.html
+Redirect permanent /marinestudies http://www.assumption.edu/msc/courses.html
+Redirect permanent /marinestudies/ http://www.assumption.edu/msc/courses.html
+Redirect /marinestudies/schedule-location.html http://www.assumption.edu/msc/courses.html
+Redirect /marinestudies/about.html http://www.assumption.edu/msc/courses.html
+Redirect /math~ http://www.math.brandeis.edu/
+Redirect permanent /mba http://www/global/academic/programs/mba/index.html
+Redirect permanent /meettheauthor http://www.brandeis.edu/communications
+Redirect permanent /mls http://lts.brandeis.edu/
+Redirect permanent /more http://www.brandeis.edu/admissions/multimedia/more.html
+RedirectMatch ^/mrsec/executivecommittee(.*) https://www.brandeis.edu/mrsec/executivecommittee$1
+#Redirect permanent /music http://www.brandeis.edu/departments/music/
+RedirectMatch ^/mybrandeis/archive/bboard(.*) http://go.brandeis.edu/techforum
+
+Redirect /neasc/appendices https://www.brandeis.edu/neasc/appendices
+Redirect permanent /netsaint https://webserver.brandeis.edu/netsaint
+Redirect permanent /news http://www.brandeis.edu/now
+Redirect permanent /now-old http://www.brandeis.edu/now    
+Redirect /npc https://npc.collegeboard.org/student/app/brandeis
+
+Redirect permanent /odyssey http://www.brandeis.edu/highschoolsummer
+RedirectMatch permanent ^/offices/$ "http://www.brandeis.edu/search/offices/"
+RedirectMatch permanent ^/offices/index.html "http://www.brandeis.edu/search/offices"
+RedirectMatch permanent ^/offices/arts http://www.brandeis.edu/arts
+RedirectMatch permanent ^/offices/cfr.* http://givingto.brandeis.edu/cfr
+RedirectMatch permanent ^/offices/communications.* http://www.brandeis.edu/communications
+Redirect permanent /offices/copycenter http://www.brandeis.edu/services/copycenter
+Redirect permanent /offices/IR http://www.brandeis.edu/institutionalresearch
+RedirectMatch permanent ^/offices/mail.* http://www.brandeis.edu/services/mail
+RedirectMatch permanent ^/offices/otl/?.* http://www.brandeis.edu/otl/
+RedirectMatch ^/offices/procurement(.*) /financialaffairs/procurement 
+RedirectMatch permanent ^/offices/sfs http://www.brandeis.edu/sfs
+RedirectMatch permanent ^/offices/sfs/finaid/costs_midyear.html http://www.brandeis.edu/sfs/tuition/costsmidyear.html
+RedirectMatch Permanent ^/offices/sfs/finaid/costs.html http://www.brandeis.edu/sfs/tuition/costs.html
+RedirectMatch permanent ^/offices/ssb(.*) /studentlife/activities/ssb.html
+Redirect /offices/procurement/forms/private https://www.brandeis.edu/offices/procurement/forms/private
+RedirectMatch ^/officesdir$ http://www.brandeis.edu/officesdir/
+ProxyPass /officesdir/dept_admin_list.html !
+ProxyPass /officesdir/ http://identity.brandeis.edu/officesdir/
+ProxyPassReverse /officesdir/ http://identity.brandeis.edu/officesdir/
+RedirectMatch /officesdir/dept_admin_list.html /officesdir/dept_admin_list
+Redirect permanent /oga http://www.brandeis.edu/globalbrandeis/office
+Redirect permanent /olli http://www.brandeis.edu/bolli
+Redirect permanent /ontheroad http://www.brandeis.edu/admissions/visit/brandeisontheroad.html
+RedirectMatch permanent ^/osp/(.*) /ora
+Redirect /ora/compliance/acup https://www.brandeis.edu/ora/compliance/acup
+Redirect /osp/IACUC https://www.brandeis.edu/osp/IACUC
+RedirectMatch permanent ^/otl/grants/docs/spark(.*) https://www.brandeis.edu/otl/grants/docs/spark$1
+Redirect /outsidethebox http://www.brandeis.edu/admissions/multimedia/outsidethebox.html
+Redirect /overview http://www.brandeis.edu/about
+Redirect /overview/brief.html http://www.brandeis.edu/about/defining.html
+Redirect /overview/directions.html http://www.brandeis.edu/about/visiting/directions.html
+Redirect /overview/factsandfigures.html http://www.brandeis.edu/about/facts/index.html
+Redirect /overview/historical.html http://www.brandeis.edu/about/history.html
+Redirect /overview/trustees http://www.brandeis.edu/president/trustees
+    
+Redirect /pages/ https://webserver.brandeis.edu/pages/
+Redirect permanent /parents.html http://www.brandeis.edu/parents/
+#RedirectMatch permanent ^/parents/?$ http://www.brandeis.edu/audience/parents.html
+#Redirect permanent /parents/index.html http://www.brandeis.edu/audience/parents.html
+RedirectMatch permanent ^/parentsprogram/(.*) http://giving.brandeis.edu/giving-opportunities/parents-fund/index.html
+RedirectMatch permanent ^/pcc http://www.brandeis.edu/counseling/index.html
+Redirect permanent /peak http://www.brandeis.edu/projects/peak/student/
+RedirectMatch permanent ^/peoplesoft(\/*)(.*) http://www.brandeis.edu/projects/peak/financials/$2
+RedirectMatch permanent ^/pillars(.*) http://www.brandeis.edu/feature/brandeis-story.html
+RedirectMatch permanent ^/podcast$ /global/podcast.html
+RedirectMatch permanent ^/podcast/$ /global/podcast.html
+#Redirect permanent /postbac-premed http://www.brandeis.edu/programs/premed/?utm_source=postcard&utm_medium=directmail&utm_campaign=post-bac-premed
+#RedirectMatch ^/precollege$ /highschool
+#RedirectMatch ^/precollege/$ /highschool
+#RedirectMatch ^/precollege/nominate /highschool/nomination/nominate.html
+Redirect permanent /projects/astro-physics http://pc.astro.brandeis.edu
+RedirectMatch ^/projects/deltamemory(.*) /programs/sjsp/deltamemory$1
+RedirectMatch permanent ^/projects/emotion.* http://www.brandeis.edu/departments/psych/isaacowitz/index.html
+RedirectMatch permanent ^/projects/fradenlab.*  http://www.brandeis.edu/departments/physics/complexfluids/index.html
+RedirectMatch permanent ^/projects/lifespan.* http://www.brandeis.edu/departments/psych/lachman/index.html
+Redirect permanent /projects/nejs/fse http://www.brandeis.edu/projects/fse
+Redirect /projects/nonlineardynamics/ http://hopf.chem.brandeis.edu/
+Redirect permanent /projects/peak/financials http://www.brandeis.edu/financialaffairs/controller/accounts
+Redirect permanent /projects/science-art http://science-art.brandeis.edu
+Redirect permanent /projects/science-art/colorart/ http://vision-art.brandeis.edu
+Redirect permanent /projects/science-art/hockneyoptics/ http://hockney-optics.brandeis.edu
+Redirect permanent /projects/science-art/vangogh/ http://van-gogh.brandeis.edu 
+Redirect permanent /projects/science-art/vinland/ http://vinland-map.brandeis.edu
+Redirect permanent /projects/wanghlab http://www.brandeis.edu/wanghlab
+Redirect permanent /programs/bali http://www.brandeis.edu/bolli
+RedirectMatch ^/programs/berkshires.* http://alumni.brandeis.edu/web/
+Redirect permanent /programs/bolli http://www.brandeis.edu/bolli
+RedirectMatch ^/programs/delet/lauderevent$ http://www.brandeis.edu/programs/delet/lauderevent.html
+RedirectMatch permanent ^/projects/gelleslab/glimpse(.*) https://github.com/gelles-brandeis/Glimpse
+RedirectMatch permanent ^/programs/gralla(.*) /hornstein
+RedirectMatch permanent ^/programs/interdepartmental(/index.html)?$ http://www.brandeis.edu/learning/undergraduate
+RedirectMatch permanent ^/programs/interdepartmental/[iI]ntlstudies/?.* http://www.brandeis.edu/programs/igs/
+Redirect permanent /programs/interdepartmental/Islamic http://www.brandeis.edu/programs/imes
+RedirectMatch permanent ^/programs/interdepartmental/italian.* http://www.brandeis.edu/departments/roms/italian
+RedirectMatch permanent ^/programs/interdepartmental/linguistics(.*) /programs/linguistics
+Redirect permanent /programs/interdepartmental/Medieval/medieval.html http://www.brandeis.edu/programs/merl/
+Redirect permanent /programs/interdepartmental/Peace/pax.html http://www.brandeis.edu/programs/peace/
+RedirectMatch permanent ^/programs/interdepartmental/Russian.* http://www.brandeis.edu/departments/grall/russian/index.html
+RedirectMatch permanent ^/programs/interdepartmental/sjsp.* http://www.brandeis.edu/programs/sjsp/index.html
+Redirect permanent /programs/internships http://www.brandeis.edu/internships
+RedirectMatch permanent ^/programs/japanese http://www.brandeis.edu/departments/grall
+RedirectMatch permanent ^/programs/mat.* http://www.brandeis.edu/programs/education/mat
+Redirect permanent /programs/mevl http://www.brandeis.edu/programs/merl/
+Redirect permanent /programs/mhb http://www.brandeis.edu/mhb
+RedirectMatch permanent ^/programs/mocellbio http://www.bio.brandeis.edu/cellbio/
+RedirectMatch permanent ^/programs/mosaic.* http://www.brandeis.edu/orientation/mosaic.html
+RedirectMatch permanent /programs/quantbio/studentinfo/(.*) http://www.brandeis.edu/programs/quantbio/studentinfo/
+RedirectMatch permanent ^/programs/[S|s]lifka.* http://www.brandeis.edu/slifka
+RedirectMatch permanent ^/programs/[S|s]lifka/masters.* http://www.brandeis.edu/slifka/masters
+RedirectMatch permanent ^/programs/[S|s]lifka/vrc(.*) http://www.brandeis.edu/slifka/vrc$1
+RedirectMatch permanent ^/programs/typ(.*) http://www.brandeis.edu/acserv/typ
+RedirectMatch permanent ^/programs/writing.* http://www.brandeis.edu/writingprogram
+Redirect /president/about.html http://www.brandeis.edu/president/bio.html
+# ADM-1805 Redirect permanent  /presidential-search http://www.brandeis.edu/new-president
+RedirectMatch /new-president /president
+RedirectMatch /presidential-search /president
+RedirectMatch ^/procurement(.*) /financialaffairs/procurement
+RedirectMatch ^/profiles.* /admissions/academics/students.html
+Redirect /provost/cdo https://www.brandeis.edu/provost/cdo
+Redirect /provost/diversity/diversitypdfs https://www.brandeis.edu/provost/diversity/diversitypdfs
+Redirect permanent /provost/faculty-info/senate http://www.brandeis.edu/faculty-senate
+Redirect /provost/restricted https://www.brandeis.edu/provost/restricted
+RedirectMatch permanent ^/publications.* http://www.brandeis.edu/communications
+RedirectMatch ^/publicsafety/bemco/communitycpr/instructor_portal(.*) https://websrv-prod.brandeis.edu/publicsafety/bemco/communitycpr/instructor_portal$1
+#Redirect 301 /publicsafety/bemco/portal/ https://www.brandeis.edu/publicsafety/bemco/portal/
+Redirect /bemco/portal/ https://www.brandeis.edu/bemco/portal/
+RedirectMatch ^/publicsafety/safety/forum(.*) https://www.brandeis.edu/publicsafety/safety/forum$1
+
+RedirectMatch 301 ^/recycling.* http://www.brandeis.edu/campussustainability/recycling/index.html
+Redirect permanent /redirects/bio http://www.bio.brandeis.edu/
+Redirect permanent /redirects/cs http://www.cs.brandeis.edu/
+#RedirectMatch ^/register /president/2017-registration.html
+Redirect permanent /research.html http://www.brandeis.edu/research/
+RedirectMatch permanent ^/reslife.* http://www.brandeis.edu/dcl/index.html
+Redirect /retirement http://www.brandeis.edu/rabb/creative-retirement.html?utm_source=newspaper&utm_campaign=retirement-conference
+Redirect permanent /requestinfo https://brandeis.edu.185r.net/survey/?id=240&type=Print
+Redirect permanent /roseart/ http://www.brandeis.edu/rose/
+Redirect permanent /rsvp http://www.brandeis.edu/arts/btc/1314season/cabaretrsvp.html
+RedirectMatch permanent ^/rudermanscholars(.*) http://lurie.brandeis.edu
+
+Redirect permanent /sa http://www.brandeis.edu/acserv
+RedirectMatch permanent ^/sa/(.*) http://www.brandeis.edu/acserv
+RedirectMatch permanent ^/sarna-israeli-flag$ /hornstein/sarna/americanjewishcultureandscholarship/american-jews-flag-israel.html
+RedirectMatch permanent ^/sarna-israeli-flag/$ /hornstein/sarna/americanjewishcultureandscholarship/american-jews-flag-israel.html
+Redirect permanent /sage https://www.brandeis.edu/sage
+Redirect permanent /sageupgrade https://wiki.brandeis.edu/twiki/bin/view/Ais/AisSaUpgrade
+Redirect /schools http://www.brandeis.edu/attending
+RedirectMatch ^/search/offices(.*).php$ http://www.brandeis.edu/officesdir$1
+RedirectMatch ^/search/offices$ http://www.brandeis.edu/officesdir/index
+RedirectMatch permanent ^/search/pdfs(.*) "http://www.brandeis.edu/officesdir/index"
+RedirectMatch ^/seed.* /admissions/seed/
+RedirectMatch ^/SEED.* /admissions/seed/
+Redirect permanent /servicelearning http://www.brandeis.edu/community-engaged
+Redirect permanent /ses http://www.brandeis.edu/acserv
+RedirectMatch permanent ^/ses/(.*) http://www.brandeis.edu/acserv
+RedirectMatch permanent ^/ses/posse(.*) http://www.brandeis.edu/acserv/posse
+RedirectMatch permanent ^/ses/sssp(.*) http://www.brandeis.edu/acserv/sssp
+RedirectMatch permanent ^/ses/tutorial.html http://www.brandeis.edu/acserv/bugs
+RedirectMatch permanent ^/ses/voucher.html http://www.brandeis.edu/acserv/textbook.html
+RedirectMatch permanent ^/ses/workshops(.*) http://www.brandeis.edu/acserv/web
+Redirect permanent /slifka/actingtogether http://www.brandeis.edu/ethics/peacebuildingarts/actingtogether
+RedirectMatch permanent /slifka/masters(.*) http://heller.brandeis.edu/academic/ma-coex/
+RedirectMatch permanent ^/slifka/vrc.* http://www.brandeis.edu/ethics/peacebuildingarts/index.html
+RedirectMatch ^/smartfifty https://www.brandeis.edu/global/about/centers/india/smartfifty.html
+Redirect permanent /SoftwareEngineering http://gpsonline.brandeis.edu/software-engineering/
+RedirectMatch permanent ^/sos http://www.give2gether.com/projects/Brandeis-SOS/
+Redirect permanent /speech http://faculty.roosevelt.edu/armstrong
+RedirectMatch permanent ^/sports http://www.brandeisjudges.com
+Redirect permanent /springletter http://www.brandeis.edu/president/letters/springletter.html
+Redirect permanent /spring2010letter http://www.brandeis.edu/president/letters/spring2010.html
+RedirectMatch ^/ssb /studentlife/activities/business/ssb.html
+Redirect permanent /stories http://www.brandeis.edu
+Redirect permanent /Strategic-Analytics http://gpsonline.brandeis.edu/strategic-analytics/
+Redirect /strategic http://www.brandeis.edu/strategicplanning
+RedirectMatch ^/strategic/(.*) /strategicplanning
+Redirect /strategicplan http://www.brandeis.edu/strategicplanning
+RedirectMatch ^/strategicplan/(.*) /strategicplanning
+RedirectMatch ^/strategicplanning/documents/docs/framework-10-10-12.pdf /strategicplanning/documents/docs/prelimframework-oct-2012.pdf
+RedirectMatch ^/strategicplanning/forum /strategicplanning/contact
+RedirectMatch ^/strategy(.*) /strategicplanning 
+RedirectMatch /studentaffairs(.*) /student-affairs$1
+Redirect permanent /studentlife/adpc/portal https://www.brandeis.edu/studentlife/adpc/portal
+RedirectMatch permanent ^/studentlife/dcl$ /dcl
+RedirectMatch permanent ^/studentlife/dcl/$ /dcl
+RedirectMatch ^/studentlife/deansoffice/student-forums(.*) https://www.brandeis.edu/studentlife/deansoffice/student-forums$1
+RedirectMatch ^/dean-of-students/resources/student-forums(.*) https://www.brandeis.edu/dean-of-students/resources/student-forums$1
+RedirectMatch permanent ^/studentlife/reslife.* http://www.brandeis.edu/studentlife/dcl/index.html
+RedirectMatch permanent ^/studentlife/sdc(.*)  http://www.brandeis.edu/studentlife/srcs/index.html
+RedirectMatch permanent ^/studentcenter http://www.brandeis.edu/campuscenter/
+RedirectMatch permanent ^/studentlife/grad.* http://www.brandeis.edu/gradstudent
+RedirectMatch permanent ^/studentlife/studentevents/@brandeis http://my.brandeis.edu/calendar/
+RedirectMatch permanent ^/studentlife/reslife.* http://www.brandeis.edu/studentlife/dcl/index.html
+Redirect permanent /studentlife/walthamgroup/ http://people.brandeis.edu/~walthamgroup/
+RedirectMatch ^/students/$ http://my.brandeis.edu/students
+RedirectMatch ^/students$ http://my.brandeis.edu/students
+Redirect /students/ http://people.brandeis.edu/~
+Redirect permanent /students/index.html http://www.brandeis.edu/audience/index.html
+Redirect /students/index.html http://my.brandeis.edu/students
+Redirect permanent /students.html http://www.brandeis.edu/students/
+Redirect /students.html http://my.brandeis.edu/students
+RedirectMatch permanent ^/summerhebrew http://www.brandeis.edu/summer/hebrew/
+RedirectMatch permanent ^/summerschool http://www.brandeis.edu/summer/
+RedirectMatch ^/summer/admin(.*) https://secureweb.brandeis.edu/summer/admin/$1 
+Redirect permanent /summer/courses/syllabi.php http://www.brandeis.edu/summer/courses/syllabi.html
+Redirect permanent /summer/hlsi http://www.brandeis.edu/summer/hebrew
+RedirectMatch permanent /summer/music(.*) http://www.brandeis.edu/summer/workshops/index.html
+Redirect permanent /summer/summer-contacts https://www.brandeis.edu/summer/summer-contacts
+
+Redirect permanent /tauberinstitute http://www.brandeis.edu/tauber
+SSLProxyEngine On
+ProxyPass /tfai https://sites.google.com/a/brandeis.edu/tfai
+ProxyPassReverse /tfai https://sites.google.com/a/brandeis.edu/tfai
+Redirect permanent /the_arts http://www.brandeis.edu/arts
+Redirect permanent /the_arts/office.html http://www.brandeis.edu/arts/office/index.html
+Redirect permanent /the_arts/upcoming.html http://www.brandeis.edu/arts/calendar.html
+#Redirect permanent /theater http://www.brandeis.edu/departments/theater
+Redirect permanent /theater/boxoffice.html http://www.brandeis.edu/theater/boxoffice/
+RedirectMatch (?i)^/thelodge /ces/lodge/index.html
+RedirectMatch permanent ^/titleix(.*) /sexual-misconduct-title-ix
+RedirectMatch ^/transfer$ /admissions/apply/transfer.html
+RedirectMatch ^/transfer/$ /admissions/apply/transfer.html
+RedirectMatch permanent ^/transformation(.*) https://www.brandeis.edu/transformation$1
+RedirectMatch ^/trustees/portal(.*) https://www.brandeis.edu/trustees/portal/
+RedirectMatch ^/turn-it-off$ /sustainability/turn-it-off
+RedirectMatch ^/turn-it-off/$ /sustainability/turn-it-off
+
+RedirectMatch permanent ^/uaa(fys)?.* http://www.brandeis.edu/acserv
+RedirectMatch permanent ^/uaa(fys)?/abroad(.*) http://www.brandeis.edu/abroad
+RedirectMatch permanent ^/uaa(fys)?/acacom(.*) http://www.brandeis.edu/acserv/disabilities
+RedirectMatch permanent ^/uaa(fys)?/adp(.*) http://www.brandeis.edu/acserv/advising
+RedirectMatch permanent ^/uaa(fys)?/advpol(.*) http://www.brandeis.edu/acserv/advising
+RedirectMatch permanent ^/uaa(fys)?/prehealth(.*) http://www.brandeis.edu/acserv/health
+RedirectMatch permanent ^/uaa(fys)?/premed(.*) http://www.brandeis.edu/acserv/health
+RedirectMatch permanent ^/uaa(fys)?/roosevelt(.*) http://www.brandeis.edu/acserv/roosevelt
+RedirectMatch permanent	^/unify$ /global/unify.html
+RedirectMatch permanent ^/unify/$ /global/unify.html
+Redirect permanent /unordinary http://www.brandeis.edu/admissions/multimedia/unordinary.html
+RedirectMatch permanent (?i)/usercentereddesign$ http://gpsonline.brandeis.edu/user-centered-design
+RedirectMatch permanent ^/uservices.* http://www.brandeis.edu/services
+RedirectMatch permanent ^/ustudies.* http://www.brandeis.edu/das/programs/ustudies/index.html
+
+RedirectMatch permanent ^/vice-provost-research /provost
+Redirect permanent /videochallenge http://www.give2gether.com/projects/Brandeis-videochallenge
+Redirect permanent /vidof https://sys2.unet.brandeis.edu/bwebforms/view/vidof_ug/
+RedirectMatch ^/virtual-tour /admissions/visit/toursandmaps.html
+Redirect permanent /visitors.html http://www.brandeis.edu/visitors/
+Redirect /visitors http://www.brandeis.edu/about/visiting
+Redirect permanent /vlan254 http://www.brandeis.edu/cricket/grapher.cgi?target=/router-interfaces/vlan254
+
+#RedirectMatch ^/web-accessibility /communications/digital/accessibility/index.html
+Redirect /webservices/tools https://www.brandeis.edu/webservices/tools
+Redirect permanent /wgs http://www.brandeis.edu/programs/wgs
+RedirectMatch permanent (?i)/whatsyourplan$  https://www.brandeis.edu/global/gwu/
+Redirect permanent /wmns http://www.brandeis.edu/wgs
+Redirect /workday/_docs/Brandeis-Project-Team-Org-Chart.pdf https://www.brandeis.edu/workday/_docs/Brandeis-Project-Team-Org-Chart.pdf
+RedirectMatch /workday/_docs/restricted(.*) https://www.brandeis.edu/workday/_docs/restricted$1
+Redirect /workday/testing/documents.html https://www.brandeis.edu/workday/testing/documents.html
+Redirect /workday/testing/scenarios/E2Escenarios.html https://www.brandeis.edu/workday/testing/scenarios/E2Escenarios.html
+Redirect permanent /writing http://www.brandeis.edu/writingprogram
+Redirect permanent /writingprogram/center http://www.brandeis.edu/writingprogram/writingcenter
+Redirect /wsrc/portal https://www.brandeis.edu/wsrc/portal
+RedirectMatch ^/wsrc/(abir-am|adelman|ballard|barkai|barnett|berg|berger|blank|bond|borrie|bouvard|byrne|caldwell|coplon|corbato|craddock|curtis|danforth|dashzeveg|doress-worters|dottolo|eini-pindyck|eisenberg|ellerman|falmagne|forman|frank|freedman|frostig|gadon|gavarini|geckler|ghosh|goldstein|gottlieb|graff|graves|gullette|gura|gutierrez|hamill|hanser|hein|isenman|jones|kadish|kahn|kahne|khainzan|lomon|lopez|lopman|maher|maiben|markson|mason|mcsweeney|mendelson|mirvis|montgomery|munn|murphy|myrvaagnes|nason|nemzoff|pololi|porter|rosen|rosenthal|rosenzweig|salper|salzer|sassen|schnitzer|shtern|silverman_e|silverman_p|swing|thomson|tyre|unger|wasserfall|wasserman|waters|wimberly|bond_l|miller|rovner|conner|leclair|ruiz_castro|lindert|rao|rivo|ruthchild|curtin|rosenthal_a|boehm|chears)$ /wsrc/scholars/profiles/$1.html
+Redirect permanent /wsrc/scholars/profiles/Fishbayn.html http://www.brandeis.edu/wsrc/scholars/profiles/joffe.html
+
+
+RedirectMatch ^/youngleaders/israel /youthsummit/israel 
+RedirectMatch ^/youthsummit/$ /precollege/global-youth-summit
+RedirectMatch ^/youthsummit$ /precollege/global-youth-summit
+RedirectMatch /youthsummit /precollege/global-youth-summit
+
+###############
+## Registrar ##
+###############
+
+## redirects -- legacy ##
+Redirect permanent /registrar/reg-sched/sch.html http://www.brandeis.edu/registrar/schedule/index.html
+Redirect permanent /registrar/schedule/prestats.php http://www.brandeis.edu/registrar/enrollment/index.html
+Redirect permanent /registrar/cal.html http://www.brandeis.edu/registrar/calendar
+
+## redirects -- "shortcuts" for majors/minors page ##
+## needs to be updated every term ##
+RedirectMatch permanent ^/courses/([0-9]+)/(.*) /registrar/schedule/classes/2020/Fall/$1/$2
+
+## redirects -- old to new ##
+RedirectMatch permanent  ^/registrar/schedule/schedule.php http://www.brandeis.edu/registrar/registration/schedule.html
+RedirectMatch permanent ^/registrar/schedule/search.php http://www.brandeis.edu/registrar/schedule/search?
+RedirectMatch permanent ^/registrar/schedule/stats.php http://www.brandeis.edu/registrar/schedule/enrollment/2009/Fall?
+
+RedirectMatch permanent ^/registrar/catalog.* /registrar/bulletin/provisional
+Redirect permanent /registrar/bulletin.html http://www.brandeis.edu/registrar/bulletin/provisional
+Redirect permanent /registrar/catalog/introUREQ.html http://www.brandeis.edu/registrar/bulletin/provisional/req-ugrd/distribution.html
+
+RewriteCond %{QUERY_STRING} subject_id=([^&;]*)
+RewriteRule ^/registrar/catalog/one-subject.php$ http://www.brandeis.edu/registrar/bulletin/provisional/courses/subjects/%1.html? [L]
+
+RewriteCond %{QUERY_STRING} req=([^&;]*) 
+RewriteRule ^/registrar/catalog/one-req.php$ http://www.brandeis.edu/registrar/bulletin/provisional/req-ugen/%1.html? [L]
+
+## schedule -- classes ## 
+#RewriteRule ^/registrar/schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes$1 [P]
+
+RedirectMatch  ^/registrar/schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/registrar/schedule/classes$1    
+
+# Bookstore integration link
+#RewriteRule ^/registrar/schedule/books(.*) http://registrar-prod.unet.brandeis.edu/registrar/schedule/books$1 [P]
+
+RedirectMatch ^/registrar/schedule/books(.*) http://registrar-prod.unet.brandeis.edu/registrar/schedule/books$1                               
+
+## schedule -- search/enrollment stats ##
+
+
+Redirect /registrar/schedule/enrollment/2020/Fall http://www.brandeis.edu/registrar/FallEnrollment.html
+Redirect /registrar/schedule/enrollment/2021/Spring http://www.brandeis.edu/registrar/SpringEnrollment.html
+
+RewriteCond %{QUERY_STRING} ^independent_study=1$
+# RewriteRule /registrar/schedule/enrollmentstats/2020/Fall http://www.brandeis.edu/registrar/FallEnrollmentAll.html? [L]
+# RewriteRule /registrar/schedule/enrollmentstats/2020/Fall http://www.brandeis.edu/registrar/FallEnrollment.html
+
+RewriteCond %{QUERY_STRING} ^independent_study=1$
+# RewriteRule /registrar/schedule/enrollmentstats/2021/Spring http://www.brandeis.edu/registrar/SpringEnrollmentAll.html? [L]
+# RewriteRule /registrar/schedule/enrollmentstats/2021/Spring http://www.brandeis.edu/registrar/SpringEnrollment.html
+
+RedirectMatch permanent ^/registrar/schedule/enrollment(/.*)?$ http://www.brandeis.edu/registrar/schedule/enrollmentstats$1
+
+RewriteRule ^/registrar/schedule/(search|enrollmentstats)(/.*)?$ http://registrar-prod.unet.brandeis.edu/registrar/schedule/$1$2 [P]
+RewriteRule ^/registrar/schedule/(search)(/.*)?$ http://registrar-prod.unet.brandeis.edu/registrar/schedule/$1$2 [P]
+ 
+## schedule -- course ##
+RewriteRule ^/registrar/schedule/course(.*) http://registrar-prod.unet.brandeis.edu/registrar/schedule/course$1 [P]
+
+## schedule -- docs ##
+#RewriteRule ^/schedule-docs(.*) http://registrar-prod.unet.brandeis.edu/schedule-docs$1 [P]
+
+RedirectMatch ^/schedule-docs(.*) https://registrar-prod.unet.brandeis.edu/schedule-docs$1
+
+## bulletin -- subject ##
+RewriteRule ^/registrar/bulletin/provisional/courses/subjects/([0-9]+)\.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/subject/$1 [P]
+
+## bulletin -- requirement ##
+#RewriteRule ^/registrar/bulletin/provisional/req-ugen(/index\.html)?$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement-index [P]
+#RewriteRule ^/registrar/bulletin/provisional/req-ugen/(.*)\.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement/$1 [P]
+RewriteRule ^/registrar/bulletin/provisional/req-ugrd/qr.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement/qr [P]
+RewriteRule ^/registrar/bulletin/provisional/req-ugrd/nw.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement/nw [P]
+RewriteRule ^/registrar/bulletin/provisional/req-ugrd/fl.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement/fl [P]
+RewriteRule ^/registrar/bulletin/provisional/req-ugrd/oc.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement/oc [P]
+RewriteRule ^/registrar/bulletin/provisional/req-ugrd/wi.html$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/requirement/wi [P]
+
+## bulletin -- course ##
+RewriteRule  ^/registrar/bulletin/provisional/course$ http://registrar-prod.unet.brandeis.edu/registrar/catalog/course [P]
+
+#########
+## GPS ##
+#########
+
+## rabbgrad redirects ##
+RewriteCond %{QUERY_STRING} ^prog_id=17$
+RewriteRule ^/rabbgrad/students/program.php$ http://www.brandeis.edu/gps/programscourses/programs/bif.html? [L]
+RewriteCond %{QUERY_STRING} ^prog_id=31$
+RewriteRule ^/rabbgrad/students/program.php http://www.brandeis.edu/gps/programscourses/programs/ias.html? [L]
+RewriteCond %{QUERY_STRING} ^prog_id=24$
+RewriteRule ^/rabbgrad/students/program.php http://www.brandeis.edu/gps/programscourses/programs/itm.html? [L]
+RewriteCond %{QUERY_STRING} ^prog_id=20$
+RewriteRule ^/rabbgrad/students/program.php http://www.brandeis.edu/gps/programscourses/programs/pjm/index.html? [L]
+RewriteCond %{QUERY_STRING} ^prog_id=33$
+RewriteRule ^/rabbgrad/students/program.php http://www.brandeis.edu/gps/programscourses/programs/vtm.html? [L]
+RewriteCond %{QUERY_STRING} ^prog_id=15$
+RewriteRule ^/rabbgrad/students/program.php http://www.brandeis.edu/gps/programscourses/programs/seg.html? [L]
+
+RewriteCond %{QUERY_STRING} ^prog_id=17$
+RewriteRule ^/rabbgrad/visitors/program.php$ http://www.brandeis.edu/gps/programscourses/programs/bif.html? [L]
+RewriteCond %{QUERY_STRING} ^prog_id=31$
+RewriteRule ^/rabbgrad/visitors/program.php http://www.brandeis.edu/gps/programscourses/programs/ias.html? [L]
+RewriteCond %{QUERY_STRING} ^prog_id=24$
+RewriteRule ^/rabbgrad/visitors/program.php http://www.brandeis.edu/gps/programscourses/programs/itm.html? [L]
+RewriteCond %{QUERY_STRING} ^prog_id=20$
+RewriteRule ^/rabbgrad/visitors/program.php http://www.brandeis.edu/gps/programscourses/programs/pjm/index.html? [L]
+RewriteCond %{QUERY_STRING} ^prog_id=33$
+RewriteRule ^/rabbgrad/visitors/program.php http://www.brandeis.edu/gps/programscourses/programs/vtm.html? [L]
+RewriteCond %{QUERY_STRING} ^prog_id=15$
+RewriteRule ^/rabbgrad/visitors/program.php http://www.brandeis.edu/gps/programscourses/programs/seg.html? [L]
+
+RedirectMatch permanent ^/rabbgrad.*program.* /gps/programscourses/programs#
+RedirectMatch permanent ^/rabbgrad.*course.* /gps/programscourses
+RedirectMatch permanent ^/rabbgrad.*schedule.* /gps/programscourses/schedule
+RedirectMatch permanent ^/rabbgrad.* /gps
+
+## gps faculty guide ##
+RedirectMatch permanent ^/gps/students/faculty.*$ /gps/programscourses/facultyguide/
+
+## schedule ##
+RedirectMatch permanent ^/gps/courses/schedule.html$ /gps/courses/schedule/classes
+ProxyPass /gps/courses/schedule http://registrar-prod.unet.brandeis.edu/gps/schedule
+ProxyPassReverse /gps/courses/schedule http://registrar-prod.unet.brandeis.edu/gps/schedule
+
+## courses ##
+#RewriteRule ^/gps/courses/courselist.* http://registrar-prod.unet.brandeis.edu/gps/catalog/courses [P]
+
+## course ##
+RewriteRule ^/gps/courses/course$ http://registrar-prod.unet.brandeis.edu/gps/catalog/course [P]
+#RewriteRule ^/gps/courses/programs/listings/(.*)\.html$ http://registrar-prod.unet.brandeis.edu/gps/catalog/program/$1 [P]
+
+#facultyguide#
+#GPS now wants to use the main guide instead of their version:
+RedirectMatch permanent ^/gps/facultyguide$ /facultyguide/school.html?school=RABB
+RedirectMatch permanent ^/gps/facultyguide/$ /facultyguide/school.html?school=RABB
+RedirectMatch permanent ^/gps/facultyguide/index.html$ /facultyguide/school.html?school=RABB
+RedirectMatch permanent ^/gps/facultyguide/(.*) /facultyguide/$1
+
+RedirectMatch permanent ^/gps/programscourses/facultyguide$ /facultyguide/school.html?school=RABB
+RedirectMatch permanent ^/gps/programscourses/facultyguide/$ /facultyguide/school.html?school=RABB
+RedirectMatch permanent ^/gps/programscourses/facultyguide/index.html$ /facultyguide/school.html?school=RABB
+RedirectMatch permanent ^/gps/programscourses/facultyguide/(.*) /facultyguide/$1
+
+
+
+RewriteCond %{REQUEST_URI} !^(.*)/(facguide)/design/(.*)
+RewriteRule ^(.*)/(facguide)/(.*) http://www.brandeis.edu$1/facultyguide/$3 [R=301,L]
+RedirectMatch permanent ^(.*)/(facultyguide)/design/(.*) http://www.brandeis.edu$1/facguide/design/$3
+
+RedirectMatch ^(.*)/(facultyguide)/?$ http://www.brandeis.edu$1/$2/index.html
+RedirectMatch ^(.*)/(facultyguide)/faculty$ http://www.brandeis.edu$1/$2/person.html
+RedirectMatch ^(.*)/(facultyguide)/art_sciences$ http://www.brandeis.edu$1/$2/arts-sciences.html
+RedirectMatch ^(.*)/(facultyguide)/([^/.]+)$ http://www.brandeis.edu$1/$2/$3.html
+
+RewriteCond %{REQUEST_URI} !^/gps/facultyguide(.*)
+RewriteCond %{REQUEST_URI} !^/gps/programscourses/facultyguide(.*)
+
+RewriteCond %{REQUEST_URI} !^/departments/psych/people/facultyguide(.*)
+RewriteCond %{REQUEST_URI} !^/departments/history/faculty/facultyguide(.*)
+RewriteCond %{REQUEST_URI} !^/departments/grall/faculty/facultyguide(.*)
+RewriteCond %{REQUEST_URI} !^/departments/politics/people/facultyguide(.*)
+RewriteCond %{REQUEST_URI} !^/global/faculty/facultyguide/index.html
+RewriteCond %{REQUEST_URI} !^/programs/sjsp/people/facultyguide(.*)
+RewriteCond %{REQUEST_URI} !^/programs/filmstudies/facultyguide(.*)
+RewriteRule ^(.*)/(facultyguide)/([^/]+)\.html$ http://apps.brandeis.edu/facguide/$1/facguide/$3 [P]
+
+#People Directory
+RedirectMatch permanent ^/search/directory.* http://www.brandeis.edu/directory
+RedirectMatch permanent ^/directory$ http://www.brandeis.edu/directory/
+ProxyPass /directory/ http://apps.brandeis.edu/phonebook/
+ProxyPassReverse /directory/ http://apps.brandeis.edu/phonebook/
+ProxyPass /phonebook-docs/ http://apps.brandeis.edu/phonebook-docs/
+ProxyPassReverse /phonebook-docs/ http://apps.brandeis.edu/phonebook-docs/ 
+ProxyPass /directory-mobile/ http://apps.brandeis.edu/phonebook-mobile/
+ProxyPassReverse /directory-mobile/ http://apps.brandeis.edu/phonebook-mobile/
+#RewriteCond %{QUERY_STRING} (^|&)noredirect=true(&|$)
+#RewriteRule ^ - [CO=mredir:0:%{HTTP_HOST}]
+#RewriteCond %{HTTP_USER_AGENT} "android|blackberry|ipad|iphone|ipod|iemobile|opera mobile|palmos|webos|googlebot-mobile" [NC]
+#RewriteCond %{REQUEST_URI} !^/directory-mobile(.*)$
+#RewriteCond %{QUERY_STRING} !(^|&)noredirect=true(&|$) 
+#RewriteCond %{HTTP_COOKIE} !^.*mredir=0.*$ [NC]
+#RewriteRule ^/directory(.*)$ /directory-mobile$1 [L,R=302]
+
+RedirectMatch ^/directory-mobile$ http://www.brandeis.edu/directory-mobile/
+
+###############
+##    IBS    ##
+###############
+
+#RewriteRule ^/global/academics/course-catalog/ http://webtest.brandeis.edu/global/academics/course-catalog/index [L]
+RewriteRule  ^/global/academics/course-catalog/index.html http://www.brandeis.edu/global/academics/course-catalog/classes [L]
+
+ProxyPass /global/academics/course-catalog/index http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/classes
+ProxyPassReverse /global/academics/course-catalog/index http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/classes
+
+ProxyPass /global/academics/course-catalog/classes http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/classes
+ProxyPassReverse /global/academics/course-catalog/classes http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/classes
+
+ProxyPass /global/academics/course-catalog/course http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/course
+ProxyPassReverse /global/academics/course-catalog/course http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/course
+
+ProxyPass /global/academics/course-catalog/books http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/books
+ProxyPassReverse /global/academics/course-catalog/books http://registrar-prod.unet.brandeis.edu/course/schedule/global/academics/course-catalog/books
+
+
+#SFS Tuition Calculator
+
+#ProxyPass /sfs/tuition-calculator http://apps.brandeis.edu/tuition/index
+#ProxyPassReverse /sfs/tuition-calculator http://apps.brandeis.edu/tuition/index
+RewriteRule /sfs/tuition-calculator/index.html http://apps.brandeis.edu/tuition/index [P]
+
+
+#JBS
+
+RewriteRule /jbs/course-schedule/schedule.html http://registrar-prod.unet.brandeis.edu/course/schedule/jbs/course-schedule/classes [P]
+RewriteRule /jbs/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/jbs/course-schedule/classes$1 [P]
+RewriteRule /jbs/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/jbs/course-schedule/course$1 [P]
+
+#Econ                                                                                                                                                                                    
+#RedirectMatch /departments/economics/course-schedule/index.html /departments/economics/course-schedule/schedule.html
+#RewriteRule /departments/economics/course-schedule/schedule.html http://registrar-prod.unet.brandeis.edu/course/schedule/departments/economics/course-schedule/classes [P]
+#RewriteRule /departments/economics/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/departments/economics/course-schedule/classes$1 [P]
+#RewriteRule /departments/economics/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/departments/economics/course-schedule/course$1 [P]
+
+#Business                                                                                                                                                                                
+#RedirectMatch /programs/business/course-schedule/index.html /programs/business/course-schedule/schedule.html
+#RewriteRule /programs/business/course-schedule/schedule.html http://registrar-prod.unet.brandeis.edu/course/schedule/programs/business/course-schedule/classes [P]
+#RewriteRule /programs/business/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/programs/business/course-schedule/classes$1 [P]
+#RewriteRule /programs/business/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/programs/business/course-schedule/course$1 [P]
+
+
+#IMES                                                                                                                                                                                          
+#RedirectMatch /programs/imes/course-schedule/index.html /programs/imes/course-schedule/schedule.html
+#RewriteRule /programs/imes/course-schedule/schedule.html http://registrar-prod.unet.brandeis.edu/course/schedule/programs/imes/course-schedule/classes [P]
+#RewriteRule /programs/imes/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/programs/imes/course-schedule/classes$1 [P]
+#RewriteRule /programs/imes/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/programs/imes/course-schedule/course$1 [P]
+
+#New Education
+RewriteRule /education/course-schedule/index.html http://registrar-prod.unet.brandeis.edu/course/schedule/education/course-schedule/classes [P]
+RewriteRule /education/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/education/course-schedule/classes$1 [P]
+RewriteRule /education/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/education/course-schedule/course$1 [P]
+
+
+#New IMES
+RewriteRule /islamic-middle-eastern/undergraduate/course-schedule/index.html http://registrar-prod.unet.brandeis.edu/course/schedule//islamic-middle-eastern/undergraduate/course-schedule/classes [P]
+RewriteRule /islamic-middle-eastern/undergraduate/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/islamic-middle-eastern/undergraduate/course-schedule/classes$1 [P]
+RewriteRule /islamic-middle-eastern/undergraduate/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/islamic-middle-eastern/undergraduate/course-schedule/course$1 [P]
+
+
+#New Journalism
+RewriteRule /journalism/course-schedule/index.html http://registrar-prod.unet.brandeis.edu/course/schedule/journalism/course-schedule/classes [P]
+RewriteRule /journalism/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/journalism/course-schedule/classes$1 [P]
+RewriteRule /journalism/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/journalism/course-schedule/course$1 [P]
+
+
+
+#New Philosophy
+RewriteRule /philosophy/courses/course-schedule/index.html http://registrar-prod.unet.brandeis.edu/course/schedule/philosophy/courses/course-schedule/classes [P]
+RewriteRule /philosophy/courses/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/philosophy/courses/course-schedule/classes$1 [P]
+RewriteRule /philosophy/courses/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/philosophy/courses/course-schedule/course$1 [P]
+
+#New SQS
+RewriteRule /sexuality-queer/course-schedule/index.html http://registrar-prod.unet.brandeis.edu/course/schedule/sexuality-queer/course-schedule/classes [P]
+RewriteRule /sexuality-queer/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/sexuality-queer/course-schedule/classes$1 [P]
+RewriteRule /sexuality-queer/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/sexuality-queer/course-schedule/course$1 [P]
+
+
+#Linguistics
+
+RedirectMatch /programs/linguistics/undergrad/courses.html /programs/linguistics/undergrad/course-schedule/schedule.html
+RedirectMatch /programs/linguistics/undergrad/course-schedule/index.html /programs/linguistics/undergrad/course-schedule/schedule.html
+RewriteRule /programs/linguistics/undergrad/course-schedule/schedule.html http://registrar-prod.unet.brandeis.edu/course/schedule/programs/linguistics/undergrad/course-schedule/classes [P]
+RewriteRule /programs/linguistics/undergrad/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/programs/linguistics/undergrad/course-schedule/classes$1 [P]
+RewriteRule /programs/linguistics/undergrad/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/programs/linguistics/undergrad/course-schedule/course$1 [P]
+
+
+#Comp Sci Grad
+
+
+RedirectMatch /departments/computer-science/graduate/course-schedule/index.html /departments/computer-science/graduate/course-schedule/schedule.html
+RewriteRule /departments/computer-science/graduate/course-schedule/schedule.html http://registrar-prod.unet.brandeis.edu/course/schedule/departments/computer-science/graduate/course-schedule/classes [P]
+RewriteRule /departments/computer-science/graduate/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/departments/computer-science/graduate/course-schedule/classes$1 [P]
+RewriteRule /departments/computer-science/graduate/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/departments/computer-science/graduate/course-schedule/course$1 [P]
+
+RedirectMatch /departments/computer-science/course-schedule/index.html /departments/computer-science/course-schedule/schedule.html
+RewriteRule /departments/computer-science/course-schedule/schedule.html http://registrar-prod.unet.brandeis.edu/course/schedule/departments/computer-science/course-schedule/classes [P]
+RewriteRule /departments/computer-science/course-schedule/classes(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/departments/computer-science/course-schedule/classes$1 [P]
+RewriteRule /departments/computer-science/course-schedule/course(.*) http://registrar-prod.unet.brandeis.edu/course/schedule/departments/computer-science/course-schedule/course$1 [P]
+
+
+
+
+#Summer School
+
+RewriteRule ^/summer/courses/offerings.php http://arachne.unet.brandeis.edu/summer/courses/offerings.php [P]
+RewriteRule ^/summer/courses/hsofferings.php http://arachne.unet.brandeis.edu/summer/courses/hsofferings.php [P]
+
+RedirectMatch /registrar/diplomas/cediploma-validation.html https://www.brandeis.edu/registrar/diplomas/cediploma-validation.html
+RedirectMatch /registrar/diplomas/cediploma-orders.html https://www.brandeis.edu/registrar/diplomas/cediploma-orders.html
+
+#SFS New template redirects
+RedirectMatch ^/sfs/$  /student-financial-services
+RedirectMatch ^/sfs/index.html$  /student-financial-services
+RedirectMatch ^/sfs$  /student-financial-services
+RedirectMatch /sfs/tuition-calculator/index.html /student-financial-services/tuition-calculator/index.html
+RedirectMatch /sfs/tuition-calculator/tuition.html /student-financial-services/tuition-calculator/index.html
+RedirectMatch /sfs/jobs/index.html /student-financial-services/employment/jobs/index.html
+RedirectMatch /sfs/jobs/offcampus-fws/index.html /student-financial-services/employment/jobs/offcampus-fws/index.html
+RedirectMatch /sfs/jobs/offcampus-nonfws/index.html /student-financial-services/employment/jobs/offcampus-nonfws/index.html
+RedirectMatch /sfs/jobs/offcampusemployers.html /student-financial-services/employment/jobs/off-campus-employers.html
+RedirectMatch /sfs/jobs/oncampusemployers.html /student-financial-services/employment/jobs/on-campus-employers.html
+RedirectMatch /sfs/news/index.html /student-financial-services/news/index.html
+RedirectMatch /sfs/forms.html /student-financial-services/forms.html
+RedirectMatch ^/sfs/contact$ /student-financial-services/contact/index.html
+RedirectMatch ^/sfs/contact/$ /student-financial-services/contact/index.html
+RedirectMatch /sfs/contact/index.html /student-financial-services/contact/index.html
+RedirectMatch /sfs/contact/staff.html /student-financial-services/contact/staff.html
+RedirectMatch ^/sfs/finaid$ /student-financial-services/financial-aid/
+RedirectMatch ^/sfs/finaid/$ /student-financial-services/financial-aid/
+RedirectMatch /sfs/finaid/index.html /student-financial-services/financial-aid/
+RedirectMatch /sfs/finaid/plus-info.html /student-financial-services/financial-aid/plus-info.html
+RedirectMatch /sfs/finaid/filing.html /student-financial-services/financial-aid/filing.html
+RedirectMatch /sfs/finaid/apply.html /student-financial-services/financial-aid/apply/index.html
+RedirectMatch /sfs/finaid/apply-first.html /student-financial-services/financial-aid/apply/index.html
+RedirectMatch /sfs/finaid/apply-cont.html /financial-aid/apply/continuing-students.html
+RedirectMatch /sfs/finaid/apply-intl.html /student-financial-services/financial-aid/apply/international-students.html
+RedirectMatch /sfs/finaid/fin_options.html /student-financial-services/financial-aid/options/index.html
+RedirectMatch /sfs/finaid/10month.html /student-financial-services/financial-aid/options/index.html
+RedirectMatch /sfs/finaid/edloans.html /student-financial-services/financial-aid/options/index.html
+RedirectMatch /sfs/finaid/other.html /student-financial-services/financial-aid/options/index.html
+RedirectMatch ^/sfs/scholarships$ /student-financial-services/scholarships/index.html
+RedirectMatch ^/sfs/scholarships/$ /student-financial-services/scholarships/index.html
+RedirectMatch ^/sfs/scholarships/index.html$ /student-financial-services/scholarships/index.html
+RedirectMatch /sfs/scholarships/meritschols.html /student-financial-services/scholarships/merit.html
+RedirectMatch /sfs/scholarships/meritscholsexp.html /student-financial-services/scholarships/merit.html
+RedirectMatch /sfs/scholarships/meritscholsintl.html /student-financial-services/scholarships/international.html
+RedirectMatch /sfs/scholarships/meritrenewal.html /student-financial-services/scholarships/renewal.html
+RedirectMatch /sfs/scholarships/outside/index.html /student-financial-services/scholarships/outside.html
+RedirectMatch /sfs/scholarships/yellowribbon.html /student-financial-services/scholarships/yellow-ribbon.html
+RedirectMatch ^/sfs/studentaccounts$ /student-financial-services/student-accounts/index.html
+RedirectMatch ^/sfs/studentaccounts/$ /student-financial-services/student-accounts/index.html
+RedirectMatch /sfs/studentaccounts/index.html /student-financial-services/student-accounts/index.html
+RedirectMatch /sfs/studentaccounts/update.html /student-financial-services/student-accounts/index.html
+RedirectMatch /sfs/studentaccounts/gradguard.html /student-financial-services/student-accounts/gradguard.html
+RedirectMatch /sfs/studentaccounts/dep.html /student-financial-services/student-accounts/deposit.html
+RedirectMatch /sfs/studentaccounts/forms.html /student-financial-services/student-accounts/refund.html
+RedirectMatch /sfs/studentaccounts/health.html /student-financial-services/student-accounts/health.html
+RedirectMatch /sfs/studentaccounts/late.html /student-financial-services/student-accounts/late.html
+RedirectMatch /sfs/studentaccounts/payment.html /student-financial-services/student-accounts/payment.html
+RedirectMatch /sfs/studentaccounts/sage.html /student-financial-services/student-accounts/sage.html
+RedirectMatch /sfs/studentaccounts/1098t.html /student-financial-services/student-accounts/1098t.html
+RedirectMatch /sfs/employment/index.html /student-financial-services/employment/index.html
+RedirectMatch /sfs/employment/employmentstu.html /student-financial-services/employment/students.html
+RedirectMatch /sfs/employment/employmentsup.html /student-financial-services/employment/supervisors.html
+RedirectMatch /sfs/employment/forms.html /student-financial-services/employment/forms.html
+RedirectMatch /sfs/employment/faqs.html /student-financial-services/employment/faq.html
+RedirectMatch /sfs/employment/oncampusemployers.html /student-financial-services/employment/on-campus-employers.html
+RedirectMatch /sfs/employment/bussinfo.html /student-financial-services/employment/buss-info.html
+RedirectMatch /sfs/loans/index.html /student-financial-services/loans/index.html
+RedirectMatch /sfs/loans/PLUSAppIns.html /student-financial-services/loans/plus-application.html
+RedirectMatch /sfs/loans/GradPLUSAppIns.html /student-financial-services/loans/grad-plus-application.html
+RedirectMatch /sfs/loans/lcounseling.html /student-financial-services/loans/entrance-counseling.html
+RedirectMatch /sfs/loans/xcounseling.html /student-financial-services/loans/exit-counseling.html
+RedirectMatch /sfs/loans/lforms.html /student-financial-services/loans/forms.html
+RedirectMatch /sfs/loans/lconsolidation.html /student-financial-services/loans/consolidation.html
+RedirectMatch /sfs/studentaccounts/due.html /student-financial-services/student-accounts/due.html
+RedirectMatch ^/sfs/tuition-calculator$ /student-financial-services/tuition-calculator/index.html
+RedirectMatch ^/sfs/tuition-calculator/$ /student-financial-services/tuition-calculator/index.html
+RedirectMatch ^/sfs/employment/faqs-students.html /student-financial-services/employment/faqs.html
+RedirectMatch ^/sfs/satisfactionsurvey.html /student-financial-services/satisfactionsurvey.html
+RedirectMatch ^/sfs/contact/code.html /student-financial-services/contact/code.html
+RedirectMatch ^/j-caste https://journals.library.brandeis.edu/index.php/caste/index
+
+
+RewriteRule /publicsafety/van-shuttle/branvan-reservation.html https://www.brandeis.edu/publicsafety/van-shuttle/branvan-reservation.html
+
+
+RedirectMatch ^/faculty-senate/meetings/videos.html https://www.brandeis.edu/faculty-senate/meetings/videos.html
+
+RedirectMatch /its/_files/restricted(.*) https://www.brandeis.edu/its/_files/restricted$1

@@ -1,0 +1,7 @@
+# envvars specific to WWW Content configuration.
+
+# a reasonable but brief path:
+PATH=/usr/local/bin:/usr/bin:/bin
+
+# make sure our middleware libraries are loaded up:
+export LD_LIBRARY_PATH=/usr/public/lib:$LD_LIBRARY_PATH

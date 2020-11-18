@@ -1,0 +1,4 @@
+AddOutputFilterByType SUBSTITUTE text
+
+Substitute "s|http://www.google.com|https://www.google.com|ni"
+     

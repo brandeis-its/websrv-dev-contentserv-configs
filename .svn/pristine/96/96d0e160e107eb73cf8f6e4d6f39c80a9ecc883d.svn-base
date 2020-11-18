@@ -1,0 +1,38 @@
+   Redirect /staff/resources https://www.brandeis.edu/lts/staff/resources    
+   RedirectMatch ^/about/news/projects/sbra/securedocs(.*)$ https://www.brandeis.edu/lts/about/news/projects/sbra/securedocs$1
+   RedirectMatch ^/securedocs(.*)$ https://www.brandeis.edu/lts/securedocs$1
+   Redirect /techresources/hwsoftware/software/softwarerequestform.html https://www.brandeis.edu/lts/techresources/hwsoftware/software/softwarerequestform.html
+   Redirect /teachlearn/multimedia/orc https://www.brandeis.edu/lts/teachlearn/multimedia/ocr
+   Redirect /about/mission/program/strategic-plan https://www.brandeis.edu/lts/about/mission/program/strategic-plan
+   Redirect /research/help/ask http://lts.brandeis.edu/research/help
+   Redirect /research/books_articles/books/reqpurchase.html https://www.brandeis.edu/lts/research/books_articles/books/reqpurchase.html
+   Redirect /about/policies/collection/reqpurchase.html https://www.brandeis.edu/lts/research/books_articles/books/reqpurchase.html
+   Redirect 301 /techhelp/web/cascade/training.html http://www.brandeis.edu/communications/webcommunications/training.html 
+   Redirect 301 /techhelp/web/cascade/guide.html http://www.brandeis.edu/communications/webcommunications/pdfs/cascadeguide.pdf
+   RedirectMatch ^/research/books/(.*) http://lts.brandeis.edu/research/books_articles/books/index.html
+   RedirectMatch ^/research/articles/(.*) http://lts.brandeis.edu/research/books_articles/articles/index.html
+   RedirectMatch ^/teachlearn/workshops/(.*) http://lts.brandeis.edu/teachlearn/support
+   RedirectMatch ^/techhelp/web http://lts.brandeis.edu/techhelp/content/cascade-cms.html
+   RedirectMatch ^/research/help/copyright/resources.html http://brandeis.libguides.com/copyright
+   RedirectMatch ^/research/borrowing(.*) /borrowing/index.html   
+   RewriteCond %{REQUEST_URI} !^/teachlearn
+   RedirectMatch ^/teachlearn/spaces /location/labs/index.html
+   RedirectMatch ^/teachlearn/getz /location/labs/index.html
+   RedirectMatch ^/teachlearn/multimedia/eventsupport.html /techhelp/content/eventsupport.html 
+   RedirectMatch ^/teachlearn(.*) /courses/index.html  
+   RewriteCond %{REQUEST_URI} !^/about/news/projects
+   RedirectMatch ^/about/news/projects/media_solution/index.html  /governance/projects/media_solution/index.html
+   RedirectMatch ^/about/news/projects(.*) /governance/index.html
+   RedirectMatch ^/about/pmo(.*) /governance/index.html
+   RedirectMatch ^/courses/latte.html http://latte.brandeis.edu  
+   RedirectMatch ^/about/location(.*) /location/index.html
+   RedirectMatch ^/about/projects(.*) /governance/projects/index.html       
+   RedirectMatch ^/about/mission(.*)  /about/index.html
+   RedirectMatch ^/zeta/images/googleWatermark.gif https://www.brandeis.edu/zeta/images/googleWatermark.gif
+   RedirectMatch ^/staff/alerts/(.*).php /staff/alerts/cms-doc.html
+   RedirectMatch ^/apps/newforms/software.php /techhelp/content/software-purchase.html 
+   RedirectMatch ^/techresources/telecom(.*) /techhelp/content/iptv.html
+   RedirectMatch ^/techresources/webpublishing/blogs.html /techhelp/content/blogs.html
+RedirectMatch ^/research/archives-speccoll/events/baskin/(.*) /research/archives-speccoll/exhibits/baskin/$1
+RedirectMatch ^/techhelp/content/25-live/secure(.*) https://www.brandeis.edu/lts/techhelp/content/25-live/secure$1 
+RedirectMatch ^/governance/webform/(.*)$ /governance/index.html

@@ -1,0 +1,130 @@
+
+
+<VirtualHost *:80>
+	  RewriteEngine on
+	  ServerName websrv-dev.unet.brandeis.edu
+    	  ServerAlias websrv-dev.unet webtest.brandeis.edu webtest
+#    DocumentRoot /u1/www
+#    Include /var/applications/contentserv/production/conf/bens-alert.conf
+#    <Files ~ "(^\.ht|\.con$|\.pwd$|error_log|access_log|\.inc$|\.cf$|~|\.old$|\.bak$|\.DS_Store$)">
+#    	   Order allow,deny
+#	   Deny from all
+# WWW Redirects
+#Include /var/applications/contentserv/production/conf/www-redirects.conf  
+	   DocumentRoot /u1/www
+	   Include /var/applications/contentserv/production/conf/bens-alert.conf
+	   <Files ~ "(^\.ht|\.con$|\.pwd$|error_log|access_log|\.inc$|\.cf$|~|\.old$|\.bak$|\.DS_Store$)">
+	   	  Order allow,deny
+		  Deny from all
+	    </Files>
+	    RewriteEngine On
+
+
+            RewriteCond %{HTTPS} off
+	    RewriteCond %{HTTP_HOST} !^webtest$
+	    RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+
+            RewriteCond %{HTTP_HOST} ^webtest$
+	    RewriteRule ^(.*)$ https://webtest.brandeis.edu/$1 [L]
+
+</VirtualHost>
+
+
+<VirtualHost *:443>
+	     ServerName websrv-dev.unet.brandeis.edu  
+	     ServerAlias websrv-dev.unet webtest.brandeis.edu webtest
+#    DocumentRoot /u1/www
+#    Include /var/applications/contentserv/production/conf/bens-alert.conf
+#    <Files ~ "(^\.ht|\.con$|\.pwd$|error_log|access_log|\.inc$|\.cf$|~|\.old$|\.bak$|\.DS_Store$)">
+#           Order allow,deny
+#           Deny from all
+#    </Files>
+#    SSLEngine on
+#    SSLCertificateFile    /var/applications/contentserv/production/ssl/webtest.crt
+#    SSLCertificateKeyFile  /var/applications/contentserv/production/ssl/webtest.key
+#    SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+    # WWW Redirects                                                                                                                                               
+#    Include /var/applications/contentserv/production/conf/cosign-client.conf
+#    Include /var/applications/contentserv/production/conf/ssl-redirects.conf
+#    Include /var/applications/contentserv/production/conf/ssl-cosign.conf
+
+     DocumentRoot /u1/www
+     Include /var/applications/contentserv/production/conf/bens-alert.conf
+     <Files ~ "(^\.ht|\.con$|\.pwd$|error_log|access_log|\.inc$|\.cf$|~|\.old$|\.bak$|\.DS_Store$)">
+     	    Order allow,deny
+	    Deny from all
+     </Files>
+     SSLEngine on
+     SSLCertificateFile    /var/applications/contentserv/production/ssl/webtest.crt
+     SSLCertificateKeyFile  /var/applications/contentserv/production/ssl/webtest.key
+     SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+     # WWW Redirects
+     Include /var/applications/contentserv/production/conf/cosign-client.conf
+     Include /var/applications/contentserv/production/conf/combined-redirects.conf
+     Include /var/applications/contentserv/production/conf/ssl-shib.conf
+     Include /var/applications/contentserv/production/conf/map-redirects.conf	  
+
+     AddOutputFilterByType SUBSTITUTE text
+     Substitute "s|www.brandeis.edu/_files/svg/svgstore.svg|webtest.brandeis.edu/_files/svg/svgstore.svg|ni"
+     Substitute "s|www.brandeis.edu/_files/updates/svg/svgstore.svg|webtest.brandeis.edu/_files/updates/svg/svgstore.svg|ni"
+     Substitute "s|www.brandeis.edu/rose/_files/svg/svgstore.svg|webtest.brandeis.edu/rose/_files/svg/svgstore.svg|ni"
+     Substitute "s|www.brandeis.edu/_files/js/|webtest.brandeis.edu/_files/js/|i"
+     Substitute "s|//www.brandeis.edu/global/_files/img/svgstore.svg|//webtest.brandeis.edu/global/_files/img/svgstore.svg|ni"
+	  
+     Substitute "s|=\"http://webtest.brandeis.edu|=\"https://webtest.brandeis.edu|ni"
+     Substitute "s|= \"http://webtest.brandeis.edu|= \"https://webtest.brandeis.edu|ni" 
+     Substitute "s|'http://webtest.brandeis.edu'|'https://webtest.brandeis.edu'|ni"
+
+     Substitute "s|=\"http://brandeis.edu|=\"https://webtest.brandeis.edu|ni"
+     Substitute "s|= \"http://brandeis.edu|= \"https://webtest.brandeis.edu|ni"
+     Substitute "s|'http://brandeis.edu'|'https://webtest.brandeis.edu'|ni"
+
+      Substitute "s|=\"http://www.brandeis.edu|=\"https://www.brandeis.edu|ni"
+      Substitute "s|= \"http://www.brandeis.edu|= \"https://www.brandeis.edu|ni"
+      Substitute "s|'http://www.brandeis.edu'|'https://www.brandeis.edu'|ni"
+    
+     #temporary
+     Substitute "s|https://www.brandeis.edu/schedule-docs/css/stylesheet-mod.css|/schedule-docs/css/stylesheet-mod.css|ni"
+     Substitute "s|https://www.brandeis.edu/registrar/schedule/enrollmentstats|http://www.brandeis.edu/registrar/schedule/enrollmentstats|ni"
+     Substitute "s|https://www.brandeis.edu/registrar/FallEnrollment.html|http://www.brandeis.edu/registrar/FallEnrollment.html|ni"
+     Substitute "s|https://www.brandeis.edu/registrar/SpringEnrollment.html|http://www.brandeis.edu/registrar/SpringEnrollment.html|ni"
+     
+     Substitute "s|http://gallery.mailchimp.com|https://gallery.mailchimp.com|ni"
+     Substitute "s|http://admin.brightcove.com|https://admin.brightcove.com|ni"
+     Substitute "s|http://www.google.com|https://www.google.com|ni"
+     Substitute "s|http://www.youtube.com|https://www.youtube.com|ni"
+     Substitute "s|http://s7.addthis.com|https://s7.addthis.com|ni"
+     Substitute "s|http://www.trumba.com|https://www.trumba.com|ni"
+     Substitute "s|http://disqus.com|https://disqus.com|ni"
+     Substitute "s|'http://' + disqus_shortname + '.disqus.com/embed.js'|'https://' + disqus_shortname + '.disqus.com/embed.js'|ni"
+
+     Substitute "s|Senior Vice President for Students and Enrollment</a></li>|Division of Student Affairs</a></li>|ni"
+     Substitute "s|Disability Services</a></li>|Student Accessibility Support</a></li>|ni"
+     Substitute "s|College of Arts and Sciences</a></li>|School of Arts and Sciences</a></li>|ni"
+
+     Substitute "s|brandeis.edu/svpse|brandeis.edu/student-affairs|ni"
+     Substitute "s|Jump to content</a> -|Skip Global Navigation</a>|ni"
+   
+
+#     Substitute "s|=\"http://|=\"https://|ni"
+#     Substitute "s|= \"http://|= \"https://|ni"
+#     Substitute "s|=\"https://registrar-test|=\"http://registrar-test|ni"
+#     Substitute "s|=\"https://registrar-prod|=\"http://registrar-prod|ni"
+#     Substitute "s|'http://'|'https://'|ni"
+     #Temporary, Don't redirect prod enrollmentstats links
+#     Substitute "s|=\"https://www.brandeis.edu/registrar/enrollmentstats|=\"http://www.brandeis.edu/registrar/enrollmentstats|ni"
+     #Facguide Images don't work over ssl
+#     Substitute "s|=\"https://apps-test.brandeis.edu/facultyguide/images|=\"http://apps-test.brandeis.edu/facultyguide/images|ni"
+#     Substitute "s|=\"https://images.brandeis.edu|=\"http://images.brandeis.edu|ni"	  
+     #Brandeis Judges doesn't work over ssl
+#     Substitute "s|=\"https://www.brandeisjudges.com|=\"http://www.brandeisjudges.com|ni"
+#     Substitute "s|=\"https://www.brandeis.edu/schedule-docs|=\"//webtest.brandeis.edu/schedule-docs|ni"
+     #people.brandeis.edu doesn't work over ssl
+#     Substitute "s|=\"https://people.brandeis.edu|=\"http://people.brandeis.edu|ni"
+     #bio.brandeis.edu doesn't work over ssl
+#     Substitute "s|=\"https://bio.brandeis.edu|=\"http://bio.brandeis.edu|ni"
+     #people.brandeis.edu doesn't work over ssl
+#     Substitute "s|=\"https://go.brandeis.edu|=\"http://go.brandeis.edu|ni"
+</VirtualHost>
+
+

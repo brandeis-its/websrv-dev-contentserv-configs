@@ -1,0 +1,1357 @@
+<Directory "/u1/www/webservices/tools/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+      AuthType Cosign
+      require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/humanresources/documents/staff-work-life-survey/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth                                                                                                             
+                                                                                                                                                           
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+      AuthType Cosign
+#      require user gfsdfhdfhsdh                                                                                                                          
+                                                                                                                                                           
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+
+<Directory "/u1/www/humanresources/policies/pdfs/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth                                                                                                             
+                                                                                                                                                           
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+      AuthType Cosign
+#      require user gfsdfhdfhsdh                                                                                                                          
+                                                                                                                                                           
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+
+
+
+<Directory "/u1/www/provost/guidelines/pdf/faculty-work-survey/restrict/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth                                                             
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+      AuthType Cosign
+#      require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+<Directory "/u1/www/studentlife/adpc/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+      AuthType Cosign
+      require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/departments/chemistry/chem11games/">
+        AddType application/x-httpd-php .php3 .php .phtml
+        AllowOverride all
+        php_flag engine on
+        Allow from all
+</Directory>
+<Directory "/u1/www/admissions-results/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+      AuthType Cosign
+      require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/investmanagement/trustees">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+      AuthType Cosign
+      #require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/wsrc/portal/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+      AuthType Cosign
+      require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/heller/heller/students/courses/syllabi">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService          production-web-prod
+CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+     CosignProtected On
+     AuthType Cosign
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+    AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+    AuthLDAPBindPassword "DZRQQ9Iz"
+    require ldap-filter |(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+    AddType application/x-httpd-php .php3 .php .phtml
+     AllowOverride all
+     php_flag engine on
+     order allow,deny
+     Allow from all
+</Directory>
+<Directory "/u1/www/heller/heller/students/courses/evaluations">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+     CosignProtected On
+     AuthType Cosign
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+    AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+    AuthLDAPBindPassword "DZRQQ9Iz"
+    require ldap-filter |(uid=vbosman)(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+    AddType application/x-httpd-php .php3 .php .phtml
+     AllowOverride all
+     php_flag engine on
+     order allow,deny
+     Allow from all
+</Directory>
+<Directory "/u1/www/heller/heller/directory">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+     CosignProtected On
+     AuthType Cosign
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+    AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+    AuthLDAPBindPassword "DZRQQ9Iz"
+    require ldap-filter |(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+    AddType application/x-httpd-php .php3 .php .phtml
+     AllowOverride all
+     php_flag engine on
+     order allow,deny
+     Allow from all
+</Directory>
+
+#<Directory "/u1/www/heller/heller/heller-policies">
+#SSLRequireSSL
+#CosignHostname          login.brandeis.edu
+#CosignRedirect          https://login.brandeis.edu/
+#CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+#CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+#CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+#     CosignProtected On
+#     AuthType Cosign
+#AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+#    AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+#    AuthLDAPBindPassword "DZRQQ9Iz"
+#    require ldap-filter |(uid=pokeefe)(uid=kstevens)(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+#    AddType application/x-httpd-php .php3 .php .phtml
+#     AllowOverride all
+#     php_flag engine on
+#     order allow,deny
+#     Allow from all
+#</Directory>
+
+
+#<Directory "/u1/www/heller/heller/policies">
+#SSLRequireSSL
+#CosignHostname          login.brandeis.edu
+#CosignRedirect          https://login.brandeis.edu/
+#CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+#CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+#CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+#     CosignProtected On
+#     AuthType Cosign
+#AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+#    AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+#    AuthLDAPBindPassword "DZRQQ9Iz"
+#    require ldap-filter |(uid=pokeefe)(uid=kstevens)(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+#    AddType application/x-httpd-php .php3 .php .phtml
+#     AllowOverride all
+#     php_flag engine on
+#     order allow,deny
+#     Allow from all
+#</Directory>
+
+
+<Directory "/u1/www/heller/heller/students/academics/phd/dissertation-proposals">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+     CosignProtected On
+     AuthType Cosign
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+    AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+    AuthLDAPBindPassword "DZRQQ9Iz"
+    require ldap-filter |(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+    AddType application/x-httpd-php .php3 .php .phtml
+     AllowOverride all
+     php_flag engine on
+     order allow,deny
+     Allow from all
+</Directory>
+
+<Directory "/u1/www/heller/heller/students/academics/ma-sid/masters-papers">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService          production-web-prod
+CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+     CosignProtected On
+     AuthType Cosign
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+    AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+    AuthLDAPBindPassword "DZRQQ9Iz"
+    require ldap-filter |(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+    AddType application/x-httpd-php .php3 .php .phtml
+     AllowOverride all
+     php_flag engine on
+     order allow,deny
+     Allow from all
+</Directory>
+
+<Directory "/u1/www/heller/heller/students/academics/sid/masters-papers">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService          production-web-prod
+CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+     CosignProtected On
+     AuthType Cosign
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+    AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+    AuthLDAPBindPassword "DZRQQ9Iz"
+    require ldap-filter |(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+    AddType application/x-httpd-php .php3 .php .phtml
+     AllowOverride all
+     php_flag engine on
+     order allow,deny
+     Allow from all
+</Directory>
+
+
+<Directory "/u1/www/heller/heller/research/grants">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService          production-web-prod
+CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+     CosignProtected On
+     AuthType Cosign
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+    AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+    AuthLDAPBindPassword "DZRQQ9Iz"
+    require ldap-filter |(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+    AddType application/x-httpd-php .php3 .php .phtml
+     AllowOverride all
+     php_flag engine on
+     order allow,deny
+     Allow from all
+</Directory>
+<Directory "/u1/www/assessment">
+        SSLRequireSSL
+        CosignHostname          login.brandeis.edu
+        CosignRedirect          https://login.brandeis.edu/
+        CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+        CosignService              production-web-prod
+        CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+        CosignProtected On
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+<Directory "/u1/www/mrsec/executivecommittee/">
+        SSLRequireSSL
+        CosignHostname          login.brandeis.edu
+        CosignRedirect          https://login.brandeis.edu/
+        CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+        CosignService              production-web-prod
+        CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+        CosignProtected On
+            AuthType Cosign
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+<Directory "/u1/www/osp/IACUC/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+      AuthType Cosign
+      require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+# Directories and aliases with cosign for anyone
+#<Directory "/u1/www/provost">
+#SSLRequireSSL
+#CosignHostname          login.brandeis.edu
+#CosignRedirect          https://login.brandeis.edu/
+#CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+#CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+#CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+#      CosignProtected On
+#     AuthType Cosign
+#     require user gfsdfhdfhsdh
+#      AddType application/x-httpd-php .php3 .php .phtml
+#      AllowOverride all
+#      php_flag engine on
+#      Allow from all
+#</Directory>
+
+<Directory "/u1/www/globalbrandeis/facultycollaborations/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+#     AuthType Cosign
+#     require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/lemberg/Schedule/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+#     AuthType Cosign
+#     require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/gsas/faculty">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+CosignRequireFactor     BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+     CosignProtected On
+     AuthType Cosign
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+    AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+    AuthLDAPBindPassword "DZRQQ9Iz"
+    AddType application/x-httpd-php .php3 .php .phtml
+     AllowOverride all
+     php_flag engine on
+     order allow,deny
+     Allow from all
+</Directory>
+
+<Directory "/u1/www/lts/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+#     AuthType Cosign
+#     require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/offices/procurement/forms/private/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+#     AuthType Cosign
+#     require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/latte/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+#     AuthType Cosign
+#     require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/facilities/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+#     AuthType Cosign
+#     require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/transformation/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+#     AuthType Cosign
+#     require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+<Directory "/u1/www/gads-log/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+#     AuthType Cosign
+#     require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+<Directory "/u1/www/arrc/organization/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+    </Directory>
+    <Directory "/u1/www/arrc/reports/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+    </Directory>
+ <Directory "/u1/www/trustees/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+     CosignValidReference            https://.*\.(unet|brandeis\.edu)(:.*)?/.*
+     CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+  </Directory>
+
+ <Directory "/u1/www/gps/faculty/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+  </Directory>
+<Directory "/u1/www/heller/heller/heller-policies/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+    </Directory>
+    <Directory "/u1/www/heller/heller/myHeller/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+    </Directory>
+
+<Directory "/u1/www/heller/heller/directory/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+    </Directory>
+<Directory "/u1/www/graybiel/agsolinternal/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService              production-web-prod
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+#     AuthType Cosign
+#     require user gfsdfhdfhsdh
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+<Directory "/u1/www/graybiel/images/">
+Allow from all
+</Directory>
+
+<Directory "/u1/www/lts/staff/resources/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+    </Directory>
+
+
+
+<Directory "/u1/www/otl/grants/docs/spark/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth                                                                   
+
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+    </Directory>
+
+
+
+<Directory "/u1/www/business-finance/docs/restricted/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth                                                                                                           
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+    </Directory>
+
+<Directory "/u1/www/lts/about/news/projects/sbra/securedocs/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+    </Directory>
+<Directory "/u1/www/neasc/appendices/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+#         AuthType Cosign
+#         require user gfsdfhdfhsdh
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+    </Directory>
+
+<Directory "/u1/www/capitalprojects/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+#         AuthType Cosign
+#         require user gfsdfhdfhsdh
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+</Directory>
+
+#98011 
+<Directory "/u1/www/programs/quantbio/studentinfo/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+#         require user bcaplan
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+</Directory>
+<Directory "/u1/www/publicsafety/">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService              production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+#         require user bcaplan
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+</Directory>
+ <Directory "/u1/www/publicsafety/bemco/communitycpr/instructor_portal">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService           production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+    </Directory>
+ <Directory "/u1/www/lts/techhelp/content/25-live/secure">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService           production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth                                                                                              
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          AllowOverride all
+          php_flag engine on
+          Allow from all
+    </Directory>
+
+<Directory "/u1/www/ora/compliance/acup">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth                                                                                                     
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+      AuthType Cosign
+      
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+
+<Directory "/u1/www/provost/cdo">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key \
+                        /var/applications/contentserv/production/ssl/www.crt \
+			/var/cosign/certs/CA
+CosignProtected On
+AuthType Cosign
+AddType application/x-httpd-php .php3 .php .phtml
+AllowOverride all
+php_flag engine on
+Allow from all
+</Directory>
+
+
+<Directory "/u1/www/provost/restricted">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key \
+                        /var/applications/contentserv/production/ssl/www.crt \
+			/var/cosign/certs/CA
+CosignProtected On
+AuthType Cosign
+AddType application/x-httpd-php .php3 .php .phtml
+AllowOverride all
+php_flag engine on
+Allow from all
+</Directory>
+
+
+
+<Directory "/u1/www/provost/diversity/diversitypdfs">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key \
+                        /var/applications/contentserv/production/ssl/www.crt \
+			/var/cosign/certs/CA
+CosignProtected On
+AuthType Cosign
+AddType application/x-httpd-php .php3 .php .phtml
+AllowOverride all
+php_flag engine on
+Allow from all
+</Directory>
+
+
+<Directory "/u1/www/departments/nejs/time-reporting">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth                                                                                      \
+                                                                                                                                    
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+      AuthType Cosign
+#     require user gfsdfhdfhsdh                                                                                                    \
+                                                                                                                                    
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/departments/nejs/slate">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+#CosignRequireFactor    BRANDEIS.EDU ldapauth                                                                                      \
+
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+      CosignProtected On
+      AuthType Cosign
+#     require user gfsdfhdfhsdh                                                                                                    \
+
+
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+
+# <Directory "/u1/www/gsas">
+#    SSLRequireSSL
+#    CosignHostname          login.brandeis.edu
+#    CosignRedirect          https://login.brandeis.edu/
+#    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+#    CosignService           production-web-prod
+   #CosignRequireFactor     BRANDEIS.EDU ldapauth
+#    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+#          CosignProtected On
+#          AuthType Cosign
+#          AddType application/x-httpd-php .php3 .php .phtml
+#         AllowOverride all
+#          php_flag engine on
+#          Allow from all
+#    </Directory>
+
+
+
+# Directories and aliases for non-cosign use
+<Directory "/u1/www/">
+Order allow,deny
+Deny from all
+</Directory>
+<Directory "/u1/www/home/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/epsilon/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/admissions/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/humanresources/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/humanresources/images/secure">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/givingto/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/offices/procurement/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/zeta/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+<Directory "/u1/www/search/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+<Directory "/u1/www/heller/heller/design-heller/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/heller/heller/search/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+<Directory "/u1/www/wsrc/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/bens-alert/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/buss/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/sage/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+      Redirect 301 /sage/peoplebooks http://peoplebooks.brandeis.edu
+</Directory>
+<Directory "/u1/www/heller/heller/academic/execed/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/faculty-senate/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/departments/mathematics/">
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+<Directory "/u1/www/departments/mathematics/undergraduate">
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+
+
+<Files "math22placement.html">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService 	    production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          php_flag engine on
+          Allow from all
+</Files>
+</Directory>
+
+
+
+<Directory "/u1/www/workday/_docs">
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+
+
+<Files "Brandeis-Project-Team-Org-Chart.pdf">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService 	    production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          php_flag engine on
+          Allow from all
+</Files>
+</Directory>
+
+
+
+<Directory "/u1/www/workday/testing">
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+
+
+<Files "documents.html">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService 	    production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          php_flag engine on
+          Allow from all
+</Files>
+</Directory>
+
+
+
+<Directory "/u1/www/workday/testing/scenarios">
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+
+
+<Files "E2Escenarios.html">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService 	    production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          php_flag engine on
+          Allow from all
+</Files>
+</Directory>
+
+
+<Directory "/u1/www/library/teaching/reserves">
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+
+
+<Files "latte-video.html">
+    SSLRequireSSL
+    CosignHostname          login.brandeis.edu
+    CosignRedirect          https://login.brandeis.edu/
+    CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+    CosignService 	    production-web-prod
+    #CosignRequireFactor     BRANDEIS.EDU ldapauth
+    CosignCrypto            /var/applications/contentserv/production/ssl/www.key /var/applications/contentserv/production/ssl/www.crt /var/cosign/certs/CA
+          CosignProtected On
+          AuthType Cosign
+          AddType application/x-httpd-php .php3 .php .phtml
+          php_flag engine on
+          Allow from all
+</Files>
+</Directory>
+
+<Directory "/u1/www/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      Allow from all
+</Directory>
+
+
+<Directory "/u1/www/lts/securedocs/emergency-contact">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+CosignRequireFactor     BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key \
+                        /var/applications/contentserv/production/ssl/www.crt \
+		        /var/cosign/certs/CA
+CosignProtected On
+AuthType Cosign
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter x-brandeis-enabledService=StaffApplications
+AddType application/x-httpd-php .php3 .php .phtml
+AllowOverride all
+php_flag engine on
+order allow,deny
+Allow from all
+</Directory>
+						
+<Directory "/u1/www/publicsafety/safety/forum/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key \
+                        /var/applications/contentserv/production/ssl/www.crt \
+			/var/cosign/certs/CA
+CosignProtected On
+AuthType Cosign
+AddType application/x-httpd-php .php3 .php .phtml
+AllowOverride all
+php_flag engine on
+Allow from all
+</Directory>
+
+<Directory "/u1/www/faculty-senate/ongoing-work/faculty-governance/">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key \
+                        /var/applications/contentserv/production/ssl/www.crt \
+			/var/cosign/certs/CA
+CosignProtected On
+AuthType Cosign
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter |(x-brandeis-enabledService=StaffApplications)(uid=president)(uid=ronliebowitz)(uid=ammeade)(x-brandeis-rolestatus=TrusteeACTV)(x-brandeis-rolestatus=FacultySage-EmeritusACTV)
+AddType application/x-httpd-php .php3 .php .phtml
+AllowOverride all
+php_flag engine on
+Allow from all
+</Directory>
+
+
+<Directory "/u1/www/studentlife/deansoffice/student-forums">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key \
+                        /var/applications/contentserv/production/ssl/www.crt \
+			/var/cosign/certs/CA
+CosignProtected On
+AuthType Cosign
+AddType application/x-httpd-php .php3 .php .phtml
+AllowOverride all
+php_flag engine on
+Allow from all
+</Directory>
+
+
+
+<Directory "/u1/www/dean-of-students/resources/student-forums">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key \
+                        /var/applications/contentserv/production/ssl/www.crt \
+			/var/cosign/certs/CA
+CosignProtected On
+AuthType Cosign
+AddType application/x-httpd-php .php3 .php .phtml
+AllowOverride all
+php_flag engine on
+Allow from all
+</Directory>
+
+
+
+<Directory "/u1/www/summer/summer-contacts">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+CosignRequireFactor     BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key \
+                        /var/applications/contentserv/production/ssl/www.crt \
+		        /var/cosign/certs/CA
+CosignProtected On
+AuthType Cosign
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter x-brandeis-enabledService=StaffApplications
+AddType application/x-httpd-php .php3 .php .phtml
+AllowOverride all
+php_flag engine on
+order allow,deny
+Allow from all
+</Directory>
+
+<Directory "/u1/www/workday/student/resources/info-videos.html">
+SSLRequireSSL
+CosignHostname          login.brandeis.edu
+CosignRedirect          https://login.brandeis.edu/
+CosignPostErrorRedirect https://login.brandeis.edu/post_error.html
+CosignService           production-web-prod
+CosignRequireFactor     BRANDEIS.EDU ldapauth
+CosignCrypto            /var/applications/contentserv/production/ssl/www.key \
+                        /var/applications/contentserv/production/ssl/www.crt \
+                        /var/cosign/certs/CA
+CosignProtected On
+AuthType Cosign
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require valid-user
+AddType application/x-httpd-php .php3 .php .phtml
+AllowOverride all
+php_flag engine on
+order allow,deny
+Allow from all
+</Directory>

@@ -1,0 +1,85 @@
+<VirtualHost *:80>
+RewriteEngine on
+    ServerName websrv-prod.unet.brandeis.edu
+    ServerAlias websrv-prod.unet www.brandeis.edu www
+    DocumentRoot /u1/www
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Files ~ "(^\.ht|\.con$|\.pwd$|error_log|access_log|\.inc$|\.cf$|~|\.bak$|\.DS_Store$)">
+    	   Order allow,deny
+	   Deny from all
+    </Files>
+    # WWW Redirects
+
+#    Include /var/applications/contentserv/production/conf/www-redirects.conf
+#    Include /var/applications/contentserv/production/conf/map-redirects.conf
+
+
+ RewriteEngine On
+
+            RewriteCond %{HTTPS} off
+	    RewriteCond %{HTTP_HOST} !^www$
+	    RewriteRule ^(.*)$ https://%{SERVER_NAME}$1 [R=301,L]
+
+
+	    RewriteCond %{HTTP_HOST} ^www$
+	    RewriteRule ^(.*)$ https://www.brandeis.edu/$1 [L]
+
+</VirtualHost>
+
+<VirtualHost *:443>
+      ServerName websrv-prod.unet.brandeis.edu
+    ServerAlias	 websrv-prod.unet www.brandeis.edu www
+    DocumentRoot /u1/www
+    Include /var/applications/contentserv/production/conf/bens-alert.conf
+    <Files ~ "(^\.ht|\.con$|\.pwd$|error_log|access_log|\.inc$|\.cf$|~|\.bak|\.DS_Store$)">
+           Order allow,deny
+           Deny from all
+    </Files>
+    SSLEngine on
+    SSLCertificateFile /var/applications/contentserv/production/ssl/www.crt
+    SSLCertificateKeyFile /var/applications/contentserv/production/ssl/www.key
+#   SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-new.crt
+    SSLCertificateChainFile /var/applications/contentserv/production/ssl/interm-0620.crt
+    # WWW Redirects
+
+AddOutputFilterByType SUBSTITUTE text
+
+
+Substitute "s|=\"http://brandeis.edu|=\"https://www.brandeis.edu|ni"
+Substitute "s|= \"http://brandeis.edu|= \"https://www.brandeis.edu|ni"
+Substitute "s|'http://brandeis.edu'|'https://www.brandeis.edu'|ni"
+
+Substitute "s|=\"http://www.brandeis.edu|=\"https://www.brandeis.edu|ni"
+Substitute "s|= \"http://www.brandeis.edu|= \"https://www.brandeis.edu|ni"
+Substitute "s|'http://www.brandeis.edu'|'https://www.brandeis.edu'|ni"
+
+Substitute "s|href=\"/schedule-docs/css/stylesheet-print.css\"|href=\"https://www.brandeis.edu/schedule-docs/css/stylesheet-print.css\"|ni"
+
+Substitute "s|http://gallery.mailchimp.com|https://gallery.mailchimp.com|ni"
+Substitute "s|http://admin.brightcove.com|https://admin.brightcove.com|ni"
+Substitute "s|http://www.google.com|https://www.google.com|ni"
+Substitute "s|http://www.youtube.com|https://www.youtube.com|ni"
+Substitute "s|http://s7.addthis.com|https://s7.addthis.com|ni"
+Substitute "s|http://www.trumba.com|https://www.trumba.com|ni"
+Substitute "s|http://disqus.com|https://disqus.com|ni"
+Substitute "s|'http://' + disqus_shortname + '.disqus.com/embed.js'|'https://' + disqus_shortname + '.disqus.com/embed.js'|ni" 					 
+Substitute "s|Senior Vice President for Students and Enrollment</a></li>|Division of Student Affairs</a></li>|ni"
+Substitute "s|Disability Services</a></li>|Student Accessibility Support</a></li>|ni"
+Substitute "s|College of Arts and Sciences</a></li>|School of Arts and Sciences</a></li>|ni"
+
+Substitute "s|brandeis.edu/svpse|brandeis.edu/student-affairs|ni"
+Substitute "s|Jump to content</a> -|Skip Global Navigation</a>|ni"	       
+
+#    Include /var/applications/contentserv/production/conf/cosign-client.conf
+#    Include /var/applications/contentserv/production/conf/ssl-redirects.conf
+#    Include /var/applications/contentserv/production/conf/map-redirects.conf
+#    Include /var/applications/contentserv/production/conf/ssl-cosign.conf
+#     Include /var/applications/contentserv/production/conf/ssl-shib.conf 
+
+Include /var/applications/contentserv/production/conf/cosign-client.conf
+Include /var/applications/contentserv/production/conf/combined-redirects.conf
+Include /var/applications/contentserv/production/conf/ssl-shib.conf
+Include /var/applications/contentserv/production/conf/map-redirects.conf 
+
+</VirtualHost>
+

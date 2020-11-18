@@ -1,0 +1,682 @@
+LoadModule mod_shib /usr/public/lib/shibboleth/mod_shib_22.so
+
+<Location />
+  ShibRequestSetting applicationId web
+</Location>
+
+<Location /Shibboleth.sso>
+  SetHandler shib-handler
+  Satisfy Any
+  Allow from all
+</Location>
+
+<Location "/webservices/tools">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user	      
+</Location>
+
+<Location "/humanresources/documents/staff-work-life-survey">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/humanresources/policies/pdfs">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/provost/guidelines/pdf/faculty-work-survey/restrict">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/studentlife/adpc">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Directory "/u1/www/departments/chemistry/chem11games/">
+        AddType application/x-httpd-php .php3 .php .phtml
+        AllowOverride all
+        php_flag engine on
+        Allow from all
+</Directory>
+
+<Location "/admissions-results">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/investmanagement/trustees">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+#require valid-user
+</Location>
+
+<Location "/wsrc/portal">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/heller/heller/students/courses/syllabi">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter |(uid=vfelson)(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+require valid-user
+</Location>
+
+<Location "/heller/heller/students/courses/evaluations">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter |(uid=vfelson)(uid=vbosman)(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-roletatus=TeachingACTV)))
+require valid-user
+</Location>
+
+<Location "/heller/heller/directory">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter |(uid=vfelson)(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+require valid-user
+</Location>
+
+<Location "/heller/heller/students/academics/phd/dissertation-proposals">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter |(uid=vfelson)(uid=redman)(uid=harlen)(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+require valid-user
+</Location>
+
+<Location "/heller/heller/students/academics/ma-sid/masters-papers">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter |(uid=vfelson)(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+require valid-user
+</Location>
+
+<Location "/heller/heller/students/academics/sid/masters-papers">     
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter |(uid=vfelson)(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+require valid-user
+</Location>
+
+<Location "/heller/heller/research/grants">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter |(uid=vfelson)(x-brandeis-rolestatus=Faculty-HellerACTV)(&(brAcadGroup=BRANU)(x-brandeis-rolestatus=StudentACTV))(&(brAcadGroup=HSSPM)(x-brandeis-rolestatus=StudentACTV))(&(|(x-brandeis-departmentID=40100)(x-brandeis-departmentID=40200))(|(x-brandeis-rolestatus=Affiliate-EmeritusACTV)(x-brandeis-rolestatus=FacultySageACTV)(x-brandeis-rolestatus=PostDocACTV)(x-brandeis-rolestatus=SponsoredACTV)(x-brandeis-rolestatus=StaffACTV)(x-brandeis-rolestatus=TeachingACTV)))
+require valid-user
+</Location>
+
+<Location "/assessment">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/mrsec/executivecommittee">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+#require valid-user
+</Location>
+
+<Location "/osp/IACUC">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/globalbrandeis/facultycollaborations">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/lemberg/Schedule">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/gsas/faculty">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+Require valid-user
+</Location>
+
+<Location "/arrc/organization">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/arrc/reports">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/trustees/portal">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+#require valid-user
+</Location>
+
+<Location "/gps/faculty">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location  "/cmjs/centerreview">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+#require valid-user
+</Location>
+
+<Location "/heller/heller/heller-policies">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/heller/heller/myHeller">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/heller/heller/directory">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Directory "/u1/www/graybiel/images/">
+Allow from all
+</Directory>
+
+<Location "/otl/grants/docs/spark">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/business-finance/docs/restricted">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/publicsafety/bemco/communitycpr/instructor_portal">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/publicsafety/bemco/portal">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+#require valid-user
+</Location>
+
+
+<Location "/bemco/portal">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+#require valid-user
+</Location>
+
+<Location "/ora/compliance/acup">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+#require valid-user
+</Location>
+
+<Location "/ora/acup">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+#require valid-user
+</Location>
+
+<Location "/provost/cdo">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/provost/diversity/diversitypdfs">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/provost/restricted">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+# Directories and aliases for non-cosign use
+<Directory "/u1/www/">
+Order allow,deny
+Deny from all
+</Directory>
+<Directory "/u1/www/home/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/epsilon/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/admissions/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/humanresources/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/humanresources/images/secure">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/givingto/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/offices/procurement/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/zeta/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/search/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+<Directory "/u1/www/heller/heller/design-heller/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/heller/heller/search/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+
+<Directory "/u1/www/wsrc/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/bens-alert/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/buss/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/sage/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+      Redirect 301 /sage/peoplebooks http://peoplebooks.brandeis.edu
+</Directory>
+<Directory "/u1/www/heller/heller/academic/execed/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+<Directory "/u1/www/faculty-senate/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      php_flag engine on
+      Allow from all
+</Directory>
+#end
+
+<Location "/workday/_docs/Brandeis-Project-Team-Org-Chart.pdf">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/workday/_docs/restricted">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/workday/testing/documents.html">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/workday/testing/scenarios/E2Escenarios.html">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/library/teaching/reserves/latte-video.html">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/library/teaching/reserves/ebook-access.html">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Directory "/u1/www/">
+      AddType application/x-httpd-php .php3 .php .phtml
+      AllowOverride all
+      Allow from all
+</Directory>
+
+<Location "/publicsafety/safety/forum">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/faculty-senate/ongoing-work/faculty-governance">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter |(x-brandeis-enabledService=StaffApplications)(x-brandeis-rolestatus=TrusteeACTV)(x-brandeis-rolestatus=FacultySage-EmeritusACTV)
+require valid-user
+</Location>
+
+<Location "/studentlife/deansoffice/student-forums">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/dean-of-students/resources/student-forums">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+
+<Location "/dean-of-students/student-forums">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/summer/summer-contacts">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter x-brandeis-enabledService=StaffApplications
+require valid-user
+</Location>
+
+<Location "/publicsafety/van-shuttle/branvan-reservation.html">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/faculty-senate/meetings/videos">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter |(x-brandeis-rolestatus=FacultyHRACTV)(x-brandeis-rolestatus=FacultySageACTV)(uid=ronliebowitz)(uid=president)(uid=lmlynch)(uid=kstevens)(uid=zkasdin)(uid=harris)(uid=davweil)(uid=mhewitt)(uid=sheehy)(uid=jjaffe)(uid=mralbury)(uid=dhodgson)(uid=csimmons)(uid=griffin)(uid=redman)(uid=daviddevore)
+require valid-user
+</Location>
+
+<Location "/communications/services/stationery">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/arts-sciences/core/faculty">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter |(uid=spierce)(uid=cshapira)(uid=djick)(uid=lkranc)(uid=mgkoplow)(x-brandeis-enabledService=StaffApplications)
+require valid-user
+</Location>
+
+<Location "/its/_files/restricted">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require valid-user
+</Location>
+
+<Location "/arts-sciences/faculty-admin-login">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+AuthzShibAuthoritative Off
+ShibRequireAll On
+AuthLDAPURL "ldaps://ldap.unet.brandeis.edu/ou=People,o=Brandeis University"
+AuthLDAPBindDN "uid=wmdserviceallowed,ou=unlimited readers,ou=systems,o=Brandeis University"
+AuthLDAPBindPassword "DZRQQ9Iz"
+require ldap-filter |(x-brandeis-enabledservice=StaffApplications)
+require valid-user
+</Location>
+
+<Location "/academic-services/faculty/advising/guide">
+SSLRequireSSL
+AuthType shibboleth
+ShibRequestSetting requireSession 1
+ShibRequestSetting applicationId web
+require ldap-filter |(x-brandeis-enabledservice=StaffApplications)
+require valid-user
+</Location>

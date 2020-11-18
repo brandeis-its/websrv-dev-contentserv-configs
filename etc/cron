@@ -1,0 +1,22 @@
+#rsync web files to DR server
+30 3 * * * /var/applications/wwwdr/production/bin/www-dr-sync.pl
+
+*/10 * * * * wget http://registrar-prod.unet.brandeis.edu/registrar/schedule/enrollmentstats/2013/Fall -O /www/registrar/FallEnrollment.html >> /dev/null 2>&1
+*/10 * * * * wget http://registrar-prod.unet.brandeis.edu/registrar/schedule/enrollmentstats/2013/Fall?independent_study=1 -O /www/registrar/FallEnrollmentAll.html >> /dev/null 2>&1
+
+*/10 * * * * wget http://registrar-prod.unet.brandeis.edu/registrar/schedule/enrollmentstats/2013/Spring -O /www/registrar/SpringEnrollment.html >> /dev/null 2>&1; perl -spi -e "s/FallEnrollment/SpringEnrollment/g;" /www/registrar/SpringEnrollment.html
+*/10 * * * * wget http://registrar-prod.unet.brandeis.edu/registrar/schedule/enrollmentstats/2013/Spring?independent_study=1 -O /www/registrar/SpringEnrollmentAll.html >> /dev/null 2>&1; perl -spi -e "s/FallEnrollment/SpringEnrollment/g;" /www/registrar/SpringEnrollmentAll.html
+
+#Map updates from EPM
+
+* 10 * * * wget https://identity.brandeis.edu/data/property_list.xml -O /u1/www/about/visiting/buildings.xml >> /dev/null 2>&1
+
+
+## Weather for zeta homepage [irifkin 11/29/2007]
+15 * * * * /var/applicatons/weather/production/bin/weather.sh 2> /dev/null
+## Weather for Brandeis NOW [irifkin 8/31/2010]
+15 * * * * wget --output-document=/u1/www/zeta/weather/KBED.XML http://www.weather.gov/xml/current_obs/KBED.xml 2> /dev/null
+15 * * * * /var/applications/weather/production/bin/weather.pl --out=/www/zeta/weather/weather-image.html
+
+## Get BENS Alert for brandeis.edu sites
+*/1 * * * * /var/applications/getben/production/bin/getAlert.pl > /u1/www/bens-alert/alert.html 2> /dev/null
